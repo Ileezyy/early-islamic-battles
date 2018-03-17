@@ -1,0 +1,84 @@
+.point {
+    fill: rgb(99, 78, 51);
+}
+
+.country {
+    fill: none;
+    stroke: #aaa;
+}
+
+.country.BHR {
+    fill: #ede7d8;
+    stroke: none;
+}
+
+.country.QAT {
+    fill: #e6dfcd;
+    stroke: none;
+}
+
+.country.YEM {
+    fill: #e2d9c2;
+    stroke: none;
+}
+
+.country.ARE {
+    fill: #f5f2ea;
+    stroke: none;
+}
+
+.country.SAU {
+    fill: #eee9de;
+    stroke: none;
+}
+
+.country.SYR {
+    fill: #ddd5c6;
+    stroke: none;
+}
+
+.country.KWT {
+    fill: #e0d9c8;
+    stroke: none;
+}
+
+.country.OMN {
+    fill: #e8e2cf;
+    stroke: none;
+}
+
+.country.JOR {
+    fill: #e7e1d4;
+    stroke: none;
+}
+
+.country.IRQ {
+    fill: #f5f2ea;
+    stroke: none;
+}
+
+.country.IRN {
+    fill: none;
+    stroke: #aaa;
+}
+
+.country-label {
+    display: none;
+    /* fill: #777;
+    fill-opacity: .5;
+    font-weight: 400;
+    text-anchor: start; */
+}
+
+.country-label.EGY,
+.country-label.TUR,
+.country-label.ISR,
+.country-label.LBN,
+.country-label.PSE,
+.country-label.SDN,
+.country-label.ERI,
+.country-label.ETH,
+.country-label.DJI,
+.country-label.IRN {
+    display: none;
+}
