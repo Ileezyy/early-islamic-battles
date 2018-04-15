@@ -1,65 +1,55 @@
-.point {
-    fill: rgb(99, 78, 51);
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    /* background: #7ab7dc; */
 }
 
 .country {
-    fill: none;
-    stroke: #aaa;
+    fill: transparent;
+    stroke: #ddd;
 }
 
-.country.BHR {
-    fill: #ede7d8;
-    stroke: none;
+.no-relief {
+    fill: transparent;
+    stroke: #ddd;
 }
 
-.country.QAT {
-    fill: #e6dfcd;
-    stroke: none;
+.no-relief.BHR,
+.no-relief.QAT,
+.no-relief.KWT,
+.no-relief.ARE,
+.no-relief.SAU,
+.no-relief.SYR,
+.no-relief.IRQ,
+.no-relief.IRN,
+.no-relief.AFG,
+.no-relief.JOR,
+.no-relief.OMN,
+.no-relief.YEM {
+    fill: #cbbea3;
+    stroke-dasharray: 1, 3;
+    stroke-linejoin: miter;
+    stroke: #444;
 }
 
+.country.BHR,
+.country.QAT,
+.country.KWT,
+.country.ARE,
+.country.SAU,
+.country.SYR,
+.country.IRQ,
+.country.IRN,
+.country.AFG,
+.country.JOR,
+.country.OMN,
 .country.YEM {
-    fill: #e2d9c2;
-    stroke: none;
-}
-
-.country.ARE {
-    fill: #f5f2ea;
-    stroke: none;
-}
-
-.country.SAU {
-    fill: #eee9de;
-    stroke: none;
-}
-
-.country.SYR {
-    fill: #ddd5c6;
-    stroke: none;
-}
-
-.country.KWT {
-    fill: #e0d9c8;
-    stroke: none;
-}
-
-.country.OMN {
-    fill: #e8e2cf;
-    stroke: none;
-}
-
-.country.JOR {
-    fill: #e7e1d4;
-    stroke: none;
-}
-
-.country.IRQ {
-    fill: #f5f2ea;
-    stroke: none;
-}
-
-.country.IRN {
-    fill: none;
-    stroke: #aaa;
+    fill: transparent;
+    stroke-dasharray: 1, 3;
+    stroke-linejoin: miter;
+    stroke: #444;
 }
 
 .country-label {
@@ -70,15 +60,106 @@
     text-anchor: start; */
 }
 
-.country-label.EGY,
-.country-label.TUR,
-.country-label.ISR,
-.country-label.LBN,
-.country-label.PSE,
-.country-label.SDN,
-.country-label.ERI,
-.country-label.ETH,
-.country-label.DJI,
-.country-label.IRN {
+.point {
+    fill: rgba(0, 0, 0, 0.25);
+}
+
+.battle-label {
+    font-size: 14px;
+}
+
+
+/* dom elements */
+
+.btn-container {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+}
+
+.btn-container button {
+    color: #333;
+    background: transparent;
+    border: 1px solid #333;
+    display: inline-block;
+    text-align: center;
+    padding: 10px 30px;
+    outline: none;
+}
+
+.btn-container button:hover,
+.btn-container button:active,
+.btn-container button:focus {
+    background: #333;
+    border: 1px solid #333;
+    color: #fff;
+    outline: none;
+}
+
+.another {
+    z-index: 5;
+    float: right;
+    width: 50%;
+    height: 100%;
+    position: relative;
+}
+
+.svg-container {
+    position: relative;
+    float: left;
+    width: 50%;
+}
+
+.new-container {
+    z-index: 1;
+    position: absolute;
+    float: left;
+    width: 50%;
+}
+
+.slider-container {
+    position: absolute;
+    right: 105px;
+    top: 120px;
+}
+
+.slider-container #slider {
+    height: 200px;
+}
+
+
+/* Slider override */
+
+.noUi-vertical {
+    font-size: 14px;
+}
+
+.noUi-vertical .noUi-handle {
+    width: 28px;
+    height: 10px;
+    left: -6px;
+    top: -4px;
+    outline: none;
+}
+
+.noUi-vertical .noUi-handle:before,
+.noUi-vertical .noUi-handle:after {
     display: none;
+}
+
+.noUi-connect {
+    background: #cbbea3;
+}
+
+.noUi-tooltip {
+    border: none;
+    background: transparent;
+    color: #333;
+    padding: 0 5px;
+}
+
+.rivers {
+    fill: none;
+    stroke-width: 1;
+    stroke: rgba(0, 114, 201, 0.4);
 }
