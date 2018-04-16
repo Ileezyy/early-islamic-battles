@@ -2,19 +2,29 @@ html,
 body {
     margin: 0;
     padding: 0;
-    height: 100%;
-    /* background: #7ab7dc; */
+}
+
+body {
+    min-height: 800px;
+    position: relative;
 }
 
 .country {
     fill: transparent;
-    stroke: #ddd;
+    stroke-dasharray: 1, 3;
+    stroke-linejoin: miter;
+    stroke: #777;
 }
 
 .no-relief {
     fill: transparent;
-    stroke: #ddd;
+    stroke-dasharray: 1, 3;
+    stroke-linejoin: miter;
+    stroke: #777;
 }
+
+
+/* CYN, PSX */
 
 .no-relief.BHR,
 .no-relief.QAT,
@@ -27,11 +37,12 @@ body {
 .no-relief.AFG,
 .no-relief.JOR,
 .no-relief.OMN,
-.no-relief.YEM {
-    fill: #cbbea3;
+.no-relief.YEM,
+.no-relief.PSX {
+    fill: #e9e0cc;
     stroke-dasharray: 1, 3;
     stroke-linejoin: miter;
-    stroke: #444;
+    stroke: #999;
 }
 
 .country.BHR,
@@ -45,23 +56,16 @@ body {
 .country.AFG,
 .country.JOR,
 .country.OMN,
-.country.YEM {
+.country.YEM,
+.country.PSX {
     fill: transparent;
     stroke-dasharray: 1, 3;
     stroke-linejoin: miter;
-    stroke: #444;
-}
-
-.country-label {
-    display: none;
-    /* fill: #777;
-    fill-opacity: .5;
-    font-weight: 400;
-    text-anchor: start; */
+    stroke: #ddd;
 }
 
 .point {
-    fill: rgba(0, 0, 0, 0.25);
+    fill: rgb(87, 72, 50);
 }
 
 .battle-label {
@@ -99,9 +103,29 @@ body {
 .another {
     z-index: 5;
     float: right;
-    width: 50%;
+    right: 0;
+    width: 0;
     height: 100%;
-    position: relative;
+    position: fixed;
+    overflow-x: hidden;
+    transition: 0.5s;
+    background: rgba(255, 255, 255, 1);
+    border-left: 1px solid #999;
+}
+
+.menuBtn {
+    z-index: 6;
+    position: fixed;
+    right: 0;
+    top: 25px;
+    cursor: pointer;
+    transition: 0.5s;
+    background: rgba(255, 255, 255, 1);
+    padding: 5px 20px 7px 10px;
+    border: 1px solid #999;
+    border-right: none;
+    -webkit-border-radius: 30px 0 0 30px;
+    border-radius: 30px 0 0 30px;
 }
 
 .svg-container {
@@ -115,6 +139,14 @@ body {
     position: absolute;
     float: left;
     width: 50%;
+}
+
+.scale-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 400px;
+    width: 700px;
 }
 
 .slider-container {
@@ -148,7 +180,7 @@ body {
 }
 
 .noUi-connect {
-    background: #cbbea3;
+    background: #e9e0cc;
 }
 
 .noUi-tooltip {
@@ -159,7 +191,33 @@ body {
 }
 
 .rivers {
+    display: none;
     fill: none;
     stroke-width: 1;
     stroke: rgba(0, 114, 201, 0.4);
+}
+
+#relief {
+    display: none;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    font: 10px sans-serif;
+}
+
+.overlay {
+    position: absolute;
+    width: 1100px;
+    height: 770px;
+    background: -moz-linear-gradient(90deg, rgba(255, 255, 255, 0) 85%, rgba(255, 255, 255, 0.5) 95%, rgba(255, 255, 255, 1) 100%), -moz-linear-gradient(180deg, rgba(255, 255, 255, 0) 85%, rgba(255, 255, 255, 0.5) 95%, rgba(255, 255, 255, 1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(255, 255, 255, 0) 85%, rgba(255, 255, 255, 0.5) 95%, rgba(255, 255, 255, 1) 100%), -webkit-linear-gradient(180deg, rgba(255, 255, 255, 0) 85%, rgba(255, 255, 255, 0.5) 95%, rgba(255, 255, 255, 1) 100%);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 85%, rgba(255, 255, 255, 0.5) 95%, rgba(255, 255, 255, 1) 100%), linear-gradient(180deg, rgba(255, 255, 255, 0) 85%, rgba(255, 255, 255, 0.5) 95%, rgba(255, 255, 255, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff', GradientType=1);
 }

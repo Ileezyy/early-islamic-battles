@@ -37,9 +37,13 @@
 <body>
     <div class="new-container"></div>
     <div class="svg-container"></div>
-    <div class="another">
+    <div class="scale-container"></div>
+
+    <span onclick="openNav()" id="menuBtn" class="menuBtn">Controls &#9776;</span>
+
+    <div id="controls" class="another">
         <div class="btn-container">
-            <input id="reliefCB" name="checkbox" type="checkbox" onclick="draw(this);" value="false">Show/Hide relief</button>
+            <input id="reliefCB" name="checkbox" type="checkbox" onclick="showHideRelief(this);" value="false">Show/Hide relief</button>
         </div>
         <div class="slider-container">
             <div id="slider"></div>
@@ -52,7 +56,20 @@
     <script src="js/slider-custom.js"></script>
     <script src="js/geotiff.browserify.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        var isOpen = false;
 
+        function openNav() {
+            isOpen = !isOpen;
+            if (isOpen) {
+                document.getElementById("controls").style.width = "250px";
+                document.getElementById("menuBtn").style.right = "250px";
+            } else {
+                document.getElementById("controls").style.width = "0";
+                document.getElementById("menuBtn").style.right = "0";
+            }
+        }
+    </script>
 </body>
 
 </html>
