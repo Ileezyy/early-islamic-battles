@@ -1,0 +1,1163 @@
+{
+    "type": "FeatureCollection",
+    "features": [{
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.3444,
+                    28.2350
+                ]
+            },
+            "properties": {
+                "name": "Tabuk",
+                "deaths": "NAN",
+                "date": 630,
+                "source": "The Great Arab Conquests, page: 71",
+                "link": "https://en.wikipedia.org/wiki/Expedition_to_Tabouk",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.2700,
+                    31.5300
+                ]
+            },
+            "properties": {
+                "name": "Hira",
+                "deaths": "NAN",
+                "date": 633,
+                "source": "The Great Arab Conquests, page: 104",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Hira",
+                "text": "Ruins of Hira",
+                "img": "https://histoireislamique.files.wordpress.com/2014/10/ruines-dal-hira.jpg"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    30.057186,
+                    31.182336
+                ]
+            },
+            "properties": {
+                "name": "Alexandria",
+                "deaths": "NAN",
+                "date": 641,
+                "source": "The Great Arab Conquests, page: 156-159",
+                "link": "https://en.wikipedia.org/wiki/Siege_of_Alexandria_%28641%29",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    48.2237,
+                    34.1119
+                ]
+            },
+            "properties": {
+                "name": "Nihavand",
+                "deaths": "NAN",
+                "date": 642,
+                "source": "The Great Arab Conquests, pages: 171-172",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Nahāvand",
+                "text": "Nahavand castle",
+                "img": "https://i.pinimg.com/originals/5b/a7/be/5ba7be49eb65521c7196dd57d0d7546b.jpg"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    51.3900,
+                    32.3800
+                ]
+            },
+            "properties": {
+                "name": "Isfahan",
+                "deaths": "NAN",
+                "date": 642,
+                "source": "The Great Arab Conquests, page: 174-175",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Spahan",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.4100,
+                    31.0200
+                ]
+            },
+            "properties": {
+                "name": "Mu'ta",
+                "deaths": "NAN",
+                "date": 629,
+                "source": "The Great Arab Conquests, page: 71",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Mu%27tah",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    34.2700,
+                    31.3100
+                ]
+            },
+            "properties": {
+                "name": "Dathin",
+                "deaths": "NAN",
+                "date": 634,
+                "source": "The Great Arab Conquests, page: 73",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Dathin",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.4833,
+                    33.8000
+                ]
+            },
+            "properties": {
+                "name": "Rahit",
+                "deaths": "NAN",
+                "date": 634,
+                "source": "The Great Arab Conquests, page: 77",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Marj_Rahit_(634)",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.2900,
+                    32.3100
+                ]
+            },
+            "properties": {
+                "name": "Bosra",
+                "deaths": "NAN",
+                "date": 634,
+                "source": "The Great Arab Conquests, page: 77",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Bosra",
+                "text": "Roman ampitheatre; converted into a citadel in the 11th C",
+                "img": "https://c2.staticflickr.com/4/3002/2988775749_ac0abf627f_o.jpg"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    34.5700,
+                    31.4100
+                ]
+            },
+            "properties": {
+                "name": "Ajnadayn",
+                "deaths": "NAN",
+                "date": 634,
+                "source": "The Great Arab Conquests, page: 78",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Ajnadayn",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.273323,
+                    33.522616
+                ]
+            },
+            "properties": {
+                "name": "Damascus",
+                "deaths": "NAN ",
+                "date": 634,
+                "source": "The Great Arab Conquests, page: 79",
+                "link": "https://en.wikipedia.org/wiki/Siege_of_Damascus_(634)",
+                "text": "This colour photochrome print shows a wall in Damascus' defences which is rumoured to be the one over which St Paul escaped in the first century AD",
+                "img": "http://www.historyfiles.co.uk/images/MiddleEast/Syria/Arabic_Damascus02_full.jpg"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.2400,
+                    32.0200
+                ]
+            },
+            "properties": {
+                "name": "Bridge",
+                "deaths": "NAN",
+                "date": 634,
+                "source": "The Great Arab Conquests, page: 106",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_the_Bridge",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.9548,
+                    32.8141
+                ]
+            },
+            "properties": {
+                "name": "Yarmuk",
+                "deaths": "NAN",
+                "date": 636,
+                "source": "The Great Arab Conquests, page: 83",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Yarmouk",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    32.3242,
+                    31.0230
+                ]
+            },
+            "properties": {
+                "name": "Farama",
+                "deaths": "NAN",
+                "date": 640,
+                "source": "The Great Arab Conquests, page: 148",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    50.859547,
+                    28.906695
+                ]
+            },
+            "properties": {
+                "name": "Rashahr (Bushehr)",
+                "deaths": "NAN",
+                "date": 640,
+                "source": "The Great Arab Conquests, page: 182",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    34.919135,
+                    32.515525
+                ]
+            },
+            "properties": {
+                "name": "Caesarea",
+                "deaths": "NAN",
+                "date": 641,
+                "source": "The Great Arab Conquests, page: 89",
+                "link": "",
+                "text": "Aquaduct",
+                "img": "https://upload.wikimedia.org/wikipedia/commons/6/61/Caesarea_maritima_BW_3.JPG"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    30.5113,
+                    30.2444
+                ]
+            },
+            "properties": {
+                "name": "Nikiu",
+                "deaths": "NAN",
+                "date": 641,
+                "source": "The Great Arab Conquests, page: 155",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    31.0724,
+                    30.0752
+                ]
+            },
+            "properties": {
+                "name": "Karyun",
+                "deaths": "NAN",
+                "date": 641,
+                "source": "The Great Arab Conquests, page: 155",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    48.3100,
+                    34.4800
+                ]
+            },
+            "properties": {
+                "name": "Hamadan",
+                "deaths": "NAN",
+                "date": 642,
+                "source": "The Great Arab Conquests, pages: 173-174",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    48.4546,
+                    35.0554
+                ]
+            },
+            "properties": {
+                "name": "Wajj al-Rudh",
+                "deaths": "NAN",
+                "date": 642,
+                "source": "The Great Arab Conquests, page: 176",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    22.3000,
+                    31.0000
+                ]
+            },
+            "properties": {
+                "name": "Barqa",
+                "deaths": "NAN",
+                "date": 642,
+                "source": "The Great Arab Conquests, page: 206",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.1129,
+                    32.5314
+                ]
+            },
+            "properties": {
+                "name": "Tripoli",
+                "deaths": "NAN",
+                "date": 642,
+                "source": "The Great Arab Conquests, page: 206",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.2903,
+                    32.4732
+                ]
+            },
+            "properties": {
+                "name": "Sabra",
+                "deaths": "NAN",
+                "date": 642,
+                "source": "The Great Arab Conquests, page: 207",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    14.1726,
+                    32.3821
+                ]
+            },
+            "properties": {
+                "name": "Leptis Magna",
+                "deaths": "NAN",
+                "date": 642,
+                "source": "The Great Arab Conquests, page: 207",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.796477,
+                    35.542967
+                ]
+            },
+            "properties": {
+                "name": "Latakia",
+                "deaths": "NAN",
+                "date": 644,
+                "source": "The Great Arab Conquests, page: 89",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    52.5434,
+                    29.5851
+                ]
+            },
+            "properties": {
+                "name": "Istakhr",
+                "deaths": "NAN",
+                "date": 644,
+                "source": "The Great Arab Conquests, page: 183",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.937023,
+                    31.205243
+                ]
+            },
+            "properties": {
+                "name": "Alexandria",
+                "deaths": "NAN",
+                "date": 645,
+                "source": "The Great Arab Conquests, page: 162",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.953503,
+                    31.110641
+                ]
+            },
+            "properties": {
+                "name": "Alexandria",
+                "deaths": "NAN",
+                "date": 646,
+                "source": "The Great Arab Conquests, page: 162",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    51.3415,
+                    29.4640
+                ]
+            },
+            "properties": {
+                "name": "Bishapur",
+                "deaths": "NAN",
+                "date": 647,
+                "source": "The Great Arab Conquests, page: 183",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Bishapur_(643–644)",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.0746,
+                    35.1347
+                ]
+            },
+            "properties": {
+                "name": "Sbeitla",
+                "deaths": "NAN",
+                "date": 647,
+                "source": "The Great Arab Conquests, page: 207",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    50.1708,
+                    30.4001
+                ]
+            },
+            "properties": {
+                "name": "Arrajan",
+                "deaths": "NAN",
+                "date": 648,
+                "source": "The Great Arab Conquests, page: 183",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    54.3422,
+                    28.4628
+                ]
+            },
+            "properties": {
+                "name": "Darabjird",
+                "deaths": "NAN",
+                "date": 648,
+                "source": "The Great Arab Conquests, page: 183",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    52.3415,
+                    28.5038
+                ]
+            },
+            "properties": {
+                "name": "Jur (Firuzabad)",
+                "deaths": "NAN",
+                "date": 650,
+                "source": "The Great Arab Conquests, page: 184",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    52.4434,
+                    29.5851
+                ]
+            },
+            "properties": {
+                "name": "Istakhr",
+                "deaths": "NAN",
+                "date": 650,
+                "source": "The Great Arab Conquests, page: 184",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Istakhr_(650–653)",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    58.2014,
+                    29.0554
+                ]
+            },
+            "properties": {
+                "name": "Bam",
+                "deaths": "NAN",
+                "date": 650,
+                "source": "The Great Arab Conquests, page: 185",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    55.4053,
+                    29.2707
+                ]
+            },
+            "properties": {
+                "name": "Sirjan",
+                "deaths": "NAN",
+                "date": 650,
+                "source": "The Great Arab Conquests, page: 185",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    62.1133,
+                    37.3946
+                ]
+            },
+            "properties": {
+                "name": "Merv",
+                "deaths": "NAN",
+                "date": 652,
+                "source": "The Great Arab Conquests, page: 191",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.3233,
+                    36.8528
+                ]
+            },
+            "properties": {
+                "name": "Carthage",
+                "deaths": "NAN",
+                "date": 678,
+                "source": "The Great Arab Conquests, page: 212",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.0652,
+                    35.3119
+                ]
+            },
+            "properties": {
+                "name": "Baghaya (Baghai)",
+                "deaths": "NAN",
+                "date": 680,
+                "source": "The Great Arab Conquests, page: 212",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.4910,
+                    35.4610
+                ]
+            },
+            "properties": {
+                "name": "Monastir",
+                "deaths": "NAN",
+                "date": 680,
+                "source": "The Great Arab Conquests, page: 212",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    1.1900,
+                    35.2200
+                ]
+            },
+            "properties": {
+                "name": "Tahert",
+                "deaths": "NAN",
+                "date": 680,
+                "source": "The Great Arab Conquests, page: 212",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    5.4800,
+                    35.4600
+                ]
+            },
+            "properties": {
+                "name": "Tangier",
+                "deaths": "NAN",
+                "date": 680,
+                "source": "The Great Arab Conquests, page: 213",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    5.3313,
+                    34.0416
+                ]
+            },
+            "properties": {
+                "name": "Walila/Volubilis",
+                "deaths": "NAN",
+                "date": 680,
+                "source": "The Great Arab Conquests, page: 213",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.4804,
+                    31.2521
+                ]
+            },
+            "properties": {
+                "name": "Aghmat",
+                "deaths": "NAN",
+                "date": 680,
+                "source": "The Great Arab Conquests, page: 213",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.3612,
+                    30.2158
+                ]
+            },
+            "properties": {
+                "name": "Sus (river mouth)",
+                "deaths": "NAN",
+                "date": 680,
+                "source": "The Great Arab Conquests, page: 213",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.0530,
+                    35.4033
+                ]
+            },
+            "properties": {
+                "name": "Qayrawan",
+                "deaths": "NAN",
+                "date": 684,
+                "source": "The Great Arab Conquests, page: 215",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.0530,
+                    35.3333
+                ]
+            },
+            "properties": {
+                "name": "Qayrawan",
+                "deaths": "NAN",
+                "date": 688,
+                "source": "The Great Arab Conquests, page: 215",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.2233,
+                    36.8528
+                ]
+            },
+            "properties": {
+                "name": "Carthage",
+                "deaths": "NAN",
+                "date": 698,
+                "source": "The Great Arab Conquests, page: 217-218",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Carthage_(698)",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.4001,
+                    35.3740
+                ]
+            },
+            "properties": {
+                "name": "Wadi Maskiyana",
+                "deaths": "NAN",
+                "date": 698,
+                "source": "The Great Arab Conquests, page: 220",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.0700,
+                    33.5300
+                ]
+            },
+            "properties": {
+                "name": "Gabis (region)",
+                "deaths": "NAN",
+                "date": 698,
+                "source": "The Great Arab Conquests, page: 221",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    5.2004,
+                    35.2520
+                ]
+            },
+            "properties": {
+                "name": "Tobna (Tubunae)",
+                "deaths": "NAN",
+                "date": 698,
+                "source": "The Great Arab Conquests, page: 221",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    5.55500,
+                    35.4800
+                ]
+            },
+            "properties": {
+                "name": "Tangier",
+                "deaths": "NAN",
+                "date": 708,
+                "source": "The Great Arab Conquests, page: 223",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.3,
+                    31.35
+                ]
+            },
+            "properties": {
+                "name": "Qadisiyya",
+                "deaths": "NAN",
+                "date": 636,
+                "source": "The Great Arab Conquests, page: 107",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_al-Q%C4%81disiyyah",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.712442,
+                    34.731406
+                ]
+            },
+            "properties": {
+                "name": "Homs",
+                "deaths": "NAN",
+                "date": 637,
+                "source": "The Great Arab Conquests, page: 85",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.213980,
+                    31.768866
+                ]
+            },
+            "properties": {
+                "name": "Jerusalem",
+                "deaths": "NAN",
+                "date": 636,
+                "source": "The Great Arab Conquests, page: 90",
+                "link": "https://en.wikipedia.org/wiki/Siege_of_Jerusalem_(636–637)",
+                "text": "Madaba map",
+                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Madaba_map.jpg/300px-Madaba_map.jpg"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.9980,
+                    35.9986
+                ]
+            },
+            "properties": {
+                "name": "Qinassrin",
+                "deaths": "NAN",
+                "date": 636,
+                "source": "The Great Arab Conquests, page: 87",
+                "link": "",
+                "text": "Road connecting Qinnassrin to Antioch",
+                "img": "https://upload.wikimedia.org/wikipedia/commons/2/22/Ancient_Roman_road_of_Tall_Aqibrin.jpg"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.2515,
+                    33.3211
+                ]
+            },
+            "properties": {
+                "name": "Babylon",
+                "deaths": "NAN",
+                "date": 640,
+                "source": "The Great Arab Conquests, page: 151",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    48.1720,
+                    42.0402
+                ]
+            },
+            "properties": {
+                "name": "Bab al-Abwab (Derbent)",
+                "deaths": "NAN",
+                "date": 641,
+                "source": "The Great Arab Conquests, page: 180",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    48.5124,
+                    32.0244
+                ]
+            },
+            "properties": {
+                "name": "Tustar",
+                "deaths": "NAN",
+                "date": 640,
+                "source": "The Great Arab Conquests, page: 129",
+                "link": "https://en.wikipedia.org/wiki/Siege_of_Shushtar",
+                "text": "Dam",
+                "img": "https://iransunworldtravel.com/wp-content/uploads/2017/08/shushtar-waterfall-e1511347015777.jpg"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.3500,
+                    33.0600
+                ]
+            },
+            "properties": {
+                "name": "Mada'in",
+                "deaths": "NAN",
+                "date": 641,
+                "source": "The Great Arab Conquests, page: 117",
+                "link": "https://en.wikipedia.org/wiki/Siege_of_Shushtar",
+                "text": "Arch of Chosroes",
+                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Ctesiphon%2C_Iraq%2C_1932.jpg/1200px-Ctesiphon%2C_Iraq%2C_1932.jpg"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    48.3100,
+                    32.1700
+                ]
+            },
+            "properties": {
+                "name": "Junday Shapur",
+                "deaths": "NAN",
+                "date": 640,
+                "source": "The Great Arab Conquests, page: 127",
+                "link": "",
+                "text": "Aerial photo of Junday Shapur",
+                "img": "https://upload.wikimedia.org/wikipedia/fa/8/81/214451_G1d1wglo.jpg"
+            }
+        }
+    ]
+}

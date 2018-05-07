@@ -2,222 +2,177 @@ html,
 body {
     margin: 0;
     padding: 0;
+    width: 100%;
+    height: 100%;
 }
 
 body {
-    min-height: 800px;
+    /* min-height: 800px; */
     position: relative;
+    font-family: 'Dosis', sans-serif;
 }
 
-.country {
-    fill: transparent;
-    stroke-dasharray: 1, 3;
-    stroke-linejoin: miter;
-    stroke: #777;
+h1,
+h2,
+h3,
+h4,
+h5,
+h5,
+h6,
+b {
+    font-family: 'Open Sans', sans-serif;
 }
 
-.no-relief {
-    fill: transparent;
-    stroke-dasharray: 1, 3;
-    stroke-linejoin: miter;
-    stroke: #777;
+p,
+a {
+    font-family: 'Dosis', sans-serif;
 }
 
-
-/* CYN, PSX */
-
-.no-relief.BHR,
-.no-relief.QAT,
-.no-relief.KWT,
-.no-relief.ARE,
-.no-relief.SAU,
-.no-relief.SYR,
-.no-relief.IRQ,
-.no-relief.IRN,
-.no-relief.AFG,
-.no-relief.JOR,
-.no-relief.OMN,
-.no-relief.YEM,
-.no-relief.PSX {
-    fill: #e9e0cc;
-    stroke-dasharray: 1, 3;
-    stroke-linejoin: miter;
-    stroke: #999;
-}
-
-.country.BHR,
-.country.QAT,
-.country.KWT,
-.country.ARE,
-.country.SAU,
-.country.SYR,
-.country.IRQ,
-.country.IRN,
-.country.AFG,
-.country.JOR,
-.country.OMN,
-.country.YEM,
-.country.PSX {
-    fill: transparent;
-    stroke-dasharray: 1, 3;
-    stroke-linejoin: miter;
-    stroke: #ddd;
-}
-
-.point {
-    fill: rgb(87, 72, 50);
-}
-
-.battle-label {
-    font-size: 14px;
-}
-
-
-/* dom elements */
-
-.btn-container {
-    position: absolute;
-    top: 30px;
-    right: 50px;
-}
-
-.btn-container button {
-    color: #333;
-    background: transparent;
-    border: 1px solid #333;
+p {
     display: inline-block;
-    text-align: center;
-    padding: 10px 30px;
-    outline: none;
 }
 
-.btn-container button:hover,
-.btn-container button:active,
-.btn-container button:focus {
-    background: #333;
-    border: 1px solid #333;
-    color: #fff;
-    outline: none;
-}
-
-.another {
-    z-index: 5;
-    float: right;
-    right: 0;
-    width: 0;
+#map {
+    width: 85%;
     height: 100%;
-    position: fixed;
-    overflow-x: hidden;
-    transition: 0.5s;
-    background: rgba(255, 255, 255, 1);
-    border-left: 1px solid #999;
-}
-
-.menuBtn {
-    z-index: 6;
-    position: fixed;
-    right: 0;
-    top: 25px;
-    cursor: pointer;
-    transition: 0.5s;
-    background: rgba(255, 255, 255, 1);
-    padding: 5px 20px 7px 10px;
-    border: 1px solid #999;
-    border-right: none;
-    -webkit-border-radius: 30px 0 0 30px;
-    border-radius: 30px 0 0 30px;
-}
-
-.svg-container {
-    position: relative;
     float: left;
-    width: 50%;
 }
 
-.new-container {
-    z-index: 1;
+.labels {
+    display: none;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container {
     position: absolute;
-    float: left;
-    width: 50%;
+    right: 0;
+    width: 35%;
+    height: 100%;
+    float: right;
+    background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.25) 10%, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 1) 100%);
+    background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.25) 10%, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 1) 100%);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.25) 10%, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff', GradientType=1);
 }
 
-.scale-container {
+.controls {
+    position: absolute;
+    left: 0;
+    top: 40px;
+    padding: 0 11px;
+}
+
+.controls .cb,
+.container .controls .cb:active,
+.container .controls .cb:focus {
+    outline: none;
+}
+
+.controls h3 {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.controls .cbcircle {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    border: 1px solid #fff;
+}
+
+.controls .cbcircle.nqcircle {
+    background: black;
+}
+
+.controls .cbcircle.kencircle {
+    background: red;
+}
+
+.container .textbox {
+    display: block;
+    margin: 10px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    /* height: 100%; */
+    padding: 0 40px;
+    padding-left: 150px;
+}
+
+.container .textbox a {
+    font-size: 10px;
+}
+
+.container .textbox h2 {
+    margin: 0;
+}
+
+.container .textbox p {
+    margin: 5px 0 15px;
+}
+
+.container .graph {
+    display: none;
     position: absolute;
     bottom: 0;
-    right: 0;
-    height: 400px;
-    width: 700px;
+    width: 100%;
+    height: 0;
 }
 
-.slider-container {
+span.tooltip {
+    max-width: 200px;
+    color: #000;
+    display: inline-block;
     position: absolute;
-    right: 105px;
-    top: 120px;
+    text-align: center;
+    padding: 6px 12px;
+    font: 12px sans-serif;
+    background: rgba(255, 255, 255, 0.6);
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
 }
 
-.slider-container #slider {
-    height: 200px;
+span.tooltip p {
+    margin: 5px;
 }
 
-
-/* Slider override */
-
-.noUi-vertical {
-    font-size: 14px;
+.circle-img {
+    width: 100%;
 }
 
-.noUi-vertical .noUi-handle {
-    width: 28px;
-    height: 10px;
-    left: -6px;
-    top: -4px;
-    outline: none;
+.battles,
+.battles svg {
+    position: absolute;
 }
 
-.noUi-vertical .noUi-handle:before,
-.noUi-vertical .noUi-handle:after {
-    display: none;
-}
-
-.noUi-connect {
-    background: #e9e0cc;
-}
-
-.noUi-tooltip {
-    border: none;
-    background: transparent;
-    color: #333;
-    padding: 0 5px;
-}
-
-.rivers {
-    display: none;
-    fill: none;
-    stroke-width: 1;
-    stroke: rgba(0, 114, 201, 0.4);
-}
-
-#relief {
-    display: none;
-}
-
-.axis path,
-.axis line {
-    fill: none;
-    stroke: #000;
-    shape-rendering: crispEdges;
-}
-
-.axis text {
+.battles svg {
+    width: 60px;
+    height: 20px;
+    padding-right: 100px;
     font: 10px sans-serif;
 }
 
-.overlay {
-    position: absolute;
-    width: 1100px;
-    height: 770px;
-    background: -moz-linear-gradient(90deg, rgba(255, 255, 255, 0) 85%, rgba(255, 255, 255, 0.5) 95%, rgba(255, 255, 255, 1) 100%), -moz-linear-gradient(180deg, rgba(255, 255, 255, 0) 85%, rgba(255, 255, 255, 0.5) 95%, rgba(255, 255, 255, 1) 100%);
-    background: -webkit-linear-gradient(90deg, rgba(255, 255, 255, 0) 85%, rgba(255, 255, 255, 0.5) 95%, rgba(255, 255, 255, 1) 100%), -webkit-linear-gradient(180deg, rgba(255, 255, 255, 0) 85%, rgba(255, 255, 255, 0.5) 95%, rgba(255, 255, 255, 1) 100%);
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 85%, rgba(255, 255, 255, 0.5) 95%, rgba(255, 255, 255, 1) 100%), linear-gradient(180deg, rgba(255, 255, 255, 0) 85%, rgba(255, 255, 255, 0.5) 95%, rgba(255, 255, 255, 1) 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff', GradientType=1);
+.battles circle {
+    fill: #000;
+    stroke: #fff;
+    stroke-width: 1px;
+}
+
+.battles .circleK {
+    fill: rgb(255, 0, 0);
+    stroke: #fff;
+    stroke-width: 1px;
+}
+
+circle:hover,
+.circleK:hover {
+    /* fill: rgb(158, 199, 180); */
+    cursor: pointer;
+}
+
+.gm-style-cc {
+    display: none;
 }

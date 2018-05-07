@@ -1,3 +1,5 @@
+<!-- AIzaSyACzDzO49_V7dDFRos1tMxWKktaFJh0dbA -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,8 +11,10 @@
     <meta name="author" content="IZholdasbayev">
 
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="js/slider/nouislider.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis:300|Open+Sans">
 
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -19,6 +23,7 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://d3js.org/topojson.v1.min.js"></script>
     <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+    <script src="//maps.google.com/maps/api/js?key=AIzaSyACzDzO49_V7dDFRos1tMxWKktaFJh0dbA"></script>
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
@@ -35,41 +40,24 @@
 </head>
 
 <body>
-    <div class="new-container"></div>
-    <div class="svg-container"></div>
-    <div class="scale-container"></div>
-
-    <span onclick="openNav()" id="menuBtn" class="menuBtn">Controls &#9776;</span>
-
-    <div id="controls" class="another">
-        <div class="btn-container">
-            <input id="reliefCB" name="checkbox" type="checkbox" onclick="showHideRelief(this);" value="false">Show/Hide relief</button>
-        </div>
-        <div class="slider-container">
-            <div id="slider"></div>
-        </div>
+    <div id="map"></div>
+    <div class="controls">
+        <h3>Sources:</h3>
+        <input type="checkbox" class="cb" name="nq" id="nq" title="Nasab Quraysh" onclick="nqsource(this)" checked="true">
+        <div class="cbcircle nqcircle"></div> Nasab Quraysh<br>
+        <input type="checkbox" class="cb" name="ken" id="ken" title="The Great Arab conquests" onclick="kensource(this)" checked="true">
+        <div class="cbcircle kencircle"></div> The Great Arab Conquests
     </div>
-
-    <!-- JS -->
-    <script src="js/slider/nouislider.min.js"></script>
-    <script src="js/wNumb.js"></script>
-    <script src="js/slider-custom.js"></script>
-    <script src="js/geotiff.browserify.js"></script>
+    <div class="container">
+        <div class="textbox">
+            <div class="placeholder">
+                <h2>Islamic Battles</h2>
+                <br> This website is about islamic battles according to different sources. Such as Nasab Quraysh and The Great Arab Conquests
+            </div>
+        </div>
+        <div class="graph"></div>
+    </div>
     <script src="js/main.js"></script>
-    <script>
-        var isOpen = false;
-
-        function openNav() {
-            isOpen = !isOpen;
-            if (isOpen) {
-                document.getElementById("controls").style.width = "250px";
-                document.getElementById("menuBtn").style.right = "250px";
-            } else {
-                document.getElementById("controls").style.width = "0";
-                document.getElementById("menuBtn").style.right = "0";
-            }
-        }
-    </script>
 </body>
 
 </html>

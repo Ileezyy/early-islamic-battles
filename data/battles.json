@@ -1,0 +1,479 @@
+{
+    "type": "FeatureCollection",
+    "features": [{
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    38.7,
+                    23.7
+                ]
+            },
+            "properties": {
+                "name": "Badr",
+                "deaths": 41,
+                "date": 624,
+                "source": "Nasab Quraysh, pages: 94, 123, 138, 152, 153, 174, 198, 199, 204, 213, 218, 219, 230, 235, 254, 255, 263, 280, 288, 302, 316, 317, 333, 337, 343, 387, 395, 399, 403, 404, 405, 406, 408",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Badr",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    47.792930603027344,
+                    30.50607549756194
+                ]
+            },
+            "properties": {
+                "name": "Camel",
+                "deaths": 21,
+                "date": 656,
+                "source": "Nasab Quraysh, pages: 19, 149, 193, 204, 212, 232, 235, 252, 256, 281, 317, 333, 346, 384, 392, 396, 424, 434, 439, 440",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_the_Camel",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.641728,
+                    24.46601
+                ]
+            },
+            "properties": {
+                "name": "Dar",
+                "deaths": 1,
+                "date": 656,
+                "source": "Nasab Quraysh, pages: 235",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.64178,
+                    24.46601
+                ]
+            },
+            "properties": {
+                "name": "Ditch",
+                "deaths": 3,
+                "date": 627,
+                "source": "Nasab Quraysh, pages: 256, 319, 426",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.49,
+                    24.27
+                ]
+            },
+            "properties": {
+                "name": "Harra",
+                "deaths": 17,
+                "date": 683,
+                "source": "Nasab Quraysh, pages: 88, 228, 252, 256, 273, 279, 282, 306, 332, 346, 261, 370, 386, 436",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_al-Harrah",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    40.21,
+                    21.26
+                ]
+            },
+            "properties": {
+                "name": "Hunayn",
+                "deaths": 1,
+                "date": 630,
+                "source": "Nasab Quraysh, pages: 395",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.02,
+                    32.37
+                ]
+            },
+            "properties": {
+                "name": "Karbala",
+                "deaths": 12,
+                "date": 680,
+                "source": "Nasab Quraysh, pages: 43, 45, 50, 57, 59, 83, 84",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Karbala",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.1453,
+                    33.2139
+                ]
+            },
+            "properties": {
+                "name": "Marj al-Saffar",
+                "deaths": 2,
+                "date": 634,
+                "source": "Nasab Quraysh, pages: 174, 303",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Marj_al-Saffar_(634)",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.2833,
+                    33.6132
+                ]
+            },
+            "properties": {
+                "name": "Marj Rahit",
+                "deaths": 1,
+                "date": 684,
+                "source": "Nasab Quraysh, pages: 447",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Marj_Rahit_(684)",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.14,
+                    33.51
+                ]
+            },
+            "properties": {
+                "name": "Maskin",
+                "deaths": 3,
+                "date": 691,
+                "source": "Nasab Quraysh, pages: 132, 249",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Maskin",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.4100,
+                    31.0200
+                ]
+            },
+            "properties": {
+                "name": "Mu'ta",
+                "deaths": 6,
+                "date": 629,
+                "source": "Nasab Quraysh, pages: 145, 174, 320, 338, 386",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Mu%27tah",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.3,
+                    31.35
+                ]
+            },
+            "properties": {
+                "name": "Qadisiyya",
+                "deaths": 2,
+                "date": 636,
+                "source": "Nasab Quraysh, pages: 294, 437",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_al-Q%C4%81disiyyah",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.32,
+                    22.27
+                ]
+            },
+            "properties": {
+                "name": "Qudayd",
+                "deaths": 19,
+                "date": 747,
+                "source": "Nasab Quraysh, pages: 114, 115, 116, 117, 202, 217, 228, 236, 250, 272, 381, 397",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.1012,
+                    35.57
+                ]
+            },
+            "properties": {
+                "name": "Siffin",
+                "deaths": 3,
+                "date": 657,
+                "source": "Nasab Quraysh, pages: 235, 264, 355",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Siffin",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.365,
+                    24.5037
+                ]
+            },
+            "properties": {
+                "name": "Uhud",
+                "deaths": 19,
+                "date": 625,
+                "source": "Nasab Quraysh, pages: 19, 123, 173, 212, 251, 252, 253, 315, 316, 342, 387, 397, 436",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Uhud",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.4566,
+                    24.8866
+                ]
+            },
+            "properties": {
+                "name": "Yamama",
+                "deaths": 11,
+                "date": 632,
+                "source": "Nasab Quraysh, pages: 96, 153, 236, 330, 345, 348, 401, 419, 439",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Yamama",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.9548,
+                    32.8141
+                ]
+            },
+            "properties": {
+                "name": "Yarmuk",
+                "deaths": 16,
+                "date": 636,
+                "source": "Nasab Quraysh, pages: 174, 251, 254, 257, 302, 310, 330, 338, 370, 380, 401, 409",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Yarmouk",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    69.176134,
+                    34.515345
+                ]
+            },
+            "properties": {
+                "name": "Kabul",
+                "deaths": 1,
+                "date": 670,
+                "source": "Nasab Quraysh, pages: 54",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    61.619272,
+                    31.085593
+                ]
+            },
+            "properties": {
+                "name": "Sijistan",
+                "deaths": 1,
+                "date": 644,
+                "source": "Nasab Quraysh, pages: 88",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.915432,
+                    33.902724
+                ]
+            },
+            "properties": {
+                "name": "Dulab",
+                "deaths": 1,
+                "date": 684,
+                "source": "Nasab Quraysh, pages: 147",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.155506,
+                    31.626572
+                ]
+            },
+            "properties": {
+                "name": "Fajjar",
+                "deaths": 3,
+                "date": 600,
+                "source": "Nasab Quraysh, pages: 17, 291, 347",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.858552,
+                    21.392808
+                ]
+            },
+            "properties": {
+                "name": "Mecca",
+                "deaths": 4,
+                "date": 630,
+                "source": "Nasab Quraysh, pages: 257, 322, 443, 448",
+                "link": "https://en.wikipedia.org/wiki/Conquest_of_Mecca",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.809800,
+                    21.464396
+                ]
+            },
+            "properties": {
+                "name": "First siege of Mecca",
+                "deaths": 5,
+                "date": 683,
+                "source": "Nasab Quraysh, pages: 233, 245, 263, 269, 390",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.690324,
+                    21.364035
+                ]
+            },
+            "properties": {
+                "name": "Second siege of Mecca",
+                "deaths": 7,
+                "date": 692,
+                "source": "Nasab Quraysh, pages: 212, 235, 236, 243, 245, 384",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    40.512900,
+                    21.433471
+                ]
+            },
+            "properties": {
+                "name": "Ta'if",
+                "deaths": 6,
+                "date": 630,
+                "source": "Nasab Quraysh, pages: 174, 221, 275, 316, 376, 401",
+                "link": "",
+                "text": "",
+                "img": ""
+            }
+        }
+    ]
+}

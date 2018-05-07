@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Islamic battles map</title>
+    <meta name="description" content="Early islam battles map">
+    <meta name="author" content="IZholdasbayev">
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="js/slider/nouislider.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <!-- D3.js -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+    <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+    <link rel="manifest" href="../favicon/manifest.json">
+    <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+
+</head>
+
+<body>
+    <div class="new-container"></div>
+    <div class="svg-container"></div>
+    <div class="scale-container"></div>
+
+    <span onclick="openNav()" id="menuBtn" class="menuBtn">Controls &#9776;</span>
+
+    <div id="controls" class="another">
+        <div class="header"></div>
+        <div class="btn-container">
+            <input id="reliefCB" name="checkbox" type="checkbox" onclick="showHideRelief(this);" value="false">Show/Hide relief</button>
+            <br>
+            <input id="bordersCB" name="checkbox" type="checkbox" onclick="showHideBorders(this);" value="false">Hide/Show borders</button>
+        </div>
+        <div class="slider-container">
+            <div id="slider"></div>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="js/slider/nouislider.min.js"></script>
+    <script src="js/wNumb.js"></script>
+    <!-- <scriptsrc="js/slider-custom.js"></script> -->
+    <script src="js/geotiff.browserify.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        var isOpen = false;
+
+        function openNav() {
+            isOpen = !isOpen;
+            if (isOpen) {
+                document.getElementById("controls").style.width = "250px";
+                document.getElementById("menuBtn").style.right = "250px";
+            } else {
+                document.getElementById("controls").style.width = "0";
+                document.getElementById("menuBtn").style.right = "0";
+            }
+        }
+    </script>
+</body>
+
+</html>
