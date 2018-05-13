@@ -93,12 +93,12 @@ p {
 
 .container .textbox {
     display: block;
-    margin: 10px;
+    margin: 10px 0 0;
     overflow-x: hidden;
     overflow-y: hidden;
     /* height: 100%; */
-    padding: 0 40px;
-    padding-left: 150px;
+    padding: 0 20px;
+    padding-left: 170px;
 }
 
 .container .textbox a {
@@ -114,11 +114,11 @@ p {
 }
 
 .container .graph {
-    display: none;
+    /* display: none; */
     position: absolute;
-    bottom: 0;
+    bottom: 1%;
     width: 100%;
-    height: 0;
+    height: 60%;
 }
 
 span.tooltip {
@@ -153,6 +153,7 @@ span.tooltip p {
     height: 20px;
     padding-right: 100px;
     font: 10px sans-serif;
+    pointer-events: all;
 }
 
 .battles circle {
@@ -167,10 +168,19 @@ span.tooltip p {
     stroke-width: 1px;
 }
 
-circle:hover,
+
+/* circle:hover,
 .circleK:hover {
-    /* fill: rgb(158, 199, 180); */
     cursor: pointer;
+} */
+
+.marker {
+    pointer-events: all;
+}
+
+circle:hover {
+    cursor: pointer;
+    /* fill: gold; */
 }
 
 .gm-style-cc {

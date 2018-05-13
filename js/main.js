@@ -278,7 +278,7 @@ d3.json("../data/battles.json", function(error, battles) {
                 .each(transform) // update existing markers
                 .enter().append("svg")
                 .each(transform)
-                .attr("class", "marker");
+                .attr("class", "marker markerNQ");
 
             // Add a circle.
             marker.append("circle")
@@ -293,13 +293,18 @@ d3.json("../data/battles.json", function(error, battles) {
             // Add a label.
             marker.append("text")
                 .attr("x", padding + 12)
-                .attr("y", padding)
-                .attr("dy", ".31em")
-                .attr("class", "labels")
+                .attr("y", padding - 2)
+                .attr("class", "labels labelsNQ")
                 .text(function(d) { return d.properties.name + "  (" + d.properties.date + ")"; });
 
-            console.log();
+            marker.append("text")
+                .attr("x", padding + 12)
+                .attr("y", padding + 9)
+                .attr("dy", ".5px")
+                .attr("class", "labels labelsNQ")
+                .text(function(d) { return "  💀 " + d.properties.deaths; });
 
+            console.log();
 
             function transform(d) {
                 d = new google.maps.LatLng(d.geometry.coordinates[1], d.geometry.coordinates[0]);
@@ -307,44 +312,6 @@ d3.json("../data/battles.json", function(error, battles) {
                 return d3.select(this)
                     .style("left", (d.x - padding) + "px")
                     .style("top", (d.y - padding) + "px");
-            };
-
-            function battleClick(d) { // Add interactivity
-                textbox.html(
-                    "<h2>" + d.properties.name + "</h2><p>" + d.properties.date + "</p><br>" + "<img class=\"circle-img\" src=\"" + d.properties.img + "\">" +
-                    "<p>" + d.properties.text + "</p><p>ref: " + d.properties.source + "</p><a href=\"" + d.properties.link + "\">" + d.properties.link + "</a>"
-                ).style('color', '#000');
-            };
-
-            function battlesMouseOver(d) {
-                d3.select(this).attr("r", 5);
-
-                var bar = g.select("rect");
-
-                div.transition()
-                    .duration(200)
-                    .style("opacity", .9);
-
-                div.html(
-                        "<b>" + d.properties.name + "</b><p>" + d.properties.date + "</p>"
-                    )
-                    .style("left", (d3.event.pageX + 10) + "px")
-                    .style("top", (d3.event.pageY - 40) + "px");
-            };
-
-            function battlesMouseOut(d) {
-                zoomLevel = map.getZoom();
-                if (zoomLevel <= 6) {
-                    d3.select(this).attr("r", 2);
-                } else if (zoomLevel >= 6 && zoomLevel <= 8) {
-                    d3.select(this).attr("r", 3);
-                } else if (zoomLevel >= 8) {
-                    d3.select(this).attr("r", 5);
-                }
-
-                div.transition()
-                    .duration(500)
-                    .style("opacity", 0);
             };
         };
     };
@@ -371,6 +338,17 @@ d3.json("../data/battles.json", function(error, battles) {
     //     .attr("y", function(d) { return y(d.properties.deaths); })
     //     .attr("width", 1)
     //     .attr("height", function(d) { return 340 - y(d.properties.deaths); });
+
+    var cell = g.append("g")
+        .attr("class", "cells")
+        .selectAll("g").data(d3.voronoi()
+            .extent([
+                [-40, -40],
+                [400 + 40, 300 + 40]
+            ])
+            .x(function(d) { return d.x; })
+            .y(function(d) { return d.y; })
+            .polygons(data)).enter().append("g");
 
     // Bind our overlay to the map…
     overlay.setMap(map);
@@ -399,7 +377,7 @@ d3.json("../data/battles-k.json", function(error, battles) {
                 .each(transform) // update existing markers
                 .enter().append("svg")
                 .each(transform)
-                .attr("class", "markerK");
+                .attr("class", "marker markerK");
 
             // Add a circle.
             marker.append("circle")
@@ -416,8 +394,19 @@ d3.json("../data/battles-k.json", function(error, battles) {
                 .attr("x", padding + 12)
                 .attr("y", padding)
                 .attr("dy", ".31em")
-                .attr("class", "labels")
+                .attr("class", "labels labelsK")
                 .text(function(d) { return d.properties.name + "  (" + d.properties.date + ")"; });
+
+            // var outerCircle = marker.append("circle")
+            //     .attr("cx", padding)
+            //     .attr("cy", padding)
+            //     .attr("r", 5)
+            //     .style("fill", "none")
+            //     .style("stroke", "black")
+            //     .style("stroke-width", 1);
+
+            // var outerOriginX = padding + ((5) * Math.sin(0));
+            // var outerOriginY = padding + ((5) * Math.cos(0));
 
             function transform(d) {
                 d = new google.maps.LatLng(d.geometry.coordinates[1], d.geometry.coordinates[0]);
@@ -427,41 +416,41 @@ d3.json("../data/battles-k.json", function(error, battles) {
                     .style("top", (d.y - padding) + "px");
             };
 
-            function battleClick(d) { // Add interactivity
-                textbox.html(
-                    "<h2>" + d.properties.name + "</h2><p>" + d.properties.date + "</p><br>" + "<img class=\"circle-img\" src=\"" + d.properties.img + "\">" +
-                    "<p>" + d.properties.text + "</p><p>ref: " + d.properties.source + "</p><a href=\"" + d.properties.link + "\">" + d.properties.link + "</a>"
-                ).style('color', '#000');
-            };
+            // function battleClick(d) { // Add interactivity
+            //     textbox.html(
+            //         "<h2>" + d.properties.name + "</h2><p>" + d.properties.date + "</p><br>" + "<img class=\"circle-img\" src=\"" + d.properties.img + "\">" +
+            //         "<p>" + d.properties.text + "</p><p>ref: " + d.properties.source + "</p><a href=\"" + d.properties.link + "\">" + d.properties.link + "</a>"
+            //     ).style('color', '#000');
+            // };
 
-            function battlesMouseOver(d) {
-                d3.select(this).attr("r", 5);
+            // function battlesMouseOver(d) {
+            //     d3.select(this).attr("r", 5);
 
-                var bar = g.select("rect");
+            //     var bar = g.select("rect");
 
-                div.transition()
-                    .duration(200)
-                    .style("opacity", .9);
+            //     div.transition()
+            //         .duration(200)
+            //         .style("opacity", .9);
 
-                div.html(
-                        "<b>" + d.properties.name + "</b><p>" + d.properties.date + "</p>"
-                    )
-                    .style("left", (d3.event.pageX + 10) + "px")
-                    .style("top", (d3.event.pageY - 40) + "px");
-            };
+            //     div.html(
+            //             "<b>" + d.properties.name + "</b><p>" + d.properties.date + "</p>"
+            //         )
+            //         .style("left", (d3.event.pageX + 10) + "px")
+            //         .style("top", (d3.event.pageY - 40) + "px");
+            // };
 
-            function battlesMouseOut(d) {
-                if (zoomLevel <= 6) {
-                    d3.select(this).attr("r", 2);
-                } else if (zoomLevel >= 6 && zoomLevel <= 8) {
-                    d3.select(this).attr("r", 3);
-                } else if (zoomLevel >= 8) {
-                    d3.select(this).attr("r", 5);
-                }
-                div.transition()
-                    .duration(500)
-                    .style("opacity", 0);
-            };
+            // function battlesMouseOut(d) {
+            //     if (zoomLevel <= 6) {
+            //         d3.select(this).attr("r", 2);
+            //     } else if (zoomLevel >= 6 && zoomLevel <= 8) {
+            //         d3.select(this).attr("r", 3);
+            //     } else if (zoomLevel >= 8) {
+            //         d3.select(this).attr("r", 7);
+            //     }
+            //     div.transition()
+            //         .duration(500)
+            //         .style("opacity", 0);
+            // };
         };
     };
 
@@ -470,19 +459,26 @@ d3.json("../data/battles-k.json", function(error, battles) {
 
 });
 
+zoomLevel = map.getZoom();
+
 function nqsource(cb) {
     if (cb.checked) {
-        $('.circleNQ').css("display", "block");
+        $('.circleNQ').show();
+        $('.labelsNQ').show();
+
     } else {
-        $('.circleNQ').css("display", "none");
+        $('.circleNQ').hide();
+        $('.labelsNQ').hide();
     }
 }
 
 function kensource(cb) {
     if (cb.checked) {
-        $('.circleK').css("display", "block");
+        $('.circleK').show();
+        $('.labelsK').show();
     } else {
-        $('.circleK').css("display", "none");
+        $('.circleK').hide();
+        $('.labelsK').hide();
     }
 }
 
@@ -496,18 +492,27 @@ google.maps.event.addListener(map, 'zoom_changed', function() {
     zoomLevel = map.getZoom();
     if (zoomLevel <= 6) {
         var sel = d3.selectAll("circle")
-            .attr("r", 2);
-        $('.labels').hide();
+            .attr("r", 2).style("stroke-width", "1px");
+        sel.transition()
+            .duration(200);
+        $('.labelsNQ').hide();
+        $('.labelsK').hide();
         // map.setMapTypeId('customstyle');
-    } else if (zoomLevel >= 6 && zoomLevel <= 8) {
+    } else if (zoomLevel >= 5 && zoomLevel <= 8) {
         var sel = d3.selectAll("circle")
-            .attr("r", 3);
-        $('.labels').hide();
+            .attr("r", 4).style("stroke-width", "2px");
+        sel.transition()
+            .duration(200)
+        $('.labelsNQ').hide();
+        $('.labelsK').hide();
         // map.setMapTypeId('customstyle');
     } else if (zoomLevel >= 8) {
         var sel = d3.selectAll("circle")
-            .attr("r", 5);
-        $('.labels').show();
+            .attr("r", 7).style("stroke-width", "3px");
+        sel.transition()
+            .duration(200);
+        $('.labelsNQ').show();
+        $('.labelsK').show();
         // map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
     }
 });
@@ -519,10 +524,59 @@ google.maps.event.addListener(map, 'maptypeid_changed', function() {
         d3.selectAll("text").style("fill", "black")
         d3.selectAll(".circleK").style("fill", "red").style("stroke", "white");
         d3.selectAll(".circleNQ").style("fill", "black").style("stroke", "white");
+        $(".kencircle").css("background", "red").css("border", "1px solid white");
+        $(".nqcircle").css("background", "black").css("border", "1px solid white");
+        $(".controls").css("color", "black");
     } else if (typeid == "satellite") {
         console.log("IT'S SATELLITE");
         d3.selectAll("text").style("fill", "white")
         d3.selectAll(".circleK").style("fill", "white").style("stroke", "red");
         d3.selectAll(".circleNQ").style("fill", "white").style("stroke", "black");
+        $(".kencircle").css("background", "white").css("border", "1px solid red");
+        $(".nqcircle").css("background", "white").css("border", "1px solid black");
+        $(".controls").css("color", "white");
     }
 });
+
+function battleClick(d) { // Add interactivity
+    textbox.html(
+        "<h2>" + d.properties.name + "</h2><p>" + d.properties.date + "</p><br><p> Deaths: " + d.properties.deaths + "</p><br>" + "<img class=\"circle-img\" src=\"" + d.properties.img + "\">" +
+        "<p>" + d.properties.text + "</p><p>ref: " + d.properties.source + "</p><a href=\"" + d.properties.link + "\">" + d.properties.link + "</a>"
+    ).style('color', '#000');
+};
+
+function battlesMouseOver(d) {
+    if (zoomLevel <= 6) {
+        d3.select(this).attr("r", 4);
+    } else if (zoomLevel >= 6 && zoomLevel <= 8) {
+        d3.select(this).attr("r", 5);
+    } else if (zoomLevel >= 8) {
+        d3.select(this).attr("r", 9);
+    }
+    // d3.select(this).attr("r", 5);
+
+    div.transition()
+        .duration(200)
+        .style("opacity", .9);
+
+    div.html(
+            "<b>" + d.properties.name + "</b><p>" + d.properties.date + "</p>"
+        )
+        .style("left", (d3.event.pageX + 10) + "px")
+        .style("top", (d3.event.pageY - 40) + "px");
+};
+
+function battlesMouseOut(d) {
+    zoomLevel = map.getZoom();
+    if (zoomLevel <= 6) {
+        d3.select(this).attr("r", 2);
+    } else if (zoomLevel >= 6 && zoomLevel <= 8) {
+        d3.select(this).attr("r", 3);
+    } else if (zoomLevel >= 8) {
+        d3.select(this).attr("r", 7);
+    }
+
+    div.transition()
+        .duration(500)
+        .style("opacity", 0);
+};
