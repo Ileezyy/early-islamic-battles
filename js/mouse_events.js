@@ -29,6 +29,13 @@ function battleClick(d) {
     ).style('color', '#000');
 };
 
+function battleClickWData(d) {
+    textbox.html(
+        "<h2>" + d.data.properties.name + "</h2><p>" + d.data.properties.date + "</p><br><p> Deaths: " + d.data.properties.deaths + "</p><br>" + "<img class=\"circle-img\" src=\"" + d.data.properties.img + "\">" +
+        "<p>" + d.data.properties.text + "</p><p>ref: " + d.data.properties.source + "</p><a href=\"" + d.data.properties.link + "\">" + d.data.properties.link + "</a>"
+    ).style('color', '#000');
+};
+
 function battlesMouseOver(d) {
     if (zoomLevel <= 6) {
         d3.select(this).attr("r", 4);

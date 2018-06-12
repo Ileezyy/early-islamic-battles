@@ -260,17 +260,17 @@ google.maps.event.addListener(map, 'maptypeid_changed', function() {
     if (typeid == 'customstyle') {
         console.log("IT'S CUSTOm");
         d3.selectAll("text").style("fill", "black")
-        d3.selectAll(".circleK").style("fill", "red").style("stroke", "white");
+        d3.selectAll(".circleK").style("fill", "#008eff").style("stroke", "white");
         d3.selectAll(".circleNQ").style("fill", "black").style("stroke", "white");
-        $(".kencircle").css("background", "red").css("border", "1px solid white");
+        $(".kencircle").css("background", "#008eff").css("border", "1px solid white");
         $(".nqcircle").css("background", "black").css("border", "1px solid white");
         $(".controls").css("color", "black");
     } else if (typeid == "satellite") {
         console.log("IT'S SATELLITE");
         d3.selectAll("text").style("fill", "white")
-        d3.selectAll(".circleK").style("fill", "white").style("stroke", "red");
+        d3.selectAll(".circleK").style("fill", "white").style("stroke", "#008eff");
         d3.selectAll(".circleNQ").style("fill", "white").style("stroke", "black");
-        $(".kencircle").css("background", "white").css("border", "1px solid red");
+        $(".kencircle").css("background", "white").css("border", "1px solid #008eff");
         $(".nqcircle").css("background", "white").css("border", "1px solid black");
         $(".controls").css("color", "white");
     }

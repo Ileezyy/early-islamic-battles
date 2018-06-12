@@ -31,10 +31,10 @@
 </head>
 
 <body>
-    <svg width="960" height="200"></svg>
+    <svg id="ssv" width="960" height="200"></svg>
 
     <script>
-        var svg = d3.select("svg"),
+        var svg = d3.select("#ssv"),
             margin = {
                 top: 40,
                 right: 40,
@@ -47,7 +47,7 @@
         var formatValue = d3.format(",d");
 
         var x = d3.scaleLinear()
-            .rangeRound([0, width]);
+            .rangeRound([0, width - 200]);
 
         var g = svg.append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -58,21 +58,15 @@
                 if (error) throw error;
 
                 var data = d3.merge([battles.features, battlesK.features]);
-                // var dataK = battlesK.features;
-
-                // console.log(data);
 
                 x.domain(d3.extent(data, function(d) {
-                    // console.log(d.properties.date);
                     return d.properties.date;
                 }));
-
-                // x.ticks(10);
 
                 var simulation = d3.forceSimulation(data)
                     .force("x", d3.forceX(function(d) {
                         return x(d.properties.date);
-                    }).strength(2))
+                    }).strength(3))
                     .force("y", d3.forceY(height / 2))
                     .force("collide", d3.forceCollide(5))
                     .stop();
@@ -92,7 +86,6 @@
                             [width + margin.right, height + margin.top]
                         ])
                         .x(function(d) {
-                            // console.log(d);
                             return d.x;
                         })
                         .y(function(d) {
