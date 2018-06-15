@@ -6,7 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="js/slider/nouislider.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/d3-drag.v1.min.js"></script>
+    <script src="js/slider/wnumb/wNumb.js"></script>
+    <script src="js/slider/nouislider.js"></script>
     <style>
         .axis path,
         .axis line {
@@ -32,6 +38,10 @@
 
 <body>
     <svg id="ssv" width="960" height="200"></svg>
+    <div id="slider3">
+        <button id="btn">btn</button>
+        <div id="slider"></div>
+    </div>
 
     <script>
         var svg = d3.select("#ssv"),
@@ -51,6 +61,8 @@
 
         var g = svg.append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        var myslider = document.getElementById('slider');
 
         // d3.csv("flare.csv", type, function(error, data) {
         d3.json("../data/battles.json", function(error, battles) {
@@ -78,53 +90,84 @@
                     .attr("transform", "translate(0," + height + ")")
                     .call(d3.axisBottom(x).ticks(21));
 
-                var cell = g.append("g")
-                    .attr("class", "cells")
-                    .selectAll("g").data(d3.voronoi()
-                        .extent([
-                            [-margin.left, -margin.top],
-                            [width + margin.right, height + margin.top]
-                        ])
-                        .x(function(d) {
-                            return d.x;
-                        })
-                        .y(function(d) {
-                            return d.y;
-                        })
-                        .polygons(data)).enter().append("g");
+                $("#btn").click(function() {
+                    displayCircles(data);
+                });
 
-                cell.append("circle")
-                    .attr("r", 3)
-                    .attr("fill", function(d) {
-                        if (isNaN(d.data.properties.deaths)) {
-                            return "lightseagreen"
-                        } else {
-                            return "black"
-                        }
-                    })
-                    .attr("cx", function(d) {
-                        return d.data.x;
-                    })
-                    .attr("cy", function(d) {
-                        return d.data.y;
-                    });
+                noUiSlider.create(slider, {
+                    start: [640, 680],
+                    step: 10,
+                    behaviour: 'drag',
+                    tooltips: [wNumb({
+                        decimals: 1
+                    }), true],
+                    connect: true,
+                    range: {
+                        'min': 590,
+                        'max': 750
+                    },
+                    pips: {
+                        mode: 'steps'
+                    }
+                });
 
-                cell.append("path")
-                    .attr("d", function(d) {
-                        return "M" + d.join("L") + "Z";
+                myslider.noUiSlider.on("update", function() {
+                    var newData = data.filter(function(site) {
+                        return site.properties.date < myslider.noUiSlider.get()[1];
+                    }).filter(function(site) {
+                        return site.properties.date > myslider.noUiSlider.get()[0];
                     });
+                    displayCircles(newData);
 
-                cell.append("title")
-                    .text(function(d) {
-                        return d.data.properties.name + "\n" + d.data.properties.date + "\n" + d.data.properties.deaths;
-                    });
+                });
             });
         });
 
-        function type(d) {
-            if (!d.properties.date) return;
-            d.properties.date = +d.properties.date;
-            return d;
+        function displayCircles(data) {
+            g.selectAll("circle").transition().duration(200)
+                .attr("r", 1).remove();
+            var cell = g.append("g")
+                .attr("class", "cells")
+                .selectAll("g").data(d3.voronoi()
+                    .extent([
+                        [-margin.left, -margin.top],
+                        [width + margin.right, height + margin.top]
+                    ])
+                    .x(function(d) {
+                        return d.x;
+                    })
+                    .y(function(d) {
+                        return d.y;
+                    })
+                    .polygons(data)).enter().append("g");
+
+            cell.append("circle")
+                .attr("fill", function(d) {
+                    if (isNaN(d.data.properties.deaths)) {
+                        return "lightseagreen"
+                    } else {
+                        return "black"
+                    }
+                })
+                .attr("cx", function(d) {
+                    return d.data.x;
+                })
+                .attr("cy", function(d) {
+                    return d.data.y;
+                })
+                .attr("r", 1)
+                .transition().duration(400)
+                .attr("r", 3);
+
+            cell.append("path")
+                .attr("d", function(d) {
+                    return "M" + d.join("L") + "Z";
+                });
+
+            cell.append("title")
+                .text(function(d) {
+                    return d.data.properties.name + "\n" + d.data.properties.date + "\n" + d.data.properties.deaths;
+                });
         }
     </script>
 </body>

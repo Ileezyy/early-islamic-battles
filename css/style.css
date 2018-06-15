@@ -34,7 +34,7 @@ p {
 
 #map {
     width: 75%;
-    height: 80%;
+    height: 75%;
     float: left;
 }
 
@@ -172,8 +172,8 @@ span.tooltip p {
     cursor: pointer;
 } */
 
-.marker {
-    pointer-events: all;
+.marker:hover {
+    cursor: pointer;
 }
 
 circle:hover {
@@ -190,14 +190,15 @@ circle:hover {
 
 .beeswarm-container {
     position: absolute;
-    bottom: 0;
+    bottom: 0%;
     width: 75%;
-    height: 20%;
+    height: 25%;
+    padding: 0 10px;
 }
 
 #beeswarm {
     width: 100%;
-    height: 97%;
+    height: 60%;
 }
 
 .axis path,
@@ -216,6 +217,79 @@ circle:hover {
     pointer-events: all;
 }
 
-.cells :hover circle {
+.cells :hover .bcircle {
     fill: red;
+}
+
+
+/* NoUISLider override */
+
+.noUi-target {
+    background: #fff;
+    border-radius: 0;
+    border: 1px solid #c5c5c5;
+    box-shadow: none;
+}
+
+.noUi-horizontal {
+    font-size: 14px;
+    margin: 0 10px;
+    height: 10px;
+}
+
+.noUi-horizontal .noUi-handle {
+    width: 28px;
+    height: 15px;
+    top: -4px;
+    outline: none;
+}
+
+.noUi-horizontal .noUi-handle:before,
+.noUi-horizontal .noUi-handle:after {
+    display: none;
+}
+
+.noUi-connect {
+    background: #ebebeb;
+}
+
+.noUi-tooltip {
+    border: none;
+    background: transparent;
+    color: #333;
+    padding: 0 5px;
+}
+
+.noUi-pips {
+    color: #000;
+    font-size: 12px;
+}
+
+.noUi-pips-horizontal {
+    height: 10px;
+}
+
+.noUi-value-horizontal {
+    -webkit-transform: translate(-50%, 100%);
+    transform: translate(-50%, 100%);
+}
+
+.noUi-marker-horizontal.noUi-marker {
+    margin-left: 0;
+    width: 1px;
+}
+
+.noUi-marker-horizontal.noUi-marker-sub {
+    height: 10px;
+    background: #000;
+}
+
+.noUi-value-sub {
+    color: #000;
+    font-size: 12px;
+}
+
+.noUi-marker-horizontal.noUi-marker-large {
+    height: 10px;
+    background: #000;
 }

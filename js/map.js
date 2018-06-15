@@ -232,21 +232,21 @@ map.setMapTypeId('customstyle');
 google.maps.event.addListener(map, 'zoom_changed', function() {
     zoomLevel = map.getZoom();
     if (zoomLevel <= 6) {
-        var sel = d3.selectAll("circle")
+        var sel = d3.selectAll(".circles")
             .attr("r", 2).style("stroke-width", "1px");
         sel.transition()
             .duration(200);
         $('.labelsNQ').hide();
         $('.labelsK').hide();
     } else if (zoomLevel >= 5 && zoomLevel <= 8) {
-        var sel = d3.selectAll("circle")
+        var sel = d3.selectAll(".circles")
             .attr("r", 4).style("stroke-width", "2px");
         sel.transition()
             .duration(200)
         $('.labelsNQ').hide();
         $('.labelsK').hide();
     } else if (zoomLevel >= 8) {
-        var sel = d3.selectAll("circle")
+        var sel = d3.selectAll(".circles")
             .attr("r", 7).style("stroke-width", "3px");
         sel.transition()
             .duration(200);

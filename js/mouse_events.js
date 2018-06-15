@@ -38,11 +38,11 @@ function battleClickWData(d) {
 
 function battlesMouseOver(d) {
     if (zoomLevel <= 6) {
-        d3.select(this).attr("r", 4);
+        d3.select(this).selectAll('circle').attr("r", 4);
     } else if (zoomLevel >= 6 && zoomLevel <= 8) {
-        d3.select(this).attr("r", 5);
+        d3.select(this).selectAll('circle').attr("r", 5);
     } else if (zoomLevel >= 8) {
-        d3.select(this).attr("r", 9);
+        d3.select(this).selectAll('circle').attr("r", 9);
     }
 
     div.transition()
@@ -59,11 +59,11 @@ function battlesMouseOver(d) {
 function battlesMouseOut(d) {
     zoomLevel = map.getZoom();
     if (zoomLevel <= 6) {
-        d3.select(this).attr("r", 2);
+        d3.select(this).selectAll('circle').attr("r", 2);
     } else if (zoomLevel >= 6 && zoomLevel <= 8) {
-        d3.select(this).attr("r", 3);
+        d3.select(this).selectAll('circle').attr("r", 3);
     } else if (zoomLevel >= 8) {
-        d3.select(this).attr("r", 7);
+        d3.select(this).selectAll('circle').attr("r", 7);
     }
 
     div.transition()

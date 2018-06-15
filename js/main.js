@@ -31,9 +31,10 @@ d3.json("../data/battles.json", function(error, battles) {
                 .attr("r", 2)
                 .attr("cx", padding)
                 .attr("cy", padding)
-                .attr("class", function(d) { return "circleNQ " + d.properties.name })
-                .on("click", battleClick)
-                .on("mouseover", battlesMouseOver)
+                .attr("class", function(d) { return "circles circleNQ " + d.properties.name })
+                .on("click", battleClick);
+
+            marker.on("mouseover", battlesMouseOver)
                 .on("mouseout", battlesMouseOut);
 
             // Add a label.
@@ -82,14 +83,25 @@ d3.json("../data/battles-k.json", function(error, battles) {
                 .each(transform)
                 .attr("class", "marker markerK");
 
+            var simulation = d3.forceSimulation(data)
+                .force("x", d3.forceX(function(d) {
+                    return x(d.properties.date);
+                }).strength(3))
+                .force("y", d3.forceY(height / 2))
+                .force("collide", d3.forceCollide(5))
+                .stop();
+
+            for (var i = 0; i < 100; ++i) simulation.tick();
+
             // Add a circle.
             marker.append("circle")
                 .attr("r", 2)
                 .attr("cx", padding)
                 .attr("cy", padding)
-                .attr("class", function(d) { return "circleK " + d.properties.name })
-                .on("click", battleClick)
-                .on("mouseover", battlesMouseOver)
+                .attr("class", function(d) { return "circles circleK " + d.properties.name })
+                .on("click", battleClick);
+
+            marker.on("mouseover", battlesMouseOver)
                 .on("mouseout", battlesMouseOut);
 
             // Add a label.
