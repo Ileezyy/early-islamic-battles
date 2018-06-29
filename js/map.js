@@ -217,6 +217,9 @@ var map = new google.maps.Map(d3.select("#map").node(), {
     fullscreenControl: false
 });
 
+map.setOptions({ draggableCursor: "url(https://i.imgur.com/h59R5TY.png), auto" });
+map.setOptions({ draggingCursor: "url(https://i.imgur.com/h59R5TY.png), auto" });
+
 // Custom style types declaration
 var styledMapOptions = {
     name: 'Greyscale'

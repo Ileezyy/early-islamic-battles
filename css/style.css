@@ -36,6 +36,7 @@ p {
     width: 75%;
     height: 75%;
     float: left;
+    /* cursor: pointer; */
 }
 
 .labels {
@@ -151,19 +152,23 @@ span.tooltip p {
     height: 20px;
     padding-right: 100px;
     font: 10px sans-serif;
-    pointer-events: all;
+    /* pointer-events: all; */
 }
 
-.battles circle {
-    fill: #000;
-    stroke: #fff;
-    stroke-width: 1px;
+.battles .circleNQ {
+    /* fill: #000; */
+    /* stroke: #fff; */
+    /* stroke-width: 1px; */
+}
+
+.battles .grey {
+    fill: rgba(255, 255, 255, 0.2);
 }
 
 .battles .circleK {
-    fill: #008eff;
-    stroke: #fff;
-    stroke-width: 1px;
+    /* fill: #008eff; */
+    /* stroke: #fff; */
+    /* stroke-width: 1px; */
 }
 
 
@@ -173,11 +178,11 @@ span.tooltip p {
 } */
 
 .marker:hover {
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 circle:hover {
-    cursor: pointer;
+    /* cursor: pointer; */
     /* fill: gold; */
 }
 
@@ -292,4 +297,18 @@ circle:hover {
 .noUi-marker-horizontal.noUi-marker-large {
     height: 10px;
     background: #000;
+}
+
+.map-overlay {
+    position: absolute;
+    width: 75%;
+    height: 75%;
+    float: left;
+    z-index: 1;
+    display: none;
+}
+
+#animPlayBtn {
+    position: absolute;
+    top: 10px;
 }

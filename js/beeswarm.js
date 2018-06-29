@@ -21,6 +21,26 @@ var g = svg.append("g")
 
 var myslider = document.getElementById('slider');
 
+var temp = false,
+    timerVar;
+
+noUiSlider.create(slider, {
+    start: [590, 640],
+    step: 1,
+    behaviour: 'drag',
+    connect: true,
+    range: {
+        'min': 590,
+        'max': 750
+    },
+    pips: {
+        mode: 'count',
+        values: 17,
+        density: 3,
+        stepped: true
+    }
+});
+
 // d3.csv("flare.csv", type, function(error, data) {
 d3.json("../data/battles.json", function(error, battles) {
     d3.json("../data/battles-k.json", function(error, battlesK) {
@@ -49,20 +69,6 @@ d3.json("../data/battles.json", function(error, battles) {
 
         g.selectAll(".axis--x").style("display", "none");
 
-        noUiSlider.create(slider, {
-            start: [590, 640],
-            step: 10,
-            behaviour: 'drag',
-            connect: true,
-            range: {
-                'min': 590,
-                'max': 750
-            },
-            pips: {
-                mode: 'steps'
-            }
-        });
-
         myslider.noUiSlider.on("update", function() {
             var newData = data.filter(function(site) {
                 return site.properties.date < myslider.noUiSlider.get()[1];
@@ -70,17 +76,24 @@ d3.json("../data/battles.json", function(error, battles) {
                 return site.properties.date > myslider.noUiSlider.get()[0];
             });
             displayCircles(newData);
-
         });
-
-
     });
 });
 
 function displayCircles(data) {
+    // console.log(cbNQ);
+    // g.selectAll("circle").transition().duration(200)
+    //     .attr("r", 1).remove();
+    g.selectAll("circle").remove();
 
-    g.selectAll("circle").transition().duration(200)
-        .attr("r", 1).remove();
+    if (cbNQ == false) {
+        g.selectAll("bcircleNQ").remove();
+        $('.bcircleNQ').hide();
+    }
+    if (cbKen == false) {
+        g.selectAll("bcircleK").remove();
+        $('.bcircleK').hide();
+    }
 
     var cell = g.append("g")
         .attr("class", "cells")
@@ -98,7 +111,13 @@ function displayCircles(data) {
             .polygons(data)).enter().append("g");
 
     cell.append("circle")
-        .attr("class", "bcircle")
+        .attr("class", function(d) {
+            if (isNaN(d.data.properties.deaths)) {
+                return "bcircle bcircleK"
+            } else {
+                return "bcircle bcircleNQ"
+            }
+        })
         .attr("fill", function(d) {
             if (isNaN(d.data.properties.deaths)) {
                 return "#008eff"
@@ -111,9 +130,8 @@ function displayCircles(data) {
         })
         .attr("cy", function(d) {
             return d.data.y;
-        }).attr("r", 1)
-        .transition().duration(400)
-        .attr("r", 3);;
+        })
+        .attr("r", 3);
 
     cell.append("path")
         .attr("d", function(d) {
@@ -135,4 +153,33 @@ function mouseOverCircle(d) {
 
 function mouseOutCircle(d) {
     d3.select(this).selectAll('circles').attr("fill", "white");
+}
+
+function startAnim() {
+    var first = myslider.noUiSlider.get()[0];
+    var second = myslider.noUiSlider.get()[1];
+
+    timerVar = setInterval(function() {
+        /// call your function here
+        if (first < 750 || second < 750) {
+            slider.noUiSlider.set([first++, second++]);
+            console.log(myslider.noUiSlider.get());
+        }
+    }, 1000);
+}
+
+function stopAnim() {
+    clearInterval(timerVar);
+}
+
+function playAnimation() {
+    temp = !temp;
+    console.log(temp);
+    if (temp) {
+        startAnim();
+        $("#animPlayBtn").html("Pause");
+    } else {
+        stopAnim();
+        $("#animPlayBtn").html("Play");
+    }
 }
