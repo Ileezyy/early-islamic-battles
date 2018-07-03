@@ -42,41 +42,39 @@ noUiSlider.create(slider, {
 });
 
 // d3.csv("flare.csv", type, function(error, data) {
-d3.json("../data/battles.json", function(error, battles) {
-    d3.json("../data/battles-k.json", function(error, battlesK) {
-        if (error) throw error;
+d3.json("../data/all_battles_new.json", function(error, battles) {
+    if (error) throw error;
 
-        var data = d3.merge([battles.features, battlesK.features]);
+    var data = battles;
 
-        x.domain(d3.extent(data, function(d) {
-            return d.properties.date;
-        }));
+    x.domain(d3.extent(data, function(d) {
+        return d.properties.date;
+    }));
 
-        var simulation = d3.forceSimulation(data)
-            .force("x", d3.forceX(function(d) {
-                return x(d.properties.date);
-            }).strength(3))
-            .force("y", d3.forceY(height / 2))
-            .force("collide", d3.forceCollide(5))
-            .stop();
+    var simulation = d3.forceSimulation(data)
+        .force("x", d3.forceX(function(d) {
+            return x(d.properties.date);
+        }).strength(3))
+        .force("y", d3.forceY(height / 2))
+        .force("collide", d3.forceCollide(5))
+        .stop();
 
-        for (var i = 0; i < 100; ++i) simulation.tick();
+    for (var i = 0; i < 100; ++i) simulation.tick();
 
-        g.append("g")
-            .attr("class", "axis axis--x")
-            .attr("transform", "translate(0," + height + ")")
-            .call(d3.axisBottom(x).ticks(20));
+    g.append("g")
+        .attr("class", "axis axis--x")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x).ticks(20));
 
-        g.selectAll(".axis--x").style("display", "none");
+    g.selectAll(".axis--x").style("display", "none");
 
-        myslider.noUiSlider.on("update", function() {
-            var newData = data.filter(function(site) {
-                return site.properties.date < myslider.noUiSlider.get()[1];
-            }).filter(function(site) {
-                return site.properties.date > myslider.noUiSlider.get()[0];
-            });
-            displayCircles(newData);
+    myslider.noUiSlider.on("update", function() {
+        var newData = data.filter(function(site) {
+            return site.properties.date < myslider.noUiSlider.get()[1];
+        }).filter(function(site) {
+            return site.properties.date > myslider.noUiSlider.get()[0];
         });
+        displayCircles(newData);
     });
 });
 
@@ -112,14 +110,14 @@ function displayCircles(data) {
 
     cell.append("circle")
         .attr("class", function(d) {
-            if (isNaN(d.data.properties.deaths)) {
+            if (isNaN(d.data.properties.deaths) || d.data.properties.deaths < 1) {
                 return "bcircle bcircleK"
             } else {
                 return "bcircle bcircleNQ"
             }
         })
         .attr("fill", function(d) {
-            if (isNaN(d.data.properties.deaths)) {
+            if (isNaN(d.data.properties.deaths) || d.data.properties.deaths < 1) {
                 return "#008eff"
             } else {
                 return "black"

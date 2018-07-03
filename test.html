@@ -8,166 +8,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="js/slider/nouislider.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="https://d3js.org/d3-drag.v1.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
+    <script src="js/d3/d3.min.js"></script>
+    <!-- <script src="https://d3js.org/d3-drag.v1.min.js"></script> -->
     <script src="js/slider/wnumb/wNumb.js"></script>
     <script src="js/slider/nouislider.js"></script>
-    <style>
-        .axis path,
-        .axis line {
-            fill: none;
-            stroke: #000;
-            shape-rendering: crispEdges;
-        }
-        
-        .axis text {
-            font: 10px sans-serif;
-        }
-        
-        .cells path {
-            fill: none;
-            pointer-events: all;
-        }
-        
-        .cells :hover circle {
-            fill: red;
-        }
-    </style>
+    <!-- jQuery Serialize Object -->
+    <script src="js/jquery.serialize-object.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/manifest.json">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
 </head>
 
 <body>
-    <svg id="ssv" width="960" height="200"></svg>
-    <div id="slider3">
-        <button id="btn">btn</button>
-        <div id="slider"></div>
-    </div>
+    <form id="contact" method="POST" action="">
+        <input type="hidden" name="type" value="Battle" id="type">
+        <input type="hidden" name="geometry[types]" value="Point" id="geoType">
+        <input type="number" name="geometry[coordinates][0]" id="lat" min="0" step="any" required>
+        <input type="number" name="geometry[coordinates][1]" id="lng" min="0" step="any" required>
+        <input type="text" name="properties[name]" id="name" required>
+        <input type="number" name="properties[deaths]" id="deaths" min="0">
+        <input type="number" name="properties[date]" id="date" min="0" required>
+        <input type="text" name="properties[source]" id="src">
+        <input type="text" name="properties[link]" id="url">
+        <input type="text" name="properties[text]" id="text">
+        <input type="text" name="properties[img]" id="img">
+        <input type="submit">
+    </form>
 
     <script>
-        var svg = d3.select("#ssv"),
-            margin = {
-                top: 40,
-                right: 40,
-                bottom: 40,
-                left: 40
-            },
-            width = svg.attr("width") - margin.left - margin.right,
-            height = svg.attr("height") - margin.top - margin.bottom;
+        $("#contact").submit(function(e) {
+            e.preventDefault();
 
-        var formatValue = d3.format(",d");
+            var inputData = $('form#contact').serializeObject();
+            console.log(inputData);
 
-        var x = d3.scaleLinear()
-            .rangeRound([0, width - 200]);
+            d3.json("/data/all_battles_new.json", function(error, datas) {
 
-        var g = svg.append("g")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+                var data = datas;
+                data.push(inputData);
 
-        var myslider = document.getElementById('slider');
+                for (let i = 0; i < data.length; i++) {
+                    data[i].id = "id" + i;
 
-        // d3.csv("flare.csv", type, function(error, data) {
-        d3.json("../data/battles.json", function(error, battles) {
-            d3.json("../data/battles-k.json", function(error, battlesK) {
-                if (error) throw error;
+                    if (typeof data[i].geometry.coordinates[0] === 'string' ||
+                        typeof data[i].geometry.coordinates[1] === 'string' ||
+                        typeof data[i].properties.deaths === 'string' ||
+                        typeof data[i].properties.date === 'string') {
 
-                var data = d3.merge([battles.features, battlesK.features]);
-
-                x.domain(d3.extent(data, function(d) {
-                    return d.properties.date;
-                }));
-
-                var simulation = d3.forceSimulation(data)
-                    .force("x", d3.forceX(function(d) {
-                        return x(d.properties.date);
-                    }).strength(3))
-                    .force("y", d3.forceY(height / 2))
-                    .force("collide", d3.forceCollide(5))
-                    .stop();
-
-                for (var i = 0; i < 100; ++i) simulation.tick();
-
-                g.append("g")
-                    .attr("class", "axis axis--x")
-                    .attr("transform", "translate(0," + height + ")")
-                    .call(d3.axisBottom(x).ticks(21));
-
-                $("#btn").click(function() {
-                    displayCircles(data);
-                });
-
-                noUiSlider.create(slider, {
-                    start: [640, 680],
-                    step: 10,
-                    behaviour: 'drag',
-                    tooltips: [wNumb({
-                        decimals: 1
-                    }), true],
-                    connect: true,
-                    range: {
-                        'min': 590,
-                        'max': 750
-                    },
-                    pips: {
-                        mode: 'steps'
+                        data[i].geometry.coordinates[0] = Number(data[i].geometry.coordinates[0]);
+                        data[i].geometry.coordinates[1] = Number(data[i].geometry.coordinates[1]);
+                        data[i].properties.deaths = Number(data[i].properties.deaths);
+                        data[i].properties.date = Number(data[i].properties.date);
                     }
-                });
+                }
 
-                myslider.noUiSlider.on("update", function() {
-                    var newData = data.filter(function(site) {
-                        return site.properties.date < myslider.noUiSlider.get()[1];
-                    }).filter(function(site) {
-                        return site.properties.date > myslider.noUiSlider.get()[0];
-                    });
-                    displayCircles(newData);
+                console.log("New", data);
 
-                });
+                saveToFile(data);
             });
         });
+    </script>
 
-        function displayCircles(data) {
-            g.selectAll("circle").transition().duration(200)
-                .attr("r", 1).remove();
-            var cell = g.append("g")
-                .attr("class", "cells")
-                .selectAll("g").data(d3.voronoi()
-                    .extent([
-                        [-margin.left, -margin.top],
-                        [width + margin.right, height + margin.top]
-                    ])
-                    .x(function(d) {
-                        return d.x;
-                    })
-                    .y(function(d) {
-                        return d.y;
-                    })
-                    .polygons(data)).enter().append("g");
-
-            cell.append("circle")
-                .attr("fill", function(d) {
-                    if (isNaN(d.data.properties.deaths)) {
-                        return "lightseagreen"
-                    } else {
-                        return "black"
-                    }
-                })
-                .attr("cx", function(d) {
-                    return d.data.x;
-                })
-                .attr("cy", function(d) {
-                    return d.data.y;
-                })
-                .attr("r", 1)
-                .transition().duration(400)
-                .attr("r", 3);
-
-            cell.append("path")
-                .attr("d", function(d) {
-                    return "M" + d.join("L") + "Z";
-                });
-
-            cell.append("title")
-                .text(function(d) {
-                    return d.data.properties.name + "\n" + d.data.properties.date + "\n" + d.data.properties.deaths;
-                });
+    <script>
+        function saveToFile(data) {
+            var jsonString = JSON.stringify(data);
+            var inputForm = document.getElementById('contact');
+            $.ajax({
+                url: 'php/save.php',
+                data: {
+                    'jsonString': jsonString
+                },
+                type: 'POST',
+                success: function() {
+                    alert("New record has been added");
+                    inputForm.reset();
+                }
+            });
         }
     </script>
 </body>
