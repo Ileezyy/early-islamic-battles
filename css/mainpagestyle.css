@@ -1,0 +1,49 @@
+.masthead {
+    display: table;
+    width: 100%;
+    height: 100vh;
+    padding: 200px 0;
+    text-align: center;
+    color: #343a40;
+    background: url("../img/mosaic.png") no-repeat bottom center scroll;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+    background-position: center;
+    background-repeat: repeat;
+}
+
+.masthead .intro-body {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.masthead .intro-body .brand-heading {
+    /* font-family: 'Berkshire Swash', cursive; */
+    /* text-transform: uppercase; */
+    font-weight: 900;
+    font-size: 50px;
+}
+
+.masthead .intro-body .intro-text {
+    font-size: 18px;
+}
+
+@media (min-width: 768px) {
+    .masthead {
+        height: 100%;
+        padding: 0;
+    }
+    .masthead .intro-body .brand-heading {
+        font-size: 75px;
+    }
+    .masthead .intro-body .intro-text {
+        font-size: 22px;
+    }
+}
+
+.masthead .intro-body .btn {
+    padding: 10px 30px;
+    border-radius: 0;
+}

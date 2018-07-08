@@ -6,15 +6,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="js/slider/nouislider.css" type="text/css">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis:300|Open+Sans">
+
+    <!-- Boostrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/nav-style.css" type="text/css">
+
+    <!-- Boostrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+    <!-- Jquery -->
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
     <script src="js/jquery-3.3.1.min.js"></script>
+
+    <!-- D3 -->
     <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
     <script src="js/d3/d3.min.js"></script>
     <!-- <script src="https://d3js.org/d3-drag.v1.min.js"></script> -->
+
+    <!-- Slider -->
     <script src="js/slider/wnumb/wNumb.js"></script>
     <script src="js/slider/nouislider.js"></script>
+
     <!-- jQuery Serialize Object -->
     <script src="js/jquery.serialize-object.min.js"></script>
 
@@ -27,73 +50,129 @@
     <meta name="theme-color" content="#ffffff">
 </head>
 
-<body>
-    <form id="contact" method="POST" action="">
-        <input type="hidden" name="type" value="Battle" id="type">
-        <input type="hidden" name="geometry[types]" value="Point" id="geoType">
-        <input type="number" name="geometry[coordinates][0]" id="lat" min="0" step="any" required>
-        <input type="number" name="geometry[coordinates][1]" id="lng" min="0" step="any" required>
-        <input type="text" name="properties[name]" id="name" required>
-        <input type="number" name="properties[deaths]" id="deaths" min="0">
-        <input type="number" name="properties[date]" id="date" min="0" required>
-        <input type="text" name="properties[source]" id="src">
-        <input type="text" name="properties[link]" id="url">
-        <input type="text" name="properties[text]" id="text">
-        <input type="text" name="properties[img]" id="img">
-        <input type="submit">
-    </form>
+<body class="form-body">
 
-    <script>
-        $("#contact").submit(function(e) {
-            e.preventDefault();
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top inside-form" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="./index-1.html"><img src="./img/icon.png" width="32px"><span>Tribeviz</span></a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fa fa-bars"></i>
+                  </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="./index.html">Explore</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="./test.html">Add more</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-            var inputData = $('form#contact').serializeObject();
-            console.log(inputData);
+    <div class="container form-container">
 
-            d3.json("/data/all_battles_new.json", function(error, datas) {
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="battles-list-tab" data-toggle="tab" href="#battles-list" role="tab" aria-controls="battles-list" aria-selected="false">All battles</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="add-new-tab" data-toggle="tab" href="#add-new" role="tab" aria-controls="add-new" aria-selected="true">Add new</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="battles-list" role="tabpanel" aria-labelledby="battles-list-tab">
+                <div class="list-group" id="mylist">
+                    <a class="list-group-item flex-column align-items-start" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <div class="d-flex w-100 justify-content-between">
+                            List group item heading
+                            <small>
+                                <button><i class="fas fa-edit"></i></button>
+                                <button><i class="fas fa-times-circle"></i></button>
+                            </small>
+                        </div>
+                    </a>
+                    <div class="collapse" id="collapseExample">
+                        <div class="card card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="add-new" role="tabpanel" aria-labelledby="add-new-tab">
+                <!-- <div class="row"> -->
+                <form id="battleForm" method="POST" action="">
+                    <div class="form-row">
 
-                var data = datas;
-                data.push(inputData);
+                        <input type="hidden" name="type" value="Battle" id="type">
+                        <input type="hidden" name="geometry[types]" value="Point" id="geoType">
 
-                for (let i = 0; i < data.length; i++) {
-                    data[i].id = "id" + i;
+                        <div class="col-md-12">
+                            <h3>Basic information</h3>
+                        </div>
 
-                    if (typeof data[i].geometry.coordinates[0] === 'string' ||
-                        typeof data[i].geometry.coordinates[1] === 'string' ||
-                        typeof data[i].properties.deaths === 'string' ||
-                        typeof data[i].properties.date === 'string') {
+                        <div class="form-group required col-md-12">
+                            <label class="control-label" for="name">Battle name</label>
+                            <input class="form-control" type="text" name="properties[name]" id="name" placeholder="Battle name" required>
+                        </div>
 
-                        data[i].geometry.coordinates[0] = Number(data[i].geometry.coordinates[0]);
-                        data[i].geometry.coordinates[1] = Number(data[i].geometry.coordinates[1]);
-                        data[i].properties.deaths = Number(data[i].properties.deaths);
-                        data[i].properties.date = Number(data[i].properties.date);
-                    }
-                }
+                        <div class="form-group required col-md-3">
+                            <label class="control-label" for="name">Battle date</label>
+                            <input class="form-control" type="number" name="properties[date]" id="date" min="0" placeholder="YYYY" required>
+                        </div>
 
-                console.log("New", data);
+                        <div class="form-group required col-md-6">
+                            <label class="control-label">Battle location</label>
+                            <div class="input-group mb-3">
+                                <input class="form-control" type="number" name="geometry[coordinates][1]" id="lng" min="0" step="any" placeholder="Latitude" required>
+                                <input class="form-control" type="number" name="geometry[coordinates][0]" id="lat" min="0" step="any" placeholder="Longtitude" required>
+                            </div>
+                        </div>
 
-                saveToFile(data);
-            });
-        });
-    </script>
+                        <div class="form-group col-md-3">
+                            <label class="control-label" for="name">Victims number</label>
+                            <input class="form-control" type="number" name="properties[deaths]" id="deaths" placeholder="Victims number" min="0">
+                        </div>
+                    </div>
 
-    <script>
-        function saveToFile(data) {
-            var jsonString = JSON.stringify(data);
-            var inputForm = document.getElementById('contact');
-            $.ajax({
-                url: 'php/save.php',
-                data: {
-                    'jsonString': jsonString
-                },
-                type: 'POST',
-                success: function() {
-                    alert("New record has been added");
-                    inputForm.reset();
-                }
-            });
-        }
-    </script>
+                    <div class="form-row">
+                        <div class="col-md-12">
+                            <h3>Additional information</h3>
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <label class="control-label">Source</label>
+                            <input class="form-control" type="text" name="properties[source]" id="src" placeholder="Book, author, page number etc.">
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <label class="control-label">Link to an additional source</label>
+                            <input class="form-control" type="text" name="properties[link]" id="url" placeholder="https://someurl">
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <label class="control-label">Link to an image</label>
+                            <input class="form-control" type="text" name="properties[img]" id="img" placeholder="https://someurl.[png/jpg]">
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <label class="control-label">Optional text</label>
+                            <textarea class="form-control" type="text" name="properties[text]" id="text" placeholder="Any text/quote/description"></textarea>
+                        </div>
+
+                        <div class="col-12 text-right">
+                            <input type="submit" class="btn-outline-dark btn">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/json-crud.js"></script>
 </body>
 
 </html>

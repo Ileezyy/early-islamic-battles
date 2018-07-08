@@ -54,7 +54,7 @@ function battleClick(d) {
     } else {
         d3.selectAll(".circles")
             .attr("fill", function(d) {
-                if (isNaN(d.properties.deaths)) {
+                if (isNaN(d.properties.deaths) || d.properties.deaths < 1) {
                     return "#008eff";
                 } else {
                     return "black";
@@ -114,7 +114,7 @@ function battlesMouseOut(d) {
             d3.select(this).attr("r", 9).attr("fill", "red");
         }
     } else {
-        if (isNaN(d.properties.deaths)) {
+        if (isNaN(d.properties.deaths) || d.properties.deaths < 1) {
             d3.select(this).selectAll('circle').attr("fill", "#008eff");
         } else {
             d3.select(this).selectAll('circle').attr("fill", "black");
