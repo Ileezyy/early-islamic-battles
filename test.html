@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="js/fontawesome/all.css" type="text/css">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css" type="text/css">
@@ -27,7 +28,7 @@
 
     <!-- Jquery -->
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
-    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- <script src="js/jquery-3.3.1.min.js"></script> -->
 
     <!-- D3 -->
     <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
@@ -41,6 +42,9 @@
     <!-- jQuery Serialize Object -->
     <script src="js/jquery.serialize-object.min.js"></script>
 
+    <!-- FontAwesome -->
+    <script src="js/fontawesome/all.js"></script>
+
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
@@ -51,6 +55,90 @@
 </head>
 
 <body class="form-body">
+
+    <!-- Modal -->
+    <div class="modal fade" id="editBattleModal" tabindex="-1" role="dialog" aria-labelledby="editBattleModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editBattleModalTitle">Update a record</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                </div>
+                <div class="modal-body">
+                    <form id="updateBattleForm" method="POST" action="">
+                        <div class="form-row">
+
+                            <input type="hidden" name="type" value="Battle" id="type">
+                            <input type="hidden" name="geometry[types]" value="Point" id="geoType">
+
+                            <div class="col-md-12">
+                                <h3>Basic information</h3>
+                            </div>
+
+                            <div class="form-group required col-md-12">
+                                <label class="control-label" for="name">Battle name</label>
+                                <input class="form-control" type="text" name="properties[name]" id="name" placeholder="Battle name" required>
+                            </div>
+
+                            <div class="form-group required col-md-3">
+                                <label class="control-label" for="name">Battle date</label>
+                                <input class="form-control" type="number" name="properties[date]" id="date" min="0" placeholder="YYYY" required>
+                            </div>
+
+                            <div class="form-group required col-md-6">
+                                <label class="control-label">Battle location</label>
+                                <div class="input-group mb-3">
+                                    <input class="form-control" type="number" name="geometry[coordinates][1]" id="lng" min="0" step="any" placeholder="Latitude" required>
+                                    <input class="form-control" type="number" name="geometry[coordinates][0]" id="lat" min="0" step="any" placeholder="Longtitude" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label class="control-label" for="name">Victims number</label>
+                                <input class="form-control" type="number" name="properties[deaths]" id="deaths" placeholder="Victims number" min="0">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <h3>Additional information</h3>
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label class="control-label">Source</label>
+                                <input class="form-control" type="text" name="properties[source]" id="src" placeholder="Book, author, page number etc.">
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label class="control-label">Link to an additional source</label>
+                                <input class="form-control" type="text" name="properties[link]" id="url" placeholder="https://someurl">
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label class="control-label">Link to an image</label>
+                                <input class="form-control" type="text" name="properties[img]" id="img" placeholder="https://someurl.[png/jpg]">
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label class="control-label">Optional text</label>
+                                <textarea class="form-control" type="text" name="properties[text]" id="text" placeholder="Any text/quote/description"></textarea>
+                            </div>
+
+                            <div class="col-12 text-right">
+                                <input type="submit" class="btn-outline-dark btn">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top inside-form" id="mainNav">
@@ -86,20 +174,6 @@
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="battles-list" role="tabpanel" aria-labelledby="battles-list-tab">
                 <div class="list-group" id="mylist">
-                    <a class="list-group-item flex-column align-items-start" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        <div class="d-flex w-100 justify-content-between">
-                            List group item heading
-                            <small>
-                                <button><i class="fas fa-edit"></i></button>
-                                <button><i class="fas fa-times-circle"></i></button>
-                            </small>
-                        </div>
-                    </a>
-                    <div class="collapse" id="collapseExample">
-                        <div class="card card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="tab-pane fade" id="add-new" role="tabpanel" aria-labelledby="add-new-tab">

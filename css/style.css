@@ -12,6 +12,11 @@ body {
     font-family: 'Dosis', sans-serif;
 }
 
+button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
 h1,
 h2,
 h3,
@@ -376,4 +381,28 @@ circle:hover {
 
 .form-body .tab-pane {
     padding: 20px 0;
+}
+
+#battles-list .collapse-btn {
+    border: none;
+    margin-left: 10px;
+    outline: none;
+}
+
+#battles-list .icons-btn {
+    border: none;
+    /* margin-left: 10px; */
+    outline: none;
+}
+
+#battles-list .collapse-btn:focus,
+#battles-list .collapse-btn:active,
+#battles-list .icons-btn:active,
+#battles-list .icons-btn:focus {
+    outline: none!important;
+    box-shadow: none!important;
+}
+
+.card-body {
+    padding: 1.25rem 1.25rem 0;
 }
