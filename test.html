@@ -8,10 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis:300|Open+Sans">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis:300|Open+Sans"> -->
 
     <!-- Boostrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="js/bootstrap-4.1.2-dist/css/bootstrap.min.css" type="text/css">
 
     <!-- Font Awesome -->
     <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous"> -->
@@ -21,14 +22,16 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="css/nav-style.css" type="text/css">
 
+    <script src="js/jquery-3.3.1.min.js"></script>
+
     <!-- Boostrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script> -->
+    <script src="js/bootstrap-4.1.2-dist/js/bootstrap.min.js"></script>
 
     <!-- Jquery -->
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
-    <!-- <script src="js/jquery-3.3.1.min.js"></script> -->
 
     <!-- D3 -->
     <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
@@ -70,8 +73,9 @@
                     <form id="updateBattleForm" method="POST" action="">
                         <div class="form-row">
 
-                            <input type="hidden" name="type" value="Battle" id="type">
-                            <input type="hidden" name="geometry[types]" value="Point" id="geoType">
+                            <input type="hidden" name="type" value="Battle" id="edittype">
+                            <input type="hidden" name="geometry[types]" value="Point" id="editgeoType">
+                            <input type="hidden" name="id" value="" id="editid">
 
                             <div class="col-md-12">
                                 <h3>Basic information</h3>
@@ -79,27 +83,119 @@
 
                             <div class="form-group required col-md-12">
                                 <label class="control-label" for="name">Battle name</label>
-                                <input class="form-control" type="text" name="properties[name]" id="name" placeholder="Battle name" required>
+                                <input class="form-control" type="text" name="properties[name]" id="editname" placeholder="Battle name" required>
                             </div>
 
                             <div class="form-group required col-md-3">
                                 <label class="control-label" for="name">Battle date</label>
-                                <input class="form-control" type="number" name="properties[date]" id="date" min="0" placeholder="YYYY" required>
+                                <input class="form-control" type="number" name="properties[date]" id="editdate" min="0" placeholder="YYYY" required>
                             </div>
 
                             <div class="form-group required col-md-6">
                                 <label class="control-label">Battle location</label>
                                 <div class="input-group mb-3">
-                                    <input class="form-control" type="number" name="geometry[coordinates][1]" id="lng" min="0" step="any" placeholder="Latitude" required>
-                                    <input class="form-control" type="number" name="geometry[coordinates][0]" id="lat" min="0" step="any" placeholder="Longtitude" required>
+                                    <input class="form-control" type="number" name="geometry[coordinates][1]" id="editlng" min="0" step="any" placeholder="Latitude" required>
+                                    <input class="form-control" type="number" name="geometry[coordinates][0]" id="editlat" min="0" step="any" placeholder="Longtitude" required>
                                 </div>
                             </div>
 
                             <div class="form-group col-md-3">
                                 <label class="control-label" for="name">Victims number</label>
-                                <input class="form-control" type="number" name="properties[deaths]" id="deaths" placeholder="Victims number" min="0">
+                                <input class="form-control" type="number" name="properties[deaths]" id="editdeaths" placeholder="Victims number" min="0">
                             </div>
                         </div>
+
+                        <!-- <div class="form-row upload-container">
+                            <div class="col-md-12">
+                                <h3>Sources</h3>
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label class="control-label" for="pdf-file">PDF file 1</label>
+                                <input class="form-control" type="file" name="file" id="editpdf-file">
+                            </div>
+
+                            <input type="hidden" name="pdf[0][src]" value="" id="editpdf-src">
+
+                            <div class="form-group col-md-3">
+                                <label class="control-label" for="source_name">Source title</label>
+                                <input class="form-control" type="text" name="pdf[0][name]" id="editsource_name" placeholder="Source title">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label class="control-label" for="author_name">Author name</label>
+                                <input class="form-control" type="text" name="pdf[0][author]" id="editauthor_name" placeholder="Author name">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label class="control-label" for="pubdate">Date of publication</label>
+                                <input class="form-control" type="number" name="pdf[0][pubdate]" id="editpubdate" placeholder="Publication date" min="0">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label class="control-label" for="startpage">Starting page</label>
+                                <input class="form-control" type="number" name="pdf[0][startpage]" id="editstartpage" placeholder="Starting page (1 by default)" min="0">
+                            </div>
+
+                            <hr>
+
+                            <div class="form-group col-md-12">
+                                <label class="control-label" for="pdf-file1">PDF file 2</label>
+                                <input class="form-control" type="file" name="file1" id="editpdf-file1">
+                            </div>
+
+                            <input type="hidden" name="pdf[1][src]" value="" id="editpdf-src1">
+
+                            <div class="form-group col-md-3">
+                                <label class="control-label" for="source_name1">Source title</label>
+                                <input class="form-control" type="text" name="pdf[1][name]" id="editsource_name1" placeholder="Source title">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label class="control-label" for="author_name">Author name</label>
+                                <input class="form-control" type="text" name="pdf[1][author]" id="editauthor_name1" placeholder="Author name">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label class="control-label" for="pubdate">Date of publication</label>
+                                <input class="form-control" type="number" name="pdf[1][pubdate]" id="editpubdate1" placeholder="Publication date" min="0">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label class="control-label" for="startpage">Starting page</label>
+                                <input class="form-control" type="number" name="pdf[1][startpage]" id="editstartpage1" placeholder="Starting page (1 by default)" min="0">
+                            </div>
+
+                            <hr>
+
+                            <input type="hidden" name="pdf[2][src]" value="" id="editpdf-src2">
+
+                            <div class="form-group col-md-12">
+                                <label class="control-label" for="pdf-file2">PDF file 3</label>
+                                <input class="form-control" type="file" name="file2" id="editpdf-file2">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label class="control-label" for="source_name2">Source title</label>
+                                <input class="form-control" type="text" name="pdf[2][name]" id="editsource_name2" placeholder="Source title">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label class="control-label" for="author_name">Author name</label>
+                                <input class="form-control" type="text" name="pdf[2][author]" id="editauthor_name2" placeholder="Author name">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label class="control-label" for="pubdate">Date of publication</label>
+                                <input class="form-control" type="number" name="pdf[2][pubdate]" id="editpubdate2" placeholder="Publication date" min="0">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label class="control-label" for="startpage">Starting page</label>
+                                <input class="form-control" type="number" name="pdf[2][startpage]" id="editstartpage2" placeholder="Starting page (1 by default)" min="0">
+                            </div>
+
+                        </div> -->
 
                         <div class="form-row">
                             <div class="col-md-12">
@@ -108,22 +204,22 @@
 
                             <div class="form-group col-md-12">
                                 <label class="control-label">Source</label>
-                                <input class="form-control" type="text" name="properties[source]" id="src" placeholder="Book, author, page number etc.">
+                                <input class="form-control" type="text" name="properties[source]" id="editsrc" placeholder="Book, author, page number etc.">
                             </div>
 
                             <div class="form-group col-md-12">
                                 <label class="control-label">Link to an additional source</label>
-                                <input class="form-control" type="text" name="properties[link]" id="url" placeholder="https://someurl">
+                                <input class="form-control" type="text" name="properties[link]" id="editurl" placeholder="https://someurl">
                             </div>
 
                             <div class="form-group col-md-12">
                                 <label class="control-label">Link to an image</label>
-                                <input class="form-control" type="text" name="properties[img]" id="img" placeholder="https://someurl.[png/jpg]">
+                                <input class="form-control" type="text" name="properties[img]" id="editimg" placeholder="https://someurl.[png/jpg]">
                             </div>
 
                             <div class="form-group col-md-12">
                                 <label class="control-label">Optional text</label>
-                                <textarea class="form-control" type="text" name="properties[text]" id="text" placeholder="Any text/quote/description"></textarea>
+                                <textarea class="form-control" type="text" name="properties[text]" id="edittext" placeholder="Any text/quote/description"></textarea>
                             </div>
 
                             <div class="col-12 text-right">
@@ -201,15 +297,54 @@
                         <div class="form-group required col-md-6">
                             <label class="control-label">Battle location</label>
                             <div class="input-group mb-3">
-                                <input class="form-control" type="number" name="geometry[coordinates][1]" id="lng" min="0" step="any" placeholder="Latitude" required>
-                                <input class="form-control" type="number" name="geometry[coordinates][0]" id="lat" min="0" step="any" placeholder="Longtitude" required>
+                                <input class="form-control" type="number" name="geometry[coordinates][]" id="lng" min="0" step="any" placeholder="Latitude" required>
+                                <input class="form-control" type="number" name="geometry[coordinates][]" id="lat" min="0" step="any" placeholder="Longtitude" required>
                             </div>
                         </div>
 
                         <div class="form-group col-md-3">
-                            <label class="control-label" for="name">Victims number</label>
+                            <label class="control-label" for="deaths">Victims number</label>
                             <input class="form-control" type="number" name="properties[deaths]" id="deaths" placeholder="Victims number" min="0">
                         </div>
+                    </div>
+                    <div class="form-row upload-container">
+                        <div class="col-md-12">
+                            <h3>Sources</h3>
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <label class="control-label" for="pdf-file">PDF file</label>
+                            <input class="form-control" type="file" name="file" id="pdf-file">
+                        </div>
+
+                        <input type="hidden" name="pdf[][src]" value="" id="pdf-src">
+
+                        <div class="form-group col-md-3">
+                            <label class="control-label" for="source_name">Source title</label>
+                            <input class="form-control" type="text" name="pdf[][name]" id="source_name" placeholder="Source title">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label class="control-label" for="author_name">Author name</label>
+                            <input class="form-control" type="text" name="pdf[][author]" id="author_name" placeholder="Author name">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label class="control-label" for="pubdate">Date of publication</label>
+                            <input class="form-control" type="number" name="pdf[][pubdate]" id="pubdate" placeholder="Publication date" min="0">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label class="control-label" for="startpage">Starting page</label>
+                            <input class="form-control" type="number" name="pdf[][startpage]" id="startpage" placeholder="Starting page (1 by default)" min="0">
+                        </div>
+
+                        <div class="add-more-container">
+                            <hr>
+                            <span class="add-more-text">Add more sources</span>
+                            <i id="addmorebtn" class="fas fa-plus-circle fa-lg add-more-icon"></i>
+                        </div>
+
                     </div>
 
                     <div class="form-row">
@@ -218,7 +353,7 @@
                         </div>
 
                         <div class="form-group col-md-12">
-                            <label class="control-label">Source</label>
+                            <label class="control-label">References</label>
                             <input class="form-control" type="text" name="properties[source]" id="src" placeholder="Book, author, page number etc.">
                         </div>
 

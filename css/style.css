@@ -1,3 +1,13 @@
+@font-face {
+    font-family: DosisLight;
+    src: url("../fonts/Dosis/Dosis-Light.ttf");
+}
+
+@font-face {
+    font-family: OpenSans;
+    src: url("../fonts/Open_Sans/OpenSans-Regular.ttf");
+}
+
 html,
 body {
     margin: 0;
@@ -9,7 +19,7 @@ body {
 body {
     /* min-height: 800px; */
     position: relative;
-    font-family: 'Dosis', sans-serif;
+    font-family: DosisLight, 'Dosis', sans-serif;
 }
 
 button:focus {
@@ -30,11 +40,15 @@ b {
 
 p,
 a {
-    font-family: 'Dosis', sans-serif;
+    font-family: DosisLight, 'Dosis', sans-serif;
 }
 
 p {
     display: inline-block;
+}
+
+hr {
+    width: 100%;
 }
 
 #map {
@@ -46,7 +60,7 @@ p {
 
 .labels {
     display: none;
-    font-family: 'Open Sans', sans-serif;
+    font-family: OpenSans, 'Open Sans', sans-serif;
 }
 
 .extra-container {
@@ -405,4 +419,51 @@ circle:hover {
 
 .card-body {
     padding: 1.25rem 1.25rem 0;
+}
+
+.upload-container {
+    margin-bottom: 20px;
+}
+
+.modal-dialog {
+    min-width: 50%;
+}
+
+.add-more-container {
+    width: 100%;
+    display: flex;
+}
+
+.add-more-container .add-more-text {
+    flex: none;
+    margin: auto 10px;
+}
+
+.add-more-container .add-more-icon {
+    margin: auto;
+}
+
+.add-more-container .add-more-icon:hover,
+.add-more-container .add-more-icon:active,
+.add-more-container .add-more-icon:focus,
+.add-more-container .add-more-icon:hover path,
+.add-more-container .add-more-icon:active path,
+.add-more-container .add-more-icon:focus path {
+    cursor: pointer;
+    fill: #999;
+}
+
+.inside-wrapper {
+    display: contents;
+}
+
+.inside-wrapper .remove-btn {
+    color: #e43b3b;
+}
+
+.inside-wrapper .remove-btn:hover,
+.inside-wrapper .remove-btn:active,
+.inside-wrapper .remove-btn:focus {
+    cursor: pointer;
+    text-decoration: underline;
 }

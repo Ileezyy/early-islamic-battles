@@ -1,0 +1,33 @@
+<div class="inside-wrapper">
+    <div class="form-group col-md-12">
+        <label class="control-label" for="pdf-file">PDF file</label>
+        <input class="form-control" type="file" name="file">
+    </div>
+
+    <input type="hidden" name="pdf[][src]" value="">
+
+    <div class="form-group col-md-3">
+        <label class="control-label" for="source_name">Source title</label>
+        <input class="form-control" type="text" name="pdf[][name]" placeholder="Source title">
+    </div>
+
+    <div class="form-group col-md-3">
+        <label class="control-label" for="author_name">Author name</label>
+        <input class="form-control" type="text" name="pdf[][author]" placeholder="Author name">
+    </div>
+
+    <div class="form-group col-md-3">
+        <label class="control-label" for="pubdate">Date of publication</label>
+        <input class="form-control" type="number" name="pdf[][pubdate]" placeholder="Publication date" min="0">
+    </div>
+
+    <div class="form-group col-md-3">
+        <label class="control-label" for="startpage">Starting page</label>
+        <input class="form-control" type="number" name="pdf[][startpage]" placeholder="Starting page (1 by default)" min="0">
+    </div>
+
+    <div class="add-more-container">
+        <hr>
+        <span class="add-more-text remove-btn remove_field">Remove source</span>
+    </div>
+</div>
