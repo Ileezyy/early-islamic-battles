@@ -1,0 +1,26 @@
+<div class="form-group col-md-12">
+    <label class="control-label">PDF file</label>
+    <input class="form-control" type="file" name="file">
+</div>
+
+<input id="editpdfsrc" type="hidden" name="pdf[][src]" value="">
+
+<div class="form-group col-md-5">
+    <label class="control-label">Source title</label>
+    <input id="editpdfname" class="form-control" type="text" name="pdf[][name]" placeholder="Source title">
+</div>
+
+<div class="form-group col-md-5">
+    <label class="control-label">Author name</label>
+    <input id="editpdfauthor" class="form-control" type="text" name="pdf[][author]" placeholder="Author name">
+</div>
+
+<div class="form-group col-md-2">
+    <label class="control-label">Starting page</label>
+    <input id="editpdfstartpage" class="form-control" type="number" name="pdf[][startpage]" placeholder="Starting page (1 by default)" min="0">
+</div>
+
+<div class="form-group col-md-12">
+    <label class="control-label">Additional information</label>
+    <input id="editpdfextra" class="form-control" type="text" name="pdf[][extra]" placeholder="Additional information">
+</div>

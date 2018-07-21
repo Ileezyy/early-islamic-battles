@@ -1,11 +1,12 @@
 $(document).ready(function() {
     var max_fields = 10; //maximum input boxes allowed
     var wrapper = $(".upload-container"); //Fields wrapper
-    var add_button = $("#addmorebtn"); //Add button ID
-
     var x = 1; //initlal text box count
-    $(add_button).on("click", function(e) { //on add input button click
+    // console.log(x);
+
+    $(".add-more-icon").on("click", function(e) { //on add input button click
         e.preventDefault();
+
         if (x < max_fields) { //max input box allowed
             x++; //text box increment
             $.get("../templates/uploadForm.html", function(data) {
@@ -14,9 +15,10 @@ $(document).ready(function() {
         }
     });
 
+
     $(wrapper).on("click", ".remove_field", function(e) { //user click on remove text
         e.preventDefault();
-        $(this).parent().parent('div').remove();
+        $(this).parent().parent('.inside-wrapper').remove();
         x--;
     })
 });
@@ -25,44 +27,46 @@ $("#battleForm").submit(function(e) {
     e.preventDefault();
 
     var form_data = new FormData($("#battleForm").get(0));
+    var inputFiles = $('#battleForm input[type="file"]');
     var files = [];
 
-    $('input[type="file"]').each(function() {
-        var new_file = $(this).prop('files')[0];
-        console.log("ALL files", $(this).prop('files')[0]);
-        files.push(new_file);
-    });
-
-    $.each(files, function(i, file) {
-        form_data.append("file", file);
-
-        $.ajax({
-            url: 'php/upload.php', // point to server-side PHP script
-            dataType: 'text', // what to expect back from the PHP script, if anything
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: form_data,
-            type: 'POST',
-            success: function(output) {
-                console.log(output); // display response from the PHP script, if any
-            }
-        });
-    });
-
     var inputData = $('form#battleForm').serializeObject();
-
     console.log(inputData);
 
-    for (let j = 0; j < files.length; j++) {
-        inputData.pdf[j].src = files[j].name;
-        console.log("inside for", inputData.pdf[j].src);
+    if (inputFiles.prop('files').length > 0) {
+        inputFiles.each(function() {
+            var new_file = $(this).prop('files')[0];
+            console.log("ALL files", $(this).prop('files')[0]);
+            files.push(new_file);
+        });
+
+        $.each(files, function(i, file) {
+            form_data.append("file", file);
+
+            $.ajax({
+                url: 'php/upload.php', // point to server-side PHP script
+                dataType: 'text', // what to expect back from the PHP script, if anything
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: form_data,
+                type: 'POST',
+                success: function(output) {
+                    console.log(output); // display response from the PHP script, if any
+                }
+            });
+        });
+
+        for (let j = 0; j < files.length; j++) {
+            inputData.pdf[j].src = files[j].name;
+            console.log("inside for", inputData.pdf[j].src);
+        }
     }
 
     d3.json("/data/all_battles_new.json", function(error, data) {
 
         /*for (let k = 0; k < data.length; k++) {
-            data[k].pdf = [{ "name": "", "author": "", "pubdate": "", "src": "", "startpage": "", "dateofdeath": "" }];
+            data[k].pdf = [{ "name": "", "author": "", "extra": "", "src": "", "startpage": "" }];
         }*/
 
         data.push(inputData);
@@ -81,12 +85,7 @@ $("#battleForm").submit(function(e) {
                 data[i].properties.date = Number(data[i].properties.date);
 
                 for (let j = 0; j < data[i].pdf.length; j++) {
-                    console.log(data[i].pdf[j]);
-
-                    if (typeof data[i].pdf[j].startpage === 'string' ||
-                        typeof data[i].pdf[j].pubdate === 'string') {
-
-                        data[i].pdf[j].pubdate = Number(data[i].pdf[j].pubdate);
+                    if (typeof data[i].pdf[j].startpage === 'string') {
                         data[i].pdf[j].startpage = Number(data[i].pdf[j].startpage);
                     }
                 }
@@ -164,15 +163,21 @@ function saveDeleted(data) {
 }
 
 $(document).ready(function() {
+    $('#updateBattleForm input[type="file"]').change(function() {
+        console.log("SOSOS");
+    });
+
     d3.json("/data/all_battles_new.json", function(error, data) {
         if (error) throw error;
 
         data = data.sort(function(a, b) { return d3.ascending(a.properties.date, b.properties.date); })
 
         for (var i in data) {
+            // console.log(data[i]);
+
             var listItem = "<a id=" + data[i].id + " class='list-group-item flex-column align-items-start'>" +
                 "<div class='d-flex w-100 justify-content-between'>" + "<div>" + data[i].properties.name + " (" + data[i].properties.date + ") " +
-                "<button class='btn collapse-btn' data-target='#col" + data[i].id + "' data-toggle='collapse' role='button' aria-expanded='false' aria-controls='col" + data[i].id + "'>" + "<i class='fas fa-caret-down'></i>" + "</button></div>" +
+                "<!-- <button class='btn collapse-btn' data-target='#col" + data[i].id + "' data-toggle='collapse' role='button' aria-expanded='false' aria-controls='col" + data[i].id + "'>" + "<i class='fas fa-caret-down'></i>" + "</button>--></div>" +
                 "<small>" +
                 "<button class='btn icons-btn' type='button' data-toggle='modal' data-target='#editBattleModal' " +
                 " data-bid='" + data[i].id + "' " +
@@ -200,6 +205,7 @@ $(document).ready(function() {
 });
 
 $('#editBattleModal').on('show.bs.modal', function(event) {
+    $('.upload-container .inside-wrapper').html("");
     // console.log("sdsd" + data);
     var button = $(event.relatedTarget) // Button that triggered the modal
     var bid = button.data('bid');
@@ -211,13 +217,7 @@ $('#editBattleModal').on('show.bs.modal', function(event) {
     var src = button.data('bsrc') // Extract info from data-* attributes
     var img = button.data('bimg') // Extract info from data-* attributes
     var link = button.data('blink') // Extract info from data-* attributes
-
-    // var text = button.data('editpdf-file') // Extract info from data-* attributes
-    // var text = button.data('editpdf-src') // Extract info from data-* attributes
-
-    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-    console.log("sdsd", name);
+    var text = button.data('btext') // Extract info from data-* attributes
 
     var modal = $(this);
     // modal.find('.modal-title').text('The ' + data.name + ' battle')
@@ -231,13 +231,86 @@ $('#editBattleModal').on('show.bs.modal', function(event) {
     modal.find('#editurl').val(link);
     modal.find('#edittext').val(text);
     modal.find('#editid').val(bid);
+
+    d3.json("/data/all_battles_new.json", function(error, data) {
+        if (error) throw error;
+
+        for (let i in data) {
+            if (bid === data[i].id) {
+                console.log(bid);
+                for (let j = 0; j < data[i].pdf.length; j++) {
+                    var updateUpload = "<div class='form-group col-md-12'> <label class='control-label'>PDF file</label>" +
+                        "<p class='file-old-name'>" + data[i].pdf[j].src + "</p>" +
+                        "<input class='form-control' type='file' name='file'></div>" +
+                        "<input id='editpdfsrc' type='hidden' name='pdf[][src]' value='" + data[i].pdf[j].src + "'>" +
+                        "<div class='form-group col-md-5'> <label class='control-label'>Source title</label>" +
+                        "<input id='editpdfname' class='form-control' type='text' name='pdf[][name]' placeholder='Source title' value='" + data[i].pdf[j].name + "'></div>" +
+                        "<div class='form-group col-md-5'> <label class='control-label'>Author name</label>" +
+                        "<input id='editpdfauthor' class='form-control' type='text' name='pdf[][author]' placeholder='Author name' value='" + data[i].pdf[j].author + "'></div>" +
+                        "<div class='form-group col-md-2'> <label class='control-label'>Starting page</label>" +
+                        "<input id='editpdfstartpage' class='form-control' type='number' name='pdf[][startpage]' placeholder='Starting page (1 by default)' min='0' value='" + data[i].pdf[j].startpage + "'></div>" +
+                        "<div class='form-group col-md-12'> <label class='control-label'>Additional information</label>" +
+                        "<input id='editpdfextra' class='form-control' type='text' name='pdf[][extra]' placeholder='Additional information' value='" + data[i].pdf[j].extra + "'></div>";
+                    if (data[i].pdf.length <= 1) {
+                        $('.upload-container .inside-wrapper').html(updateUpload);
+                    } else {
+                        console.log("inside if", data[i].pdf.length);
+                        $('.upload-container .inside-wrapper').append(updateUpload);
+                    }
+                }
+            }
+        }
+    });
+
 });
 
 // update
 $("#updateBattleForm").submit(function(e) {
     e.preventDefault();
 
+    var form_data = new FormData($("#updateBattleForm").get(0));
+    var inputFile = $('#updateBattleForm input[type="file"]');
+    var files = [];
     var inputData = $(this).serializeObject();
+
+    if (inputFile.prop('files').length > 0) {
+
+        inputFile.each(function() {
+            var new_file = $(this).prop('files')[0];
+            files.push(new_file);
+        });
+
+        $.each(files, function(i, file) {
+            form_data.append("file", file);
+
+            $.ajax({
+                url: 'php/upload.php', // point to server-side PHP script
+                dataType: 'text', // what to expect back from the PHP script, if anything
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: form_data,
+                type: 'POST',
+                success: function(output) {
+                    console.log(output); // display response from the PHP script, if any
+                }
+            });
+        });
+    } else {
+        console.log("Array is 0");
+    }
+
+    if (files.length > 0) {
+        files = files.filter(function(element) {
+            return element !== undefined;
+        });
+
+        for (let j = 0; j < files.length; j++) {
+            console.log(files);
+            inputData.pdf[j].src = files[j].name;
+            // console.log("inside for", inputData.pdf[j].src);
+        }
+    }
 
     d3.json("/data/all_battles_new.json", function(error, data) {
         if (error) throw error;
@@ -245,6 +318,7 @@ $("#updateBattleForm").submit(function(e) {
         console.log(inputData.id);
 
         for (let i in data) {
+
             if (inputData.id === data[i].id) {
                 data[i] = inputData;
             }
@@ -258,8 +332,15 @@ $("#updateBattleForm").submit(function(e) {
                 data[i].geometry.coordinates[1] = Number(data[i].geometry.coordinates[1]);
                 data[i].properties.deaths = Number(data[i].properties.deaths);
                 data[i].properties.date = Number(data[i].properties.date);
+
+                for (let j = 0; j < data[i].pdf.length; j++) {
+                    if (typeof data[i].pdf[j].startpage === 'string') {
+                        data[i].pdf[j].startpage = Number(data[i].pdf[j].startpage);
+                    }
+                }
             }
         }
+
         console.log(inputData);
         console.log(data);
 

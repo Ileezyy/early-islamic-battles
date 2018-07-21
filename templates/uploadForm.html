@@ -1,29 +1,30 @@
 <div class="inside-wrapper">
     <div class="form-group col-md-12">
-        <label class="control-label" for="pdf-file">PDF file</label>
-        <input class="form-control" type="file" name="file">
+        <label class="control-label">PDF file</label>
+        <input class="form-control" type="file" name="file" id="pdf_file">
     </div>
 
-    <input type="hidden" name="pdf[][src]" value="">
+    <input type="hidden" name="pdf[][src]" value="" id="pdf_src">
 
-    <div class="form-group col-md-3">
-        <label class="control-label" for="source_name">Source title</label>
-        <input class="form-control" type="text" name="pdf[][name]" placeholder="Source title">
+    <div class="form-group col-md-5">
+        <label class="control-label">Source title</label>
+        <input class="form-control" type="text" name="pdf[][name]" placeholder="Source title" id="pdf_name">
     </div>
 
-    <div class="form-group col-md-3">
-        <label class="control-label" for="author_name">Author name</label>
-        <input class="form-control" type="text" name="pdf[][author]" placeholder="Author name">
+    <div class="form-group col-md-5">
+        <label class="control-label">Author name</label>
+        <input class="form-control" type="text" name="pdf[][author]" placeholder="Author name" id="pdf_author">
     </div>
 
-    <div class="form-group col-md-3">
-        <label class="control-label" for="pubdate">Date of publication</label>
-        <input class="form-control" type="number" name="pdf[][pubdate]" placeholder="Publication date" min="0">
+    <div class="form-group col-md-2">
+        <label class="control-label">Starting page</label>
+        <input class="form-control" type="number" name="pdf[][startpage]" placeholder="Starting page (1 by default)" min="0" id="pdf_startpage">
     </div>
 
-    <div class="form-group col-md-3">
-        <label class="control-label" for="startpage">Starting page</label>
-        <input class="form-control" type="number" name="pdf[][startpage]" placeholder="Starting page (1 by default)" min="0">
+    <div class="form-group col-md-12">
+        <label class="control-label">Additional information</label>
+        <!-- <textarea class="form-control" name="pdf[][extra]" placeholder="Additional information"></textarea> -->
+        <input id="editpdfextra" class="form-control" type="text" name="pdf[][extra]" placeholder="Additional information" id="pdf_extra">
     </div>
 
     <div class="add-more-container">

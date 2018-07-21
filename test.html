@@ -22,16 +22,15 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="css/nav-style.css" type="text/css">
 
-    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- <script src="js/jquery-3.3.1.min.js"></script> -->
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
     <!-- Boostrap JS -->
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> -->
     <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script> -->
     <script src="js/bootstrap-4.1.2-dist/js/bootstrap.min.js"></script>
-
-    <!-- Jquery -->
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
 
     <!-- D3 -->
     <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
@@ -105,97 +104,17 @@
                             </div>
                         </div>
 
-                        <!-- <div class="form-row upload-container">
+                        <div class="form-row upload-container">
                             <div class="col-md-12">
                                 <h3>Sources</h3>
                             </div>
-
-                            <div class="form-group col-md-12">
-                                <label class="control-label" for="pdf-file">PDF file 1</label>
-                                <input class="form-control" type="file" name="file" id="editpdf-file">
+                            <div class="inside-wrapper"></div>
+                            <div class="add-more-container">
+                                <hr>
+                                <span class="add-more-text">Add more sources</span>
+                                <i id="addmorebtn" class="fas fa-plus-circle fa-lg add-more-icon"></i>
                             </div>
-
-                            <input type="hidden" name="pdf[0][src]" value="" id="editpdf-src">
-
-                            <div class="form-group col-md-3">
-                                <label class="control-label" for="source_name">Source title</label>
-                                <input class="form-control" type="text" name="pdf[0][name]" id="editsource_name" placeholder="Source title">
-                            </div>
-
-                            <div class="form-group col-md-3">
-                                <label class="control-label" for="author_name">Author name</label>
-                                <input class="form-control" type="text" name="pdf[0][author]" id="editauthor_name" placeholder="Author name">
-                            </div>
-
-                            <div class="form-group col-md-3">
-                                <label class="control-label" for="pubdate">Date of publication</label>
-                                <input class="form-control" type="number" name="pdf[0][pubdate]" id="editpubdate" placeholder="Publication date" min="0">
-                            </div>
-
-                            <div class="form-group col-md-3">
-                                <label class="control-label" for="startpage">Starting page</label>
-                                <input class="form-control" type="number" name="pdf[0][startpage]" id="editstartpage" placeholder="Starting page (1 by default)" min="0">
-                            </div>
-
-                            <hr>
-
-                            <div class="form-group col-md-12">
-                                <label class="control-label" for="pdf-file1">PDF file 2</label>
-                                <input class="form-control" type="file" name="file1" id="editpdf-file1">
-                            </div>
-
-                            <input type="hidden" name="pdf[1][src]" value="" id="editpdf-src1">
-
-                            <div class="form-group col-md-3">
-                                <label class="control-label" for="source_name1">Source title</label>
-                                <input class="form-control" type="text" name="pdf[1][name]" id="editsource_name1" placeholder="Source title">
-                            </div>
-
-                            <div class="form-group col-md-3">
-                                <label class="control-label" for="author_name">Author name</label>
-                                <input class="form-control" type="text" name="pdf[1][author]" id="editauthor_name1" placeholder="Author name">
-                            </div>
-
-                            <div class="form-group col-md-3">
-                                <label class="control-label" for="pubdate">Date of publication</label>
-                                <input class="form-control" type="number" name="pdf[1][pubdate]" id="editpubdate1" placeholder="Publication date" min="0">
-                            </div>
-
-                            <div class="form-group col-md-3">
-                                <label class="control-label" for="startpage">Starting page</label>
-                                <input class="form-control" type="number" name="pdf[1][startpage]" id="editstartpage1" placeholder="Starting page (1 by default)" min="0">
-                            </div>
-
-                            <hr>
-
-                            <input type="hidden" name="pdf[2][src]" value="" id="editpdf-src2">
-
-                            <div class="form-group col-md-12">
-                                <label class="control-label" for="pdf-file2">PDF file 3</label>
-                                <input class="form-control" type="file" name="file2" id="editpdf-file2">
-                            </div>
-
-                            <div class="form-group col-md-3">
-                                <label class="control-label" for="source_name2">Source title</label>
-                                <input class="form-control" type="text" name="pdf[2][name]" id="editsource_name2" placeholder="Source title">
-                            </div>
-
-                            <div class="form-group col-md-3">
-                                <label class="control-label" for="author_name">Author name</label>
-                                <input class="form-control" type="text" name="pdf[2][author]" id="editauthor_name2" placeholder="Author name">
-                            </div>
-
-                            <div class="form-group col-md-3">
-                                <label class="control-label" for="pubdate">Date of publication</label>
-                                <input class="form-control" type="number" name="pdf[2][pubdate]" id="editpubdate2" placeholder="Publication date" min="0">
-                            </div>
-
-                            <div class="form-group col-md-3">
-                                <label class="control-label" for="startpage">Starting page</label>
-                                <input class="form-control" type="number" name="pdf[2][startpage]" id="editstartpage2" placeholder="Starting page (1 by default)" min="0">
-                            </div>
-
-                        </div> -->
+                        </div>
 
                         <div class="form-row">
                             <div class="col-md-12">
@@ -219,7 +138,8 @@
 
                             <div class="form-group col-md-12">
                                 <label class="control-label">Optional text</label>
-                                <textarea class="form-control" type="text" name="properties[text]" id="edittext" placeholder="Any text/quote/description"></textarea>
+                                <!-- <textarea class="form-control" type="text" name="properties[text]" id="edittext" placeholder="Any text/quote/description"></textarea> -->
+                                <input id="edittext" class="form-control" type="text" name="properties[text]" placeholder="Any text/quote/description">
                             </div>
 
                             <div class="col-12 text-right">
@@ -307,6 +227,7 @@
                             <input class="form-control" type="number" name="properties[deaths]" id="deaths" placeholder="Victims number" min="0">
                         </div>
                     </div>
+
                     <div class="form-row upload-container">
                         <div class="col-md-12">
                             <h3>Sources</h3>
@@ -314,29 +235,30 @@
 
                         <div class="form-group col-md-12">
                             <label class="control-label" for="pdf-file">PDF file</label>
-                            <input class="form-control" type="file" name="file" id="pdf-file">
+                            <input class="form-control" type="file" name="file" id="pdf_file">
                         </div>
 
-                        <input type="hidden" name="pdf[][src]" value="" id="pdf-src">
+                        <input type="hidden" name="pdf[][src]" value="" id="pdf_src">
 
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-5">
                             <label class="control-label" for="source_name">Source title</label>
                             <input class="form-control" type="text" name="pdf[][name]" id="source_name" placeholder="Source title">
                         </div>
 
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-5">
                             <label class="control-label" for="author_name">Author name</label>
                             <input class="form-control" type="text" name="pdf[][author]" id="author_name" placeholder="Author name">
                         </div>
 
-                        <div class="form-group col-md-3">
-                            <label class="control-label" for="pubdate">Date of publication</label>
-                            <input class="form-control" type="number" name="pdf[][pubdate]" id="pubdate" placeholder="Publication date" min="0">
+                        <div class="form-group col-md-2">
+                            <label class="control-label">Starting page</label>
+                            <input id="start_page" class="form-control" type="number" name="pdf[][startpage]" placeholder="Starting page (1 by default)" min="0">
                         </div>
 
-                        <div class="form-group col-md-3">
-                            <label class="control-label" for="startpage">Starting page</label>
-                            <input class="form-control" type="number" name="pdf[][startpage]" id="startpage" placeholder="Starting page (1 by default)" min="0">
+                        <div class="form-group col-md-12">
+                            <label class="control-label">Additional information</label>
+                            <!-- <textarea class="form-control" name="pdf[][extra]" placeholder="Additional information"></textarea> -->
+                            <input id="extra_info" class="form-control" type="text" name="pdf[][extra]" placeholder="Additional information">
                         </div>
 
                         <div class="add-more-container">
@@ -369,7 +291,8 @@
 
                         <div class="form-group col-md-12">
                             <label class="control-label">Optional text</label>
-                            <textarea class="form-control" type="text" name="properties[text]" id="text" placeholder="Any text/quote/description"></textarea>
+                            <!-- <textarea class="form-control" type="text" name="properties[text]" id="text" placeholder="Any text/quote/description"></textarea> -->
+                            <input id="edittext" class="form-control" type="text" name="properties[text]" placeholder="Any text/quote/description">
                         </div>
 
                         <div class="col-12 text-right">

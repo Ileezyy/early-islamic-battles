@@ -457,6 +457,13 @@ circle:hover {
     display: contents;
 }
 
+.inside-wrapper .col-md-12,
+.inside-wrapper .col-md-5,
+.inside-wrapper .col-md-2 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
 .inside-wrapper .remove-btn {
     color: #e43b3b;
 }
@@ -466,4 +473,11 @@ circle:hover {
 .inside-wrapper .remove-btn:focus {
     cursor: pointer;
     text-decoration: underline;
+}
+
+.inside-wrapper .file-old-name {
+    display: block;
+    margin: 0;
+    font-size: 12px;
+    color: #f00;
 }
