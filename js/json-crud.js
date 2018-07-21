@@ -163,17 +163,25 @@ function saveDeleted(data) {
 }
 
 $(document).ready(function() {
-    $('#updateBattleForm input[type="file"]').change(function() {
-        console.log("SOSOS");
-    });
-
     d3.json("/data/all_battles_new.json", function(error, data) {
         if (error) throw error;
 
-        data = data.sort(function(a, b) { return d3.ascending(a.properties.date, b.properties.date); })
+        data = data.sort(function(a, b) { return d3.ascending(a.properties.date, b.properties.date); });
 
         for (var i in data) {
             // console.log(data[i]);
+            var name = data[i].properties.name;
+            var text = data[i].properties.text;
+            var source = data[i].properties.source;
+
+            if (name.indexOf("'") >= 0) {
+                name = name.replace(/'/g, '&#39;');
+                console.log(name);
+            } else if (source.indexOf("'") >= 0) {
+                source = source.replace(/'/g, '&#39;');
+            } else if (text.indexOf("'") >= 0) {
+                text = text.replace(/'/g, '&#39;');
+            }
 
             var listItem = "<a id=" + data[i].id + " class='list-group-item flex-column align-items-start'>" +
                 "<div class='d-flex w-100 justify-content-between'>" + "<div>" + data[i].properties.name + " (" + data[i].properties.date + ") " +
@@ -181,15 +189,15 @@ $(document).ready(function() {
                 "<small>" +
                 "<button class='btn icons-btn' type='button' data-toggle='modal' data-target='#editBattleModal' " +
                 " data-bid='" + data[i].id + "' " +
-                " data-bname='" + data[i].properties.name + "' " +
+                " data-bname='" + name + "' " +
                 " data-bdate='" + data[i].properties.date + "' " +
                 " data-bdeaths='" + data[i].properties.deaths + "' " +
                 " data-blat='" + data[i].geometry.coordinates[0] + "' " +
                 " data-blng='" + data[i].geometry.coordinates[1] + "' " +
-                " data-bsrc='" + data[i].properties.source + "' " +
+                " data-bsrc='" + source + "' " +
                 " data-blink='" + data[i].properties.link + "' " +
                 " data-bimg='" + data[i].properties.img + "' " +
-                " data-btext='" + data[i].properties.text + "'><i class='fas fa-edit'></i></button>" +
+                " data-btext='" + text + "'><i class='fas fa-edit'></i></button>" +
                 "<button class='btn icons-btn' onclick=deleteItem($(this).closest('a').attr('id'))><i class='fas fa-times-circle'></i></button>" +
                 "</small></div></a>"
 
@@ -240,8 +248,8 @@ $('#editBattleModal').on('show.bs.modal', function(event) {
                 console.log(bid);
                 for (let j = 0; j < data[i].pdf.length; j++) {
                     var updateUpload = "<div class='form-group col-md-12'> <label class='control-label'>PDF file</label>" +
-                        "<p class='file-old-name'>" + data[i].pdf[j].src + "</p>" +
-                        "<input class='form-control' type='file' name='file'></div>" +
+                        "<p class='file-old-name'><span>Current file name: </span>" + data[i].pdf[j].src + "</p>" +
+                        "<input class='form-control' type='file' name='file' onchange='fileSelected($(this))'></div>" +
                         "<input id='editpdfsrc' type='hidden' name='pdf[][src]' value='" + data[i].pdf[j].src + "'>" +
                         "<div class='form-group col-md-5'> <label class='control-label'>Source title</label>" +
                         "<input id='editpdfname' class='form-control' type='text' name='pdf[][name]' placeholder='Source title' value='" + data[i].pdf[j].name + "'></div>" +
@@ -251,8 +259,13 @@ $('#editBattleModal').on('show.bs.modal', function(event) {
                         "<input id='editpdfstartpage' class='form-control' type='number' name='pdf[][startpage]' placeholder='Starting page (1 by default)' min='0' value='" + data[i].pdf[j].startpage + "'></div>" +
                         "<div class='form-group col-md-12'> <label class='control-label'>Additional information</label>" +
                         "<input id='editpdfextra' class='form-control' type='text' name='pdf[][extra]' placeholder='Additional information' value='" + data[i].pdf[j].extra + "'></div>";
-                    if (data[i].pdf.length <= 1) {
+
+                    if (data[i].pdf.length === 1) {
                         $('.upload-container .inside-wrapper').html(updateUpload);
+
+                        if (data[i].pdf[0].src == "") {
+                            $('.upload-container .inside-wrapper').html("");
+                        }
                     } else {
                         console.log("inside if", data[i].pdf.length);
                         $('.upload-container .inside-wrapper').append(updateUpload);
@@ -263,6 +276,13 @@ $('#editBattleModal').on('show.bs.modal', function(event) {
     });
 
 });
+
+function fileSelected(e) {
+    console.log(e);
+    e.closest('.col-md-12').find('p').text(e[0].files[0].name);
+    e.closest('.file-old-name').find('span').text("New file name: ");
+
+}
 
 // update
 $("#updateBattleForm").submit(function(e) {

@@ -481,3 +481,7 @@ circle:hover {
     font-size: 12px;
     color: #f00;
 }
+
+.inside-wrapper .file-old-name span {
+    color: #000;
+}
