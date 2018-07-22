@@ -10,6 +10,9 @@
     <meta name="description" content="Early islam battles map">
     <meta name="author" content="IZholdasbayev">
 
+    <!-- Boostrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
     <!-- CSS -->
     <link rel="stylesheet" href="js/slider/nouislider.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
@@ -18,8 +21,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis:300|Open+Sans">
 
     <!-- Jquery -->
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
-    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!-- <script src="js/jquery-3.3.1.min.js"></script> -->
+
+    <!-- Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
     <!-- D3.js -->
     <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
@@ -41,6 +48,9 @@
     <!-- PDFObject -->
     <script src="js/PDFObject-master/pdfobject.min.js"></script>
 
+    <!-- PDF -->
+    <script src="js/PDFObject-master/pdfobject.min.js"></script>
+
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
@@ -56,7 +66,8 @@
 </head>
 
 <body>
-    <!-- Modal 
+    <div id="map"></div>
+    <!-- Modal  -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -69,9 +80,7 @@
                 <div class="modal-body" id="pdf-container"></div>
             </div>
         </div>
-    </div> -->
-
-    <div id="map"></div>
+    </div>
     <div class="controls">
         <h3>Sources:</h3>
         <input type="checkbox" class="cb" name="nq" id="nq" title="Nasab Quraysh" onclick="nqsource(this)" checked="true">

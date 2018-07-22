@@ -1,3 +1,13 @@
+jQuery.event.special.touchstart = {
+    setup: function(_, ns, handle) {
+        if (ns.includes("noPreventDefault")) {
+            this.addEventListener("touchstart", handle, { passive: false });
+        } else {
+            this.addEventListener("touchstart", handle, { passive: true });
+        }
+    }
+};
+
 // Google Maps init mapTypeId: google.maps.MapTypeId.SATELLITE, 28.467299, 56.240357
 var styles = [{
         "elementType": "geometry",
@@ -234,7 +244,8 @@ map.setMapTypeId('customstyle');
 // Map events
 google.maps.event.addListener(map, 'zoom_changed', function() {
     zoomLevel = map.getZoom();
-    if (zoomLevel <= 6) {
+
+    if (zoomLevel <= 7) {
         map.setMapTypeId('customstyle');
         var sel = d3.selectAll(".circles")
             .attr("r", 2).style("stroke-width", "1px");
@@ -242,7 +253,7 @@ google.maps.event.addListener(map, 'zoom_changed', function() {
             .duration(200);
         $('.labelsNQ').hide();
         $('.labelsK').hide();
-    } else if (zoomLevel >= 5 && zoomLevel <= 8) {
+    } else if (zoomLevel >= 7 && zoomLevel <= 9) {
         map.setMapTypeId('satellite');
         var sel = d3.selectAll(".circles")
             .attr("r", 4).style("stroke-width", "2px");
@@ -250,7 +261,7 @@ google.maps.event.addListener(map, 'zoom_changed', function() {
             .duration(200)
         $('.labelsNQ').hide();
         $('.labelsK').hide();
-    } else if (zoomLevel >= 8) {
+    } else if (zoomLevel >= 9) {
         map.setMapTypeId('satellite');
         var sel = d3.selectAll(".circles")
             .attr("r", 7).style("stroke-width", "3px");
@@ -265,17 +276,17 @@ google.maps.event.addListener(map, 'maptypeid_changed', function() {
     var typeid = map.getMapTypeId();
     if (typeid == 'customstyle') {
         console.log("IT'S CUSTOm");
-        d3.selectAll("text").style("fill", "black")
-        d3.selectAll(".circleK").style("fill", "#008eff").style("stroke", "white");
-        d3.selectAll(".circleNQ").style("fill", "black").style("stroke", "white");
+        // d3.selectAll("text").style("fill", "black")
+        // d3.selectAll(".circleK").style("fill", "#008eff").style("stroke", "white");
+        // d3.selectAll(".circleNQ").style("fill", "black").style("stroke", "white");
         $(".kencircle").css("background", "#008eff").css("border", "1px solid white");
         $(".nqcircle").css("background", "black").css("border", "1px solid white");
         $(".controls").css("color", "black");
     } else if (typeid == "satellite") {
         console.log("IT'S SATELLITE");
-        d3.selectAll("text").style("fill", "white")
-        d3.selectAll(".circleK").style("fill", "white").style("stroke", "#008eff");
-        d3.selectAll(".circleNQ").style("fill", "white").style("stroke", "black");
+        // d3.selectAll("text").style("fill", "white")
+        // d3.selectAll(".circleK").style("fill", "white").style("stroke", "#008eff");
+        // d3.selectAll(".circleNQ").style("fill", "white").style("stroke", "black");
         $(".kencircle").css("background", "white").css("border", "1px solid #008eff");
         $(".nqcircle").css("background", "white").css("border", "1px solid black");
         $(".controls").css("color", "white");

@@ -30,31 +30,30 @@ d3.json("../data/all_battles_new.json", function(error, battles) {
                     } else {
                         return "marker markerNQ";
                     }
-                });
+                }).on("click", battleClick)
+                .on("mouseover", battlesMouseOver)
+                .on("mouseout", battlesMouseOut);
 
             // Add a circle.
             marker.append("circle")
                 .attr("r", 2)
                 .attr("cx", padding)
                 .attr("cy", padding)
-                .attr("fill", function(d) {
-                    if (isNaN(d.properties.deaths) || d.properties.deaths < 1) {
-                        return "#008eff"
-                    } else {
-                        return "black"
-                    }
-                })
+                .attr("fill", function(d) { return color(d.properties.mainsource); })
                 .attr("class", function(d) {
                     if (isNaN(d.properties.deaths) || d.properties.deaths < 1) {
                         return "circles circleK " + d.properties.name;
                     } else {
                         return "circles circleNQ " + d.properties.name;
                     }
-                })
-                .on("click", battleClick);
+                });
 
-            marker.on("mouseover", battlesMouseOver)
-                .on("mouseout", battlesMouseOut);
+            marker.append("circle")
+                .attr("r", 10)
+                .attr("cx", padding)
+                .attr("cy", padding)
+                .attr("fill", "transparent");
+            // marker
 
             // Add a label.
             marker.append("text")
@@ -84,4 +83,28 @@ d3.json("../data/all_battles_new.json", function(error, battles) {
 
     // Bind our overlay to the map…
     overlay.setMap(map);
+});
+
+$('#exampleModalCenter').on('show.bs.modal', function(e) {
+
+    var button = $(e.relatedTarget) // Button that triggered the modal
+    var pdfname = button.data('pdfname') // Extract info from data-* attributes
+    var pdfsrc = button.data('pdfsrc') // Extract info from data-* attributes
+    var pdfpage = button.data('pdfpage') // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var modal = $(this)
+    console.log(pdfname + " " + "pdf/" + pdfsrc);
+
+    pdfsrc = "pdf/" + pdfsrc;
+
+    var options = {
+        height: "500px",
+        width: "100%",
+        page: pdfpage
+    };
+
+    PDFObject.embed(pdfsrc, "#pdf-container", options);
+
+    modal.find('.modal-title').text('New message to ' + pdfname)
 });

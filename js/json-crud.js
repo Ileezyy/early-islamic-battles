@@ -2,7 +2,6 @@ $(document).ready(function() {
     var max_fields = 10; //maximum input boxes allowed
     var wrapper = $(".upload-container"); //Fields wrapper
     var x = 1; //initlal text box count
-    // console.log(x);
 
     $(".add-more-icon").on("click", function(e) { //on add input button click
         e.preventDefault();
@@ -14,7 +13,6 @@ $(document).ready(function() {
             });
         }
     });
-
 
     $(wrapper).on("click", ".remove_field", function(e) { //user click on remove text
         e.preventDefault();
@@ -59,7 +57,6 @@ $("#battleForm").submit(function(e) {
 
         for (let j = 0; j < files.length; j++) {
             inputData.pdf[j].src = files[j].name;
-            console.log("inside for", inputData.pdf[j].src);
         }
     }
 
@@ -67,6 +64,14 @@ $("#battleForm").submit(function(e) {
 
         /*for (let k = 0; k < data.length; k++) {
             data[k].pdf = [{ "name": "", "author": "", "extra": "", "src": "", "startpage": "" }];
+        }
+
+        for (let k = 0; k < data.length; k++) {
+            if (isNaN(data[k].properties.deaths) || data[k].properties.deaths < 1) {
+                data[k].properties.mainsource = "TGAC";
+            } else {
+                data[k].properties.mainsource = "NQ";
+            }
         }*/
 
         data.push(inputData);
@@ -248,7 +253,7 @@ $('#editBattleModal').on('show.bs.modal', function(event) {
                 console.log(bid);
                 for (let j = 0; j < data[i].pdf.length; j++) {
                     var updateUpload = "<div class='form-group col-md-12'> <label class='control-label'>PDF file</label>" +
-                        "<p class='file-old-name'><span>Current file name: </span>" + data[i].pdf[j].src + "</p>" +
+                        "<div class='file-old-name'><span>Current file name: </span><p>" + data[i].pdf[j].src + "</p></div>" +
                         "<input class='form-control' type='file' name='file' onchange='fileSelected($(this))'></div>" +
                         "<input id='editpdfsrc' type='hidden' name='pdf[][src]' value='" + data[i].pdf[j].src + "'>" +
                         "<div class='form-group col-md-5'> <label class='control-label'>Source title</label>" +
@@ -256,7 +261,7 @@ $('#editBattleModal').on('show.bs.modal', function(event) {
                         "<div class='form-group col-md-5'> <label class='control-label'>Author name</label>" +
                         "<input id='editpdfauthor' class='form-control' type='text' name='pdf[][author]' placeholder='Author name' value='" + data[i].pdf[j].author + "'></div>" +
                         "<div class='form-group col-md-2'> <label class='control-label'>Starting page</label>" +
-                        "<input id='editpdfstartpage' class='form-control' type='number' name='pdf[][startpage]' placeholder='Starting page (1 by default)' min='0' value='" + data[i].pdf[j].startpage + "'></div>" +
+                        "<input id='editpdfstartpage' class='form-control' type='number' name='pdf[][startpage]' placeholder='Starting page (1 by default)' min='1' value='" + data[i].pdf[j].startpage + "'></div>" +
                         "<div class='form-group col-md-12'> <label class='control-label'>Additional information</label>" +
                         "<input id='editpdfextra' class='form-control' type='text' name='pdf[][extra]' placeholder='Additional information' value='" + data[i].pdf[j].extra + "'></div>";
 
@@ -280,7 +285,8 @@ $('#editBattleModal').on('show.bs.modal', function(event) {
 function fileSelected(e) {
     console.log(e);
     e.closest('.col-md-12').find('p').text(e[0].files[0].name);
-    e.closest('.file-old-name').find('span').text("New file name: ");
+    e.closest('.col-md-12').find('p').css("color", "green");
+    e.closest('.col-md-12').find('span').text("New file name: ");
 
 }
 

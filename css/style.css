@@ -480,6 +480,7 @@ circle:hover {
     margin: 0;
     font-size: 12px;
     color: #f00;
+    height: 20px;
 }
 
 .inside-wrapper .file-old-name span {
