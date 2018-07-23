@@ -48,12 +48,6 @@ d3.json("../data/all_battles_new.json", function(error, battles) {
                         return "circles circleNQ " + d.properties.name;
                     }
                 });
-
-            marker.append("circle")
-                .attr("r", 10)
-                .attr("cx", padding)
-                .attr("cy", padding)
-                .attr("fill", "transparent");
             // marker
 
             // Add a label.

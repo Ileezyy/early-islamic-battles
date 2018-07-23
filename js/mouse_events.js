@@ -1,6 +1,6 @@
 // Vars
 var color = d3.scaleOrdinal()
-    .range(d3.schemeCategory20);
+    .range(d3.schemeCategory10);
 
 var textbox = d3.select(".textbox");
 

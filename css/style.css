@@ -55,6 +55,7 @@ hr {
     width: 75%;
     height: 75%;
     float: left;
+    position: relative;
     /* cursor: pointer; */
 }
 
@@ -80,6 +81,14 @@ hr {
     left: 0;
     top: 40px;
     padding: 0 11px;
+}
+
+#legends {
+    /* position: absolute;
+    left: 10px;
+    top: 40px; */
+    padding: 0 11px;
+    /* background: #fff; */
 }
 
 .controls .cb,

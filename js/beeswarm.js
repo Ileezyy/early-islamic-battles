@@ -31,7 +31,6 @@ d3.json("../data/all_battles_new.json", function(error, battles) {
     var data = battles;
 
     data = data.filter(function(d) {
-        console.log(d.properties.name);
         return d.properties.name != ""
     });
 
@@ -78,11 +77,12 @@ d3.json("../data/all_battles_new.json", function(error, battles) {
         .attr("class", "axis axis--x")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x).ticks(20));
+
+    g.selectAll(".axis--x").style("display", "none");
+
     // displayCircles(data)
     myslider.noUiSlider.on("update", function() {
         var newData = data.filter(function(site) {
-            console.log(site);
-
             return site.properties.date < myslider.noUiSlider.get()[1];
         }).filter(function(site) {
             return site.properties.date > myslider.noUiSlider.get()[0];
@@ -120,13 +120,7 @@ function displayCircles(data) {
                 return "bcircle bcircleNQ"
             }
         })
-        .attr("fill", function(d) {
-            if (isNaN(d.data.properties.deaths) || d.data.properties.deaths < 1) {
-                return "#008eff"
-            } else {
-                return "black"
-            }
-        })
+        .attr("fill", function(d) { return color(d.data.properties.mainsource); })
         .attr("cx", function(d) {
             return d.data.x;
         })
@@ -165,7 +159,6 @@ function startAnim() {
         /// call your function here
         if (first < 750 || second < 750) {
             slider.noUiSlider.set([first++, second++]);
-            console.log(myslider.noUiSlider.get());
         }
     }, 1000);
 }
@@ -176,7 +169,6 @@ function stopAnim() {
 
 function playAnimation() {
     temp = !temp;
-    console.log(temp);
     if (temp) {
         startAnim();
         $("#animPlayBtn").html("Pause");
