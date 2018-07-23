@@ -70,9 +70,15 @@ function battleClick(d) {
 
     // console.log(d.pdf[0].name);
 
+    if (d.pdf[0].src === '') {
+        sourcesTitle = "";
+    } else {
+        sourcesTitle = "<hr><h4>PDF sources</h4>"
+    }
+
     textbox.html(
         "<h2>" + d.properties.name + "</h2><p>" + d.properties.date + "</p><br><p> Deaths: " + d.properties.deaths + "</p><br>" + "<img class=\"circle-img\" src=\"" + d.properties.img + "\">" +
-        "<p>" + d.properties.text + "</p><p>ref: " + d.properties.source + "</p><a href=\"" + d.properties.link + "\">" + d.properties.link + "</a><br>"
+        "<p>" + d.properties.text + "</p><p>ref: " + d.properties.source + "</p><a href=\"" + d.properties.link + "\">" + d.properties.link + "</a>" + sourcesTitle
     ).style('color', '#000');
 
     for (let i in d.pdf) {
@@ -80,7 +86,7 @@ function battleClick(d) {
             $('.textbox').append("");
         } else {
             console.log(d.pdf[i]);
-            $('.textbox').append("<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#exampleModalCenter' data-pdfname='" +
+            $('.textbox').append("<button type='button' class='btn btn-pdf' data-toggle='modal' data-target='#exampleModalCenter' data-pdfname='" +
                 d.pdf[i].name +
                 "' data-pdfsrc='" + d.pdf[i].src + "' data-pdfpage='" + d.pdf[i].startpage + "'>" + d.pdf[i].name +
                 "</button><br>");
@@ -90,9 +96,17 @@ function battleClick(d) {
 
 function battleClickWData(d) {
 
+    var sourcesTitle = "";
+
+    if (d.data.pdf[0].src === '') {
+        sourcesTitle = "";
+    } else {
+        sourcesTitle = "<hr><h4>PDF sources</h4>"
+    }
+
     textbox.html(
         "<h2>" + d.data.properties.name + "</h2><p>" + d.data.properties.date + "</p><br><p> Deaths: " + d.data.properties.deaths + "</p><br>" + "<img class=\"circle-img\" src=\"" + d.data.properties.img + "\">" +
-        "<p>" + d.data.properties.text + "</p><p>ref: " + d.data.properties.source + "</p><a href=\"" + d.data.properties.link + "\">" + d.data.properties.link + "</a>" + "<br>"
+        "<p>" + d.data.properties.text + "</p><p>ref: " + d.data.properties.source + "</p><a href=\"" + d.data.properties.link + "\">" + d.data.properties.link + "</a>" + sourcesTitle
     ).style('color', '#000');
 
     for (let i in d.data.pdf) {
@@ -100,7 +114,7 @@ function battleClickWData(d) {
             $('.textbox').append("");
         } else {
             console.log(d.data.pdf[i]);
-            $('.textbox').append("<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#exampleModalCenter' data-pdfname='" +
+            $('.textbox').append("<button type='button' class='btn btn-pdf' data-toggle='modal' data-target='#exampleModalCenter' data-pdfname='" +
                 d.data.pdf[i].name +
                 "' data-pdfsrc='" + d.data.pdf[i].src + "' data-pdfpage='" + d.data.pdf[i].startpage + "'>" + d.data.pdf[i].name +
                 "</button><br>");

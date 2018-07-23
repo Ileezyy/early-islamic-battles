@@ -35,7 +35,8 @@ d3.json("../data/all_battles_new.json", function(error, battles) {
                 .on("mouseout", battlesMouseOut);
 
             // Add a circle.
-            marker.append("circle")
+            marker.filter(function(d) { return d.properties.name != ""; })
+                .append("circle")
                 .attr("r", 2)
                 .attr("cx", padding)
                 .attr("cy", padding)
@@ -106,5 +107,5 @@ $('#exampleModalCenter').on('show.bs.modal', function(e) {
 
     PDFObject.embed(pdfsrc, "#pdf-container", options);
 
-    modal.find('.modal-title').text('New message to ' + pdfname)
+    modal.find('.modal-title').text(pdfname);
 });

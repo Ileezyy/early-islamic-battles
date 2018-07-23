@@ -219,7 +219,7 @@ var map = new google.maps.Map(d3.select("#map").node(), {
     zoom: 4.1,
     center: new google.maps.LatLng(29.929316, 40.092853),
     mapTypeControlOptions: {
-        mapTypeIds: ['customstyle', google.maps.MapTypeId.SATELLITE]
+        mapTypeIds: ['customstyle', google.maps.MapTypeId.TERRAIN]
     },
     scaleControl: false,
     streetViewControl: false,
@@ -282,8 +282,8 @@ google.maps.event.addListener(map, 'maptypeid_changed', function() {
         $(".kencircle").css("background", "#008eff").css("border", "1px solid white");
         $(".nqcircle").css("background", "black").css("border", "1px solid white");
         $(".controls").css("color", "black");
-    } else if (typeid == "satellite") {
-        console.log("IT'S SATELLITE");
+    } else if (typeid == "terrain") {
+        console.log("IT'S terrain");
         // d3.selectAll("text").style("fill", "white")
         // d3.selectAll(".circleK").style("fill", "white").style("stroke", "#008eff");
         // d3.selectAll(".circleNQ").style("fill", "white").style("stroke", "black");

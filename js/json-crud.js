@@ -78,20 +78,22 @@ $("#battleForm").submit(function(e) {
 
         for (let i = 0; i < data.length; i++) {
             data[i].id = "id" + i;
+            if (data[i].properties.name !== "") {
 
-            if (typeof data[i].geometry.coordinates[0] === 'string' ||
-                typeof data[i].geometry.coordinates[1] === 'string' ||
-                typeof data[i].properties.deaths === 'string' ||
-                typeof data[i].properties.date === 'string') {
+                if (typeof data[i].geometry.coordinates[0] === 'string' ||
+                    typeof data[i].geometry.coordinates[1] === 'string' ||
+                    typeof data[i].properties.deaths === 'string' ||
+                    typeof data[i].properties.date === 'string') {
 
-                data[i].geometry.coordinates[0] = Number(data[i].geometry.coordinates[0]);
-                data[i].geometry.coordinates[1] = Number(data[i].geometry.coordinates[1]);
-                data[i].properties.deaths = Number(data[i].properties.deaths);
-                data[i].properties.date = Number(data[i].properties.date);
+                    data[i].geometry.coordinates[0] = Number(data[i].geometry.coordinates[0]);
+                    data[i].geometry.coordinates[1] = Number(data[i].geometry.coordinates[1]);
+                    data[i].properties.deaths = Number(data[i].properties.deaths);
+                    data[i].properties.date = Number(data[i].properties.date);
 
-                for (let j = 0; j < data[i].pdf.length; j++) {
-                    if (typeof data[i].pdf[j].startpage === 'string') {
-                        data[i].pdf[j].startpage = Number(data[i].pdf[j].startpage);
+                    for (let j = 0; j < data[i].pdf.length; j++) {
+                        if (typeof data[i].pdf[j].startpage === 'string') {
+                            data[i].pdf[j].startpage = Number(data[i].pdf[j].startpage);
+                        }
                     }
                 }
             }
@@ -167,6 +169,53 @@ function saveDeleted(data) {
     });
 }
 
+$("#resetForm").submit(function(e) {
+    e.preventDefault();
+
+    var data = [{
+        "type": "",
+        "geometry": {
+            "type": "",
+            "coordinates": ["", ""]
+        },
+        "properties": {
+            "name": "",
+            "deaths": "",
+            "date": "",
+            "source": "",
+            "link": "",
+            "text": "",
+            "img": "",
+            "mainsource": ""
+        },
+        "id": "",
+        "pdf": [{
+            "name": "",
+            "author": "",
+            "extra": "",
+            "src": "",
+            "startpage": ""
+        }]
+    }];
+
+    saveReset(data);
+});
+
+function saveReset(data) {
+    var jsonString = JSON.stringify(data);
+    $.ajax({
+        url: 'php/save.php',
+        data: {
+            'jsonString': jsonString
+        },
+        type: 'POST',
+        success: function() {
+            alert("Record has been updated");
+            window.location.reload();
+        }
+    });
+}
+
 $(document).ready(function() {
     d3.json("/data/all_battles_new.json", function(error, data) {
         if (error) throw error;
@@ -174,45 +223,52 @@ $(document).ready(function() {
         data = data.sort(function(a, b) { return d3.ascending(a.properties.date, b.properties.date); });
 
         for (var i in data) {
-            // console.log(data[i]);
-            var name = data[i].properties.name;
-            var text = data[i].properties.text;
-            var source = data[i].properties.source;
 
-            if (name.indexOf("'") >= 0) {
-                name = name.replace(/'/g, '&#39;');
-                console.log(name);
-            } else if (source.indexOf("'") >= 0) {
-                source = source.replace(/'/g, '&#39;');
-            } else if (text.indexOf("'") >= 0) {
-                text = text.replace(/'/g, '&#39;');
+            if (data[i].properties.name !== "") {
+                // console.log(data[i]);
+                var name = data[i].properties.name;
+                var text = data[i].properties.text;
+                var source = data[i].properties.source;
+                var mainsource = data[i].properties.mainsource;
+
+                if (name.indexOf("'") >= 0) {
+                    name = name.replace(/'/g, '&#39;');
+                    console.log(name);
+                } else if (source.indexOf("'") >= 0) {
+                    source = source.replace(/'/g, '&#39;');
+                } else if (text.indexOf("'") >= 0) {
+                    text = text.replace(/'/g, '&#39;');
+                } else if (text.indexOf("'") >= 0) {
+                    mainsource = mainsource.replace(/'/g, '&#39;');
+                }
+
+                var listItem = "<a id=" + data[i].id + " class='list-group-item flex-column align-items-start'>" +
+                    "<div class='d-flex w-100 justify-content-between'>" + "<div>" + data[i].properties.name + " (" + data[i].properties.date + ") " +
+                    "<!-- <button class='btn collapse-btn' data-target='#col" + data[i].id + "' data-toggle='collapse' role='button' aria-expanded='false' aria-controls='col" + data[i].id + "'>" + "<i class='fas fa-caret-down'></i>" + "</button>--></div>" +
+                    "<small>" +
+                    "<button class='btn icons-btn' type='button' data-toggle='modal' data-target='#editBattleModal' " +
+                    " data-bid='" + data[i].id + "' " +
+                    " data-bname='" + name + "' " +
+                    " data-bdate='" + data[i].properties.date + "' " +
+                    " data-bdeaths='" + data[i].properties.deaths + "' " +
+                    " data-blat='" + data[i].geometry.coordinates[0] + "' " +
+                    " data-blng='" + data[i].geometry.coordinates[1] + "' " +
+                    " data-bsrc='" + source + "' " +
+                    " data-blink='" + data[i].properties.link + "' " +
+                    " data-bimg='" + data[i].properties.img + "' " +
+                    " data-bmainsource='" + mainsource + "' " +
+                    " data-btext='" + text + "'><i class='fas fa-edit'></i></button>" +
+                    "<button class='btn icons-btn' onclick=deleteItem($(this).closest('a').attr('id'))><i class='fas fa-times-circle'></i></button>" +
+                    "</small></div></a>"
+
+                var collapse = "<div class='collapse' id='col" + data[i].id + "'>" +
+                    "<div class='card card-body'> " +
+                    "<p>Name: " + data[i].properties.name + "</p>" +
+                    "<p>Date: " + data[i].properties.date + "</p>" +
+                    "</div> </div>";
+
+                $('#battles-list .list-group').append(listItem + collapse);
             }
-
-            var listItem = "<a id=" + data[i].id + " class='list-group-item flex-column align-items-start'>" +
-                "<div class='d-flex w-100 justify-content-between'>" + "<div>" + data[i].properties.name + " (" + data[i].properties.date + ") " +
-                "<!-- <button class='btn collapse-btn' data-target='#col" + data[i].id + "' data-toggle='collapse' role='button' aria-expanded='false' aria-controls='col" + data[i].id + "'>" + "<i class='fas fa-caret-down'></i>" + "</button>--></div>" +
-                "<small>" +
-                "<button class='btn icons-btn' type='button' data-toggle='modal' data-target='#editBattleModal' " +
-                " data-bid='" + data[i].id + "' " +
-                " data-bname='" + name + "' " +
-                " data-bdate='" + data[i].properties.date + "' " +
-                " data-bdeaths='" + data[i].properties.deaths + "' " +
-                " data-blat='" + data[i].geometry.coordinates[0] + "' " +
-                " data-blng='" + data[i].geometry.coordinates[1] + "' " +
-                " data-bsrc='" + source + "' " +
-                " data-blink='" + data[i].properties.link + "' " +
-                " data-bimg='" + data[i].properties.img + "' " +
-                " data-btext='" + text + "'><i class='fas fa-edit'></i></button>" +
-                "<button class='btn icons-btn' onclick=deleteItem($(this).closest('a').attr('id'))><i class='fas fa-times-circle'></i></button>" +
-                "</small></div></a>"
-
-            var collapse = "<div class='collapse' id='col" + data[i].id + "'>" +
-                "<div class='card card-body'> " +
-                "<p>Name: " + data[i].properties.name + "</p>" +
-                "<p>Date: " + data[i].properties.date + "</p>" +
-                "</div> </div>";
-
-            $('#battles-list .list-group').append(listItem + collapse);
         }
     });
 });
@@ -231,6 +287,7 @@ $('#editBattleModal').on('show.bs.modal', function(event) {
     var img = button.data('bimg') // Extract info from data-* attributes
     var link = button.data('blink') // Extract info from data-* attributes
     var text = button.data('btext') // Extract info from data-* attributes
+    var mainsource = button.data('bmainsource') // Extract info from data-* attributes
 
     var modal = $(this);
     // modal.find('.modal-title').text('The ' + data.name + ' battle')
@@ -244,6 +301,7 @@ $('#editBattleModal').on('show.bs.modal', function(event) {
     modal.find('#editurl').val(link);
     modal.find('#edittext').val(text);
     modal.find('#editid').val(bid);
+    modal.find('#editmainsource').val(mainsource);
 
     d3.json("/data/all_battles_new.json", function(error, data) {
         if (error) throw error;
@@ -252,15 +310,17 @@ $('#editBattleModal').on('show.bs.modal', function(event) {
             if (bid === data[i].id) {
                 console.log(bid);
                 for (let j = 0; j < data[i].pdf.length; j++) {
-                    var updateUpload = "<div class='form-group col-md-12'> <label class='control-label'>PDF file</label>" +
+                    var updateUpload = "<div class='form-group col-md-12'>" +
+                        "<label class='control-label'>PDF file</label>" +
                         "<div class='file-old-name'><span>Current file name: </span><p>" + data[i].pdf[j].src + "</p></div>" +
-                        "<input class='form-control' type='file' name='file' onchange='fileSelected($(this))'></div>" +
+                        "<input class='form-control' type='file' name='file' onchange='fileSelected($(this))' accept='application/pdf>" +
                         "<input id='editpdfsrc' type='hidden' name='pdf[][src]' value='" + data[i].pdf[j].src + "'>" +
+                        "</div>" +
                         "<div class='form-group col-md-5'> <label class='control-label'>Source title</label>" +
                         "<input id='editpdfname' class='form-control' type='text' name='pdf[][name]' placeholder='Source title' value='" + data[i].pdf[j].name + "'></div>" +
                         "<div class='form-group col-md-5'> <label class='control-label'>Author name</label>" +
                         "<input id='editpdfauthor' class='form-control' type='text' name='pdf[][author]' placeholder='Author name' value='" + data[i].pdf[j].author + "'></div>" +
-                        "<div class='form-group col-md-2'> <label class='control-label'>Starting page</label>" +
+                        "<div class='form-group col-md-2'> <label class='control-label'>Page</label>" +
                         "<input id='editpdfstartpage' class='form-control' type='number' name='pdf[][startpage]' placeholder='Starting page (1 by default)' min='1' value='" + data[i].pdf[j].startpage + "'></div>" +
                         "<div class='form-group col-md-12'> <label class='control-label'>Additional information</label>" +
                         "<input id='editpdfextra' class='form-control' type='text' name='pdf[][extra]' placeholder='Additional information' value='" + data[i].pdf[j].extra + "'></div>";
@@ -299,7 +359,7 @@ $("#updateBattleForm").submit(function(e) {
     var files = [];
     var inputData = $(this).serializeObject();
 
-    if (inputFile.prop('files').length > 0) {
+    if (inputFile.length > 0 && inputFile.prop('files').length > 0) {
 
         inputFile.each(function() {
             var new_file = $(this).prop('files')[0];
@@ -347,6 +407,13 @@ $("#updateBattleForm").submit(function(e) {
 
             if (inputData.id === data[i].id) {
                 data[i] = inputData;
+                // console.log(data[i]);
+                if (data[i].pdf) {
+                    console.log("pdf", data[i]);
+                } else {
+                    console.log("NOthing");
+
+                }
             }
 
             if (typeof data[i].geometry.coordinates[0] === 'string' ||
@@ -359,9 +426,11 @@ $("#updateBattleForm").submit(function(e) {
                 data[i].properties.deaths = Number(data[i].properties.deaths);
                 data[i].properties.date = Number(data[i].properties.date);
 
-                for (let j = 0; j < data[i].pdf.length; j++) {
-                    if (typeof data[i].pdf[j].startpage === 'string') {
-                        data[i].pdf[j].startpage = Number(data[i].pdf[j].startpage);
+                if (data[i].pdf) {
+                    for (let j = 0; j < data[i].pdf.length; j++) {
+                        if (typeof data[i].pdf[j].startpage === 'string') {
+                            data[i].pdf[j].startpage = Number(data[i].pdf[j].startpage);
+                        }
                     }
                 }
             }

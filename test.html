@@ -191,6 +191,12 @@
             <li class="nav-item">
                 <a class="nav-link" id="add-new-tab" data-toggle="tab" href="#add-new" role="tab" aria-controls="add-new" aria-selected="true">Add new</a>
             </li>
+            <li class="nav-item">
+                <!-- <a class="nav-link" id="add-new-tab" data-toggle="tab" href="#add-new" role="tab" aria-controls="add-new" aria-selected="true">Add new</a> -->
+                <form id="resetForm" action="" method="POST">
+                    <input type="submit" class="btn-outline-dark btn" value="Reset">
+                </form>
+            </li>
         </ul>
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="battles-list" role="tabpanel" aria-labelledby="battles-list-tab">
@@ -245,7 +251,7 @@
 
                         <div class="form-group col-md-12">
                             <label class="control-label" for="pdf-file">PDF file</label>
-                            <input class="form-control" type="file" name="file" id="pdf_file">
+                            <input class="form-control" type="file" name="file" id="pdf_file" accept="application/pdf">
                         </div>
 
                         <input type="hidden" name="pdf[][src]" value="" id="pdf_src">

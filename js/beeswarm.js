@@ -1,9 +1,9 @@
 var svg = d3.select("#beeswarm"),
     margin = {
         top: 0,
-        right: 50,
+        right: 40,
         bottom: 0,
-        left: 75
+        left: 20
     },
     width = d3.select(".beeswarm-container").node().getBoundingClientRect().width - margin.left - margin.right,
     height = d3.select(".beeswarm-container").node().getBoundingClientRect().height - 70;
@@ -24,32 +24,45 @@ var myslider = document.getElementById('slider');
 var temp = false,
     timerVar;
 
-noUiSlider.create(slider, {
-    start: [590, 640],
-    step: 1,
-    behaviour: 'drag',
-    connect: true,
-    range: {
-        'min': 590,
-        'max': 750
-    },
-    pips: {
-        mode: 'count',
-        values: 17,
-        density: 3,
-        stepped: true
-    }
-});
-
 // d3.csv("flare.csv", type, function(error, data) {
 d3.json("../data/all_battles_new.json", function(error, battles) {
     if (error) throw error;
 
     var data = battles;
 
+    data = data.filter(function(d) {
+        console.log(d.properties.name);
+        return d.properties.name != ""
+    });
+
     x.domain(d3.extent(data, function(d) {
         return d.properties.date;
     }));
+
+    noUiSlider.create(slider, {
+        start: [d3.min(data, function(d) {
+            return d.properties.date - 1;
+        }), d3.max(data, function(d) {
+            return d.properties.date + 1;
+        })],
+        step: 1,
+        behaviour: 'drag',
+        connect: true,
+        range: {
+            'min': d3.min(data, function(d) {
+                return d.properties.date - 1;
+            }),
+            'max': d3.max(data, function(d) {
+                return d.properties.date + 1;
+            })
+        },
+        pips: {
+            mode: 'count',
+            values: 20,
+            density: 5,
+            stepped: true
+        }
+    });
 
     var simulation = d3.forceSimulation(data)
         .force("x", d3.forceX(function(d) {
@@ -65,11 +78,11 @@ d3.json("../data/all_battles_new.json", function(error, battles) {
         .attr("class", "axis axis--x")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x).ticks(20));
-
-    g.selectAll(".axis--x").style("display", "none");
-
+    // displayCircles(data)
     myslider.noUiSlider.on("update", function() {
         var newData = data.filter(function(site) {
+            console.log(site);
+
             return site.properties.date < myslider.noUiSlider.get()[1];
         }).filter(function(site) {
             return site.properties.date > myslider.noUiSlider.get()[0];
@@ -83,15 +96,6 @@ function displayCircles(data) {
     // g.selectAll("circle").transition().duration(200)
     //     .attr("r", 1).remove();
     g.selectAll("circle").remove();
-
-    if (cbNQ == false) {
-        g.selectAll("bcircleNQ").remove();
-        $('.bcircleNQ').hide();
-    }
-    if (cbKen == false) {
-        g.selectAll("bcircleK").remove();
-        $('.bcircleK').hide();
-    }
 
     var cell = g.append("g")
         .attr("class", "cells")
