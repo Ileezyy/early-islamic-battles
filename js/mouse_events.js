@@ -41,6 +41,8 @@ function kensource(cb) {
 }
 
 var index = false;
+var sourcesTitle = "";
+var imgsrc = "";
 
 function battleClick(d) {
     // index = !index;
@@ -76,8 +78,14 @@ function battleClick(d) {
         sourcesTitle = "<hr><h4>PDF sources</h4>"
     }
 
+    if (d.properties.img === "") {
+        imgsrc = "";
+    } else {
+        imgsrc = "<img class='circle-img' src='" + d.properties.img + "'>";
+    }
+
     textbox.html(
-        "<h2>" + d.properties.name + "</h2><p>" + d.properties.date + "</p><br><p> Deaths: " + d.properties.deaths + "</p><br>" + "<img class=\"circle-img\" src=\"" + d.properties.img + "\">" +
+        "<h2>" + d.properties.name + "</h2><p>" + d.properties.date + ", " + d.properties.mainsource + "</p><p> Deaths: " + d.properties.deaths + "</p>" + imgsrc +
         "<p>" + d.properties.text + "</p><p>ref: " + d.properties.source + "</p><a href=\"" + d.properties.link + "\">" + d.properties.link + "</a>" + sourcesTitle
     ).style('color', '#000');
 
@@ -96,16 +104,20 @@ function battleClick(d) {
 
 function battleClickWData(d) {
 
-    var sourcesTitle = "";
-
     if (d.data.pdf[0].src === '') {
         sourcesTitle = "";
     } else {
         sourcesTitle = "<hr><h4>PDF sources</h4>"
     }
 
+    if (d.data.properties.img === "") {
+        imgsrc = "";
+    } else {
+        imgsrc = "<img class='circle-img' src='" + d.data.properties.img + "'>";
+    }
+
     textbox.html(
-        "<h2>" + d.data.properties.name + "</h2><p>" + d.data.properties.date + "</p><br><p> Deaths: " + d.data.properties.deaths + "</p><br>" + "<img class=\"circle-img\" src=\"" + d.data.properties.img + "\">" +
+        "<h2>" + d.data.properties.name + "</h2><p>" + d.data.properties.date + ", " + d.data.properties.mainsource + "</p><p> Deaths: " + d.data.properties.deaths + "</p>" + imgsrc +
         "<p>" + d.data.properties.text + "</p><p>ref: " + d.data.properties.source + "</p><a href=\"" + d.data.properties.link + "\">" + d.data.properties.link + "</a>" + sourcesTitle
     ).style('color', '#000');
 
@@ -130,7 +142,10 @@ function battlesMouseOver(d) {
     //     d3.select(this).attr("r", 9).attr("fill", "red");
     // }
     // } else {
-    d3.select(this).selectAll('.circles').attr("fill", "red");
+    d3.select(this).selectAll('circle').attr("fill", "red");
+    // if (d.id === d.data.id || d.data.id === d.id) {
+    //     d3.selectAll('circle').attr("fill", "red");
+    // }
     if (zoomLevel <= 6) {
         d3.select(this).selectAll('.circles').attr("r", 4);
     } else if (zoomLevel >= 6 && zoomLevel <= 8) {
@@ -165,7 +180,7 @@ function battlesMouseOut(d) {
     // } else {
     //     d3.select(this).selectAll('circle').attr("fill", "black");
     // }
-    d3.select(this).selectAll('.circles').attr("fill", function(d) { return color(d.properties.mainsource); })
+    d3.select(this).selectAll('circle').attr("fill", function(d) { return color(d.properties.mainsource); })
     if (zoomLevel <= 6) {
         d3.select(this).selectAll('circle.circles').attr("r", 2);
     } else if (zoomLevel >= 6 && zoomLevel <= 8) {

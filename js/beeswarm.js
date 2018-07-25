@@ -114,11 +114,9 @@ function displayCircles(data) {
 
     cell.append("circle")
         .attr("class", function(d) {
-            if (isNaN(d.data.properties.deaths) || d.data.properties.deaths < 1) {
-                return "bcircle bcircleK"
-            } else {
-                return "bcircle bcircleNQ"
-            }
+            var name = d.data.properties.name;
+            name = name.replace(/[\W\s]/g, '');
+            return "bcircle " + name;
         })
         .attr("fill", function(d) { return color(d.data.properties.mainsource); })
         .attr("cx", function(d) {
@@ -144,11 +142,13 @@ function displayCircles(data) {
 }
 
 function mouseOverCircle(d) {
-    d3.select(this).selectAll('circles').attr("fill", "red");
+    d3.select(this).selectAll('circle').attr("fill", "red");
+    // console.log(d.data);
+
 }
 
 function mouseOutCircle(d) {
-    d3.select(this).selectAll('circles').attr("fill", "white");
+    // d3.select(this).selectAll('circle').attr("fill", "white");
 }
 
 function startAnim() {

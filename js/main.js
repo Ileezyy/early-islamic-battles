@@ -3,11 +3,13 @@ var div = d3.select("div").append("span")
     .attr("class", "tooltip")
     .style("opacity", 0);
 
+var controls = $('.controls');
+
 // Parse Nasab Quraysh json
-d3.json("../data/all_battles_new.json", function(error, battles) {
+d3.json("../data/all_battles_new.json", function(error, data) {
     if (error) throw error;
 
-    var data = battles;
+    groupedCheckboxes(data);
 
     var overlay = new google.maps.OverlayView();
 
@@ -42,11 +44,9 @@ d3.json("../data/all_battles_new.json", function(error, battles) {
                 .attr("cy", padding)
                 .attr("fill", function(d) { return color(d.properties.mainsource); })
                 .attr("class", function(d) {
-                    if (isNaN(d.properties.deaths) || d.properties.deaths < 1) {
-                        return "circles circleK " + d.properties.name;
-                    } else {
-                        return "circles circleNQ " + d.properties.name;
-                    }
+                    var name = d.properties.name;
+                    name = name.replace(/[\W\s]/g, '');
+                    return "circles " + name;
                 });
             // marker
 
@@ -78,6 +78,17 @@ d3.json("../data/all_battles_new.json", function(error, battles) {
 
     // Bind our overlay to the map…
     overlay.setMap(map);
+
+    $(".sourcescb").change(function() {
+        var type = this.value,
+            // I *think* "inline" is the default.
+            display = this.checked ? "inline" : "none";
+
+        d3.selectAll(".circles")
+            .filter(function(d) { return d.properties.mainsource === type; })
+            .attr("display", display);
+    });
+
 });
 
 $('#exampleModalCenter').on('show.bs.modal', function(e) {
@@ -103,3 +114,12 @@ $('#exampleModalCenter').on('show.bs.modal', function(e) {
 
     modal.find('.modal-title').text(pdfname);
 });
+
+function groupedCheckboxes(data) {
+    var groupedData = _.groupBy(data, function(d) { return d.properties.mainsource; });
+
+    for (let i in groupedData) {
+        controls.append("<input class='sourcescb' type='checkbox' name='" + i + "' value='" + i + "' checked> " +
+            "<span style='display: inline-block; width: 10px; height: 10px; border-radius: 100%; background-color: " + color(i) + "'></span> " + i + " <br>");
+    }
+}

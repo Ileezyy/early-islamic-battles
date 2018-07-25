@@ -78,9 +78,10 @@ hr {
 
 .controls {
     position: absolute;
-    left: 0;
-    top: 40px;
-    padding: 0 11px;
+    max-height: 100px;
+    overflow: scroll;
+    left: 10px;
+    top: 50px;
 }
 
 #legends {
@@ -137,6 +138,7 @@ hr {
 }
 
 .extra-container .textbox p {
+    display: block;
     margin: 5px 0 15px;
 }
 

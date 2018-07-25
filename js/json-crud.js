@@ -1,3 +1,14 @@
+var icons = ["circle", "caret-up", "square"];
+
+$(document).ready(function() {
+    var select = $("#mainsourceicon")
+    $.each(icons, function(a, b) {
+        // select.append($("<option/>").attr("value", b).text(b));
+        select.append("<option><i class='fas fa-" + b + "'></i>some</option>");
+    });
+    // select.append(select);
+});
+
 $(document).ready(function() {
     var max_fields = 10; //maximum input boxes allowed
     var wrapper = $(".upload-container"); //Fields wrapper
@@ -62,15 +73,15 @@ $("#battleForm").submit(function(e) {
 
     d3.json("/data/all_battles_new.json", function(error, data) {
 
-        /*for (let k = 0; k < data.length; k++) {
-            data[k].pdf = [{ "name": "", "author": "", "extra": "", "src": "", "startpage": "" }];
-        }
+        // for (let k = 0; k < data.length; k++) {
+        //     data[k].pdf = [{ "name": "", "author": "", "extra": "", "src": "", "startpage": "" }];
+        // }
 
-        for (let k = 0; k < data.length; k++) {
-            if (isNaN(data[k].properties.deaths) || data[k].properties.deaths < 1) {
-                data[k].properties.mainsource = "TGAC";
-            } else {
-                data[k].properties.mainsource = "NQ";
+        /*for (let k = 0; k < data.length; k++) {
+            if (data[k].properties.mainsource === "TGAC") {
+                data[k].properties.mainsource = "The Great Arab Conquests";
+            } else if (data[k].properties.mainsource === "NQ") {
+                data[k].properties.mainsource = "Nasab Quraysh";
             }
         }*/
 
