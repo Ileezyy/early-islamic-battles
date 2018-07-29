@@ -43,6 +43,7 @@ function kensource(cb) {
 var index = false;
 var sourcesTitle = "";
 var imgsrc = "";
+var deathsInfo = "";
 
 function battleClick(d) {
     // index = !index;
@@ -72,7 +73,7 @@ function battleClick(d) {
 
     // console.log(d.pdf[0].name);
 
-    if (d.pdf[0].src === '') {
+    if (d.pdf[0].src === "") {
         sourcesTitle = "";
     } else {
         sourcesTitle = "<hr><h4>PDF sources</h4>"
@@ -84,8 +85,14 @@ function battleClick(d) {
         imgsrc = "<img class='circle-img' src='" + d.properties.img + "'>";
     }
 
+    if (d.properties.deaths < 1) {
+        deathsInfo = "";
+    } else {
+        deathsInfo = "<p> Deaths: " + d.properties.deaths + "</p>";
+    }
+
     textbox.html(
-        "<h2>" + d.properties.name + "</h2><p>" + d.properties.date + ", " + d.properties.mainsource + "</p><p> Deaths: " + d.properties.deaths + "</p>" + imgsrc +
+        "<h2>" + d.properties.name + "</h2><p>" + d.properties.date + ", " + d.properties.mainsource + "</p>" + deathsInfo + imgsrc +
         "<p>" + d.properties.text + "</p><p>ref: " + d.properties.source + "</p><a href=\"" + d.properties.link + "\">" + d.properties.link + "</a>" + sourcesTitle
     ).style('color', '#000');
 
@@ -93,7 +100,6 @@ function battleClick(d) {
         if (d.pdf[i].src === "") {
             $('.textbox').append("");
         } else {
-            console.log(d.pdf[i]);
             $('.textbox').append("<button type='button' class='btn btn-pdf' data-toggle='modal' data-target='#exampleModalCenter' data-pdfname='" +
                 d.pdf[i].name +
                 "' data-pdfsrc='" + d.pdf[i].src + "' data-pdfpage='" + d.pdf[i].startpage + "'>" + d.pdf[i].name +
@@ -104,7 +110,7 @@ function battleClick(d) {
 
 function battleClickWData(d) {
 
-    if (d.data.pdf[0].src === '') {
+    if (d.data.pdf[0].src === "") {
         sourcesTitle = "";
     } else {
         sourcesTitle = "<hr><h4>PDF sources</h4>"
@@ -116,8 +122,14 @@ function battleClickWData(d) {
         imgsrc = "<img class='circle-img' src='" + d.data.properties.img + "'>";
     }
 
+    if (d.data.properties.deaths < 1) {
+        deathsInfo = "";
+    } else {
+        deathsInfo = "<p> Deaths: " + d.data.properties.deaths + "</p>";
+    }
+
     textbox.html(
-        "<h2>" + d.data.properties.name + "</h2><p>" + d.data.properties.date + ", " + d.data.properties.mainsource + "</p><p> Deaths: " + d.data.properties.deaths + "</p>" + imgsrc +
+        "<h2>" + d.data.properties.name + "</h2><p>" + d.data.properties.date + ", " + d.data.properties.mainsource + "</p>" + deathsInfo + imgsrc +
         "<p>" + d.data.properties.text + "</p><p>ref: " + d.data.properties.source + "</p><a href=\"" + d.data.properties.link + "\">" + d.data.properties.link + "</a>" + sourcesTitle
     ).style('color', '#000');
 
@@ -142,16 +154,18 @@ function battlesMouseOver(d) {
     //     d3.select(this).attr("r", 9).attr("fill", "red");
     // }
     // } else {
-    d3.select(this).selectAll('circle').attr("fill", "red");
+    d3.select(this).selectAll('circle.circles').attr("fill", "red");
     // if (d.id === d.data.id || d.data.id === d.id) {
     //     d3.selectAll('circle').attr("fill", "red");
     // }
-    if (zoomLevel <= 6) {
-        d3.select(this).selectAll('.circles').attr("r", 4);
-    } else if (zoomLevel >= 6 && zoomLevel <= 8) {
-        d3.select(this).selectAll('.circles').attr("r", 5);
-    } else if (zoomLevel >= 8) {
-        d3.select(this).selectAll('.circles').attr("r", 9);
+    if (zoomLevel < 6) {
+        d3.select(this).selectAll('circle.circles').attr("r", 3);
+    } else if (zoomLevel >= 6 && zoomLevel < 10) {
+        d3.select(this).selectAll('circle.circles').attr("r", 5);
+    } else if (zoomLevel >= 10 && zoomLevel < 15) {
+        d3.select(this).selectAll('circle.circles').attr("r", 8);
+    } else if (zoomLevel >= 15) {
+        d3.select(this).selectAll('circle.circles').attr("r", 10);
     }
 
     div.transition()
@@ -181,12 +195,15 @@ function battlesMouseOut(d) {
     //     d3.select(this).selectAll('circle').attr("fill", "black");
     // }
     d3.select(this).selectAll('circle').attr("fill", function(d) { return color(d.properties.mainsource); })
-    if (zoomLevel <= 6) {
+
+    if (zoomLevel < 6) {
         d3.select(this).selectAll('circle.circles').attr("r", 2);
-    } else if (zoomLevel >= 6 && zoomLevel <= 8) {
-        d3.select(this).selectAll('circle.circles').attr("r", 3);
-    } else if (zoomLevel >= 8) {
+    } else if (zoomLevel >= 6 && zoomLevel < 10) {
+        d3.select(this).selectAll('circle.circles').attr("r", 4);
+    } else if (zoomLevel >= 10 && zoomLevel < 15) {
         d3.select(this).selectAll('circle.circles').attr("r", 7);
+    } else if (zoomLevel >= 15) {
+        d3.select(this).selectAll('circle.circles').attr("r", 10);
     }
 
     div.transition()

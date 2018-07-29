@@ -10,6 +10,7 @@ d3.json("../data/all_battles_new.json", function(error, data) {
     if (error) throw error;
 
     groupedCheckboxes(data);
+    battlesList(data);
 
     var overlay = new google.maps.OverlayView();
 
@@ -34,10 +35,13 @@ d3.json("../data/all_battles_new.json", function(error, data) {
                     }
                 }).on("click", battleClick)
                 .on("mouseover", battlesMouseOver)
-                .on("mouseout", battlesMouseOut);
+                .on("mouseout", battlesMouseOut);;
+
+            var outer = marker.append("g");
+            var arcGroup = layer.append('g');
 
             // Add a circle.
-            marker.filter(function(d) { return d.properties.name != ""; })
+            outer.filter(function(d) { return d.properties.name != ""; })
                 .append("circle")
                 .attr("r", 2)
                 .attr("cx", padding)
@@ -51,19 +55,41 @@ d3.json("../data/all_battles_new.json", function(error, data) {
             // marker
 
             // Add a label.
-            marker.append("text")
+            outer.append("text")
                 .attr("x", padding + 12)
                 .attr("y", padding - 2)
-                .attr("class", function(d) {
-                    if (isNaN(d.properties.deaths) || d.properties.deaths < 1) {
-                        return "labels labelsK";
-                    } else {
-                        return "labels labelsNQ";
-                    }
-                })
+                .attr("class", "labels")
                 .text(function(d) {
                     return d.properties.name + "  (" + d.properties.date + ")";
                 });
+
+            var links = [{
+                type: "LineString",
+                coordinates: [
+                    [data[0].geometry.coordinates[0], data[0].geometry.coordinates[1]],
+                    [data[1].geometry.coordinates[0], data[0].geometry.coordinates[1]]
+                ]
+            }];
+
+            d3.selectAll('.blist-map .item').data(data).on("click", battleClick);
+
+            // Standard enter / update
+            var pathArcs = arcGroup.selectAll(".arc")
+                .data(links);
+
+            //enter
+            pathArcs.enter()
+                .append("path")
+                .attr('class', 'arc')
+                .attr('stroke', '#0000ff')
+                .attr('stroke-width', '2px');
+
+            /*update
+            pathArcs.attr({
+                    //d is the points attribute for this path, we'll draw
+                    //  an arc between the points using the arc function
+                    d: projection
+                });*/
 
             // Populate map with data
             function transform(d) {
@@ -85,6 +111,10 @@ d3.json("../data/all_battles_new.json", function(error, data) {
             display = this.checked ? "inline" : "none";
 
         d3.selectAll(".circles")
+            .filter(function(d) { return d.properties.mainsource === type; })
+            .attr("display", display);
+
+        d3.selectAll(".labels")
             .filter(function(d) { return d.properties.mainsource === type; })
             .attr("display", display);
     });
@@ -123,3 +153,96 @@ function groupedCheckboxes(data) {
             "<span style='display: inline-block; width: 10px; height: 10px; border-radius: 100%; background-color: " + color(i) + "'></span> " + i + " <br>");
     }
 }
+
+function battlesList(d) {
+
+    d = d.sort(function(a, b) { return d3.ascending(a.properties.date, b.properties.date); });
+
+    var listItem = "";
+
+    for (var i in d) {
+        if (d[i].properties.name !== "") {
+            listItem = "<div class='item' id='" + d[i].id + "' style='color:" + color(d[i].properties.mainsource) + "' onclick='bitemClick()' onmouseover='bitemHover($(this))' onmouseout='bitemOut($(this))'><p>" + d[i].properties.name + "</p><p>" + d[i].properties.date + "</p></div>";
+            $(".blist-map").append(listItem);
+        }
+    }
+}
+
+function bitemClick(d) {
+    // var bid = $(d).prop('id');
+    battleClick(d);
+}
+
+var radius = 2;
+var fillColor = "red";
+
+function bitemHover(d) {
+    var bid = $(d).prop('id');
+
+    if (zoomLevel < 6) {
+        radius = 3;
+    } else if (zoomLevel >= 6 && zoomLevel < 10) {
+        radius = 5;
+    } else if (zoomLevel >= 10 && zoomLevel < 15) {
+        radius = 8;
+    } else if (zoomLevel >= 15) {
+        radius = 10;
+    }
+
+    $(d).addClass("itemOnHover");
+
+    d3.selectAll(".circles")
+        .filter(function(d) { return d.id === bid; })
+        .attr("fill", fillColor)
+        .attr("r", radius);
+
+    d3.selectAll(".bcircle")
+        .filter(function(d) { return d.data.id === bid; })
+        .attr("fill", fillColor);
+}
+
+function bitemOut(d) {
+    var bid = $(d).prop('id');
+
+    if (zoomLevel < 6) {
+        radius = 2;
+    } else if (zoomLevel >= 6 && zoomLevel < 10) {
+        radius = 4;
+    } else if (zoomLevel >= 10 && zoomLevel < 15) {
+        radius = 7;
+    } else if (zoomLevel >= 15) {
+        radius = 10;
+    }
+
+    $(d).removeClass("itemOnHover");
+
+    d3.selectAll(".circles")
+        .filter(function(d) { return d.id === bid; })
+        .attr("fill", function(d) { return color(d.properties.mainsource); })
+        .attr("r", radius);
+
+    d3.selectAll(".bcircle")
+        .filter(function(d) { return d.data.id === bid; })
+        .attr("fill", function(d) { return color(d.data.properties.mainsource); });
+}
+
+var rClicked = false;
+
+$(".round-btn").on("click", function() {
+    rClicked = !rClicked;
+
+    var closeBtnIcon = $(".fa-times");
+    var listBtnIcon = $(".fa-list-ul");
+
+    closeBtnIcon.hide();
+
+    if (rClicked) {
+        $(".blist-map").show();
+        closeBtnIcon.show();
+        listBtnIcon.hide();
+    } else {
+        $(".blist-map").hide();
+        closeBtnIcon.hide();
+        listBtnIcon.show();
+    }
+});

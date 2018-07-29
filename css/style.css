@@ -81,7 +81,58 @@ hr {
     max-height: 100px;
     overflow: scroll;
     left: 10px;
-    top: 50px;
+    top: 10px;
+}
+
+.round-btn {
+    display: flex;
+    color: #666;
+    position: absolute;
+    bottom: 30%;
+    left: 10px;
+    z-index: 999;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    background: #fff;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.15);
+    justify-content: center;
+    align-items: center;
+}
+
+.blist-map {
+    display: none;
+    position: absolute;
+    bottom: 36%;
+    left: 5%;
+    width: 165px;
+    height: 200px;
+    background: #fff;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.15);
+    overflow-x: auto;
+    padding-right: 15px;
+}
+
+.blist-map .item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    padding: 3px 7px;
+}
+
+.blist-map .item:hover {
+    cursor: pointer;
+}
+
+.blist-map .item p {
+    padding: 0;
+    margin: 0;
+}
+
+.itemOnHover {
+    background: #333;
+    color: #fff!important;
 }
 
 #legends {
@@ -178,9 +229,9 @@ span.tooltip p {
 }
 
 .battles svg {
-    width: 60px;
-    height: 20px;
-    padding-right: 100px;
+    width: 16px;
+    height: 16px;
+    /* padding-right: 100px; */
     font: 10px sans-serif;
     /* pointer-events: all; */
 }
