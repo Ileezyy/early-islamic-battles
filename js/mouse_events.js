@@ -9,6 +9,14 @@ var zoomLevel = map.getZoom();
 var cbNQ = true,
     cbKen = true;
 
+var radius = 2;
+var fillColor = "black";
+
+var index = false;
+var sourcesTitle = "";
+var imgsrc = "";
+var deathsInfo = "";
+
 // Mouse events functions
 function nqsource(cb) {
     // console.log(cb.checked);
@@ -40,12 +48,15 @@ function kensource(cb) {
     }
 }
 
-var index = false;
-var sourcesTitle = "";
-var imgsrc = "";
-var deathsInfo = "";
-
 function battleClick(d) {
+    var newPos = new google.maps.LatLng(d.geometry.coordinates[1], d.geometry.coordinates[0]);
+
+    if (zoomLevel < 6) {
+        map.setZoom(6);
+    }
+
+    map.panTo(newPos);
+
     // index = !index;
 
     // d3.selectAll(".circles")
@@ -110,6 +121,13 @@ function battleClick(d) {
 
 function battleClickWData(d) {
 
+    var newPos = new google.maps.LatLng(d.data.geometry.coordinates[1], d.data.geometry.coordinates[0]);
+
+    if (zoomLevel < 6) {
+        map.setZoom(6);
+    }
+    map.panTo(newPos);
+
     if (d.data.pdf[0].src === "") {
         sourcesTitle = "";
     } else {
@@ -148,25 +166,26 @@ function battleClickWData(d) {
 }
 
 function battlesMouseOver(d) {
-    // d3.select(this).selectAll('text').attr("fill", "black");
-    // if (index) {
-    // if (zoomLevel > 0) {
-    //     d3.select(this).attr("r", 9).attr("fill", "red");
-    // }
-    // } else {
-    d3.select(this).selectAll('circle.circles').attr("fill", "red");
-    // if (d.id === d.data.id || d.data.id === d.id) {
-    //     d3.selectAll('circle').attr("fill", "red");
-    // }
+
     if (zoomLevel < 6) {
-        d3.select(this).selectAll('circle.circles').attr("r", 3);
+        radius = 3;
     } else if (zoomLevel >= 6 && zoomLevel < 10) {
-        d3.select(this).selectAll('circle.circles').attr("r", 5);
+        radius = 5;
     } else if (zoomLevel >= 10 && zoomLevel < 15) {
-        d3.select(this).selectAll('circle.circles').attr("r", 8);
+        radius = 8;
     } else if (zoomLevel >= 15) {
-        d3.select(this).selectAll('circle.circles').attr("r", 10);
+        radius = 10;
     }
+
+    d3.select(this).selectAll('.circles')
+        .attr("fill", fillColor)
+        .attr("r", radius);
+
+    d3.selectAll(".bcircle")
+        .filter(function(t) {
+            return t.data.id === d.id;
+        }).attr("fill", fillColor)
+        .attr("r", 4);
 
     div.transition()
         .duration(200)
@@ -177,42 +196,37 @@ function battlesMouseOver(d) {
         )
         .style("left", (d3.event.pageX + 10) + "px")
         .style("top", (d3.event.pageY - 40) + "px");
-    // }
 }
 
 
 function battlesMouseOut(d) {
-    // d3.select(this).selectAll('text').attr("fill", "black");
     zoomLevel = map.getZoom();
-    // if (index) {
-    // if (zoomLevel > 0) {
-    //     d3.select(this).attr("r", 9).attr("fill", "red");
-    // }
-    // } else {
-    // if (isNaN(d.properties.deaths) || d.properties.deaths < 1) {
-    //     d3.select(this).selectAll('circle').attr("fill", "#008eff");
-    // } else {
-    //     d3.select(this).selectAll('circle').attr("fill", "black");
-    // }
-    d3.select(this).selectAll('circle').attr("fill", function(d) { return color(d.properties.mainsource); })
 
     if (zoomLevel < 6) {
-        d3.select(this).selectAll('circle.circles').attr("r", 2);
+        radius = 2;
     } else if (zoomLevel >= 6 && zoomLevel < 10) {
-        d3.select(this).selectAll('circle.circles').attr("r", 4);
+        radius = 4;
     } else if (zoomLevel >= 10 && zoomLevel < 15) {
-        d3.select(this).selectAll('circle.circles').attr("r", 7);
+        radius = 7;
     } else if (zoomLevel >= 15) {
-        d3.select(this).selectAll('circle.circles').attr("r", 10);
+        radius = 10;
     }
+
+    d3.select(this).selectAll('.circles')
+        .attr("fill", function(d) { return color(d.properties.mainsource); })
+        .attr("r", radius);
+
+    d3.selectAll(".bcircle")
+        .filter(function(t) {
+            return t.data.id === d.id;
+        })
+        .attr("fill", function(d) { return color(d.data.properties.mainsource); })
+        .attr("r", 3);
 
     div.transition()
         .duration(500)
         .style("opacity", 0);
-    // }
 }
-
-
 
 $('.labelsNQ').hide();
 $('.labelsK').hide();

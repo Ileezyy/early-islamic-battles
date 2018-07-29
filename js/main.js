@@ -24,7 +24,7 @@ d3.json("../data/all_battles_new.json", function(error, data) {
 
             var marker = layer.selectAll("svg")
                 .data(data)
-                .each(transform) // update existing markers
+                .each(transform) // update existing marker
                 .enter().append("svg")
                 .each(transform)
                 .attr("class", function(d) {
@@ -129,8 +129,7 @@ $('#exampleModalCenter').on('show.bs.modal', function(e) {
     var pdfpage = button.data('pdfpage') // Extract info from data-* attributes
         // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
         // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-    var modal = $(this)
-    console.log(pdfname + " " + "pdf/" + pdfsrc);
+    var modal = $(this);
 
     pdfsrc = "pdf/" + pdfsrc;
 
@@ -162,22 +161,21 @@ function battlesList(d) {
 
     for (var i in d) {
         if (d[i].properties.name !== "") {
-            listItem = "<div class='item' id='" + d[i].id + "' style='color:" + color(d[i].properties.mainsource) + "' onclick='bitemClick()' onmouseover='bitemHover($(this))' onmouseout='bitemOut($(this))'><p>" + d[i].properties.name + "</p><p>" + d[i].properties.date + "</p></div>";
+            listItem = "<div class='item' lat='" + d[i].geometry.coordinates[1] + "' lng='" + d[i].geometry.coordinates[0] + "' id='" + d[i].id + "' style='color:" + color(d[i].properties.mainsource) + "' onclick='bitemClick()' onmouseover='bitemHover($(this))' onmouseout='bitemOut($(this))'><p>" + d[i].properties.name + "</p><p>" + d[i].properties.date + "</p></div>";
             $(".blist-map").append(listItem);
         }
     }
 }
 
 function bitemClick(d) {
-    // var bid = $(d).prop('id');
     battleClick(d);
 }
 
-var radius = 2;
-var fillColor = "red";
-
 function bitemHover(d) {
     var bid = $(d).prop('id');
+    var lat = $(d).attr('lat');
+    var lng = $(d).attr('lng');
+    var newPos = new google.maps.LatLng(lat, lng);
 
     if (zoomLevel < 6) {
         radius = 3;
@@ -191,6 +189,8 @@ function bitemHover(d) {
 
     $(d).addClass("itemOnHover");
 
+    // map.setCenter(newPos);
+
     d3.selectAll(".circles")
         .filter(function(d) { return d.id === bid; })
         .attr("fill", fillColor)
@@ -198,7 +198,8 @@ function bitemHover(d) {
 
     d3.selectAll(".bcircle")
         .filter(function(d) { return d.data.id === bid; })
-        .attr("fill", fillColor);
+        .attr("fill", fillColor)
+        .attr("r", 4);
 }
 
 function bitemOut(d) {
@@ -223,7 +224,8 @@ function bitemOut(d) {
 
     d3.selectAll(".bcircle")
         .filter(function(d) { return d.data.id === bid; })
-        .attr("fill", function(d) { return color(d.data.properties.mainsource); });
+        .attr("fill", function(d) { return color(d.data.properties.mainsource); })
+        .attr("r", 3);
 }
 
 var rClicked = false;
@@ -237,11 +239,11 @@ $(".round-btn").on("click", function() {
     closeBtnIcon.hide();
 
     if (rClicked) {
-        $(".blist-map").show();
+        $(".blist-map").slideDown();
         closeBtnIcon.show();
         listBtnIcon.hide();
     } else {
-        $(".blist-map").hide();
+        $(".blist-map").slideUp();
         closeBtnIcon.hide();
         listBtnIcon.show();
     }

@@ -142,13 +142,43 @@ function displayCircles(data) {
 }
 
 function mouseOverCircle(d) {
-    d3.select(this).selectAll('circle').attr("fill", "red");
+
+    if (zoomLevel < 6) {
+        radius = 3;
+    } else if (zoomLevel >= 6 && zoomLevel < 10) {
+        radius = 5;
+    } else if (zoomLevel >= 10 && zoomLevel < 15) {
+        radius = 8;
+    } else if (zoomLevel >= 15) {
+        radius = 10;
+    }
+
+    d3.select(this).selectAll('circle').attr("fill", fillColor);
+    d3.selectAll('.circles')
+        .filter(function(t) { return t.id === d.data.id })
+        .attr("fill", fillColor)
+        .attr("r", radius);
+
     // console.log(d.data);
 
 }
 
 function mouseOutCircle(d) {
     // d3.select(this).selectAll('circle').attr("fill", "white");
+
+    if (zoomLevel < 6) {
+        radius = 2;
+    } else if (zoomLevel >= 6 && zoomLevel < 10) {
+        radius = 4;
+    } else if (zoomLevel >= 10 && zoomLevel < 15) {
+        radius = 7;
+    } else if (zoomLevel >= 15) {
+        radius = 10;
+    }
+
+    d3.selectAll('.circles')
+        .filter(function(t) { return t.id === d.data.id })
+        .attr("fill", function(t) { return color(t.properties.mainsource); }).attr("r", radius);
 }
 
 function startAnim() {
