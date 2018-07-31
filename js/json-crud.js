@@ -78,10 +78,10 @@ $("#battleForm").submit(function(e) {
         // }
 
         /*for (let k = 0; k < data.length; k++) {
-            if (data[k].properties.mainsource === "TGAC") {
-                data[k].properties.mainsource = "The Great Arab Conquests";
-            } else if (data[k].properties.mainsource === "NQ") {
-                data[k].properties.mainsource = "Nasab Quraysh";
+            if (data[k].properties.mainsource === "The Great Arab Conquests") {
+                data[k].properties.sourceimg = "https://i.imgur.com/MwhL29m.jpg";
+            } else if (data[k].properties.mainsource === "Nasab Quraysh") {
+                data[k].properties.sourceimg = "https://i.imgur.com/fLb7OAj.jpg";
             }
         }*/
 

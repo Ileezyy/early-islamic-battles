@@ -153,7 +153,6 @@ function mouseOverCircle(d) {
         radius = 10;
     }
 
-    d3.select(this).selectAll('circle').attr("fill", fillColor);
     d3.selectAll('.circles')
         .filter(function(t) { return t.id === d.data.id })
         .attr("fill", fillColor)
@@ -164,7 +163,6 @@ function mouseOverCircle(d) {
 }
 
 function mouseOutCircle(d) {
-    // d3.select(this).selectAll('circle').attr("fill", "white");
 
     if (zoomLevel < 6) {
         radius = 2;

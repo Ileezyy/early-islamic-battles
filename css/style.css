@@ -79,9 +79,14 @@ hr {
 .controls {
     position: absolute;
     max-height: 100px;
-    overflow: scroll;
+    /* overflow: scroll; */
     left: 10px;
     top: 10px;
+}
+
+.controls button {
+    background: transparent;
+    border: none;
 }
 
 .round-btn {
@@ -304,7 +309,7 @@ circle:hover {
 }
 
 .cells :hover .bcircle {
-    fill: red;
+    fill: black;
 }
 
 
@@ -563,4 +568,9 @@ circle:hover {
     background: #333;
     color: #fff;
     box-shadow: none;
+}
+
+.link {
+    stroke: #000;
+    stroke-width: 2px;
 }

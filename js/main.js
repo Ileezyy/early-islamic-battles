@@ -3,6 +3,12 @@ var div = d3.select("div").append("span")
     .attr("class", "tooltip")
     .style("opacity", 0);
 
+$(function() {
+    $('[data-toggle="tooltip"]').tooltip({
+        container: 'body'
+    });
+})
+
 var controls = $('.controls');
 
 // Parse Nasab Quraysh json
@@ -35,10 +41,9 @@ d3.json("../data/all_battles_new.json", function(error, data) {
                     }
                 }).on("click", battleClick)
                 .on("mouseover", battlesMouseOver)
-                .on("mouseout", battlesMouseOut);;
+                .on("mouseout", battlesMouseOut);
 
             var outer = marker.append("g");
-            var arcGroup = layer.append('g');
 
             // Add a circle.
             outer.filter(function(d) { return d.properties.name != ""; })
@@ -63,34 +68,6 @@ d3.json("../data/all_battles_new.json", function(error, data) {
                     return d.properties.name + "  (" + d.properties.date + ")";
                 });
 
-            var links = [{
-                type: "LineString",
-                coordinates: [
-                    [data[0].geometry.coordinates[0], data[0].geometry.coordinates[1]],
-                    [data[1].geometry.coordinates[0], data[0].geometry.coordinates[1]]
-                ]
-            }];
-
-            d3.selectAll('.blist-map .item').data(data).on("click", battleClick);
-
-            // Standard enter / update
-            var pathArcs = arcGroup.selectAll(".arc")
-                .data(links);
-
-            //enter
-            pathArcs.enter()
-                .append("path")
-                .attr('class', 'arc')
-                .attr('stroke', '#0000ff')
-                .attr('stroke-width', '2px');
-
-            /*update
-            pathArcs.attr({
-                    //d is the points attribute for this path, we'll draw
-                    //  an arc between the points using the arc function
-                    d: projection
-                });*/
-
             // Populate map with data
             function transform(d) {
                 d = new google.maps.LatLng(d.geometry.coordinates[1], d.geometry.coordinates[0]);
@@ -99,6 +76,8 @@ d3.json("../data/all_battles_new.json", function(error, data) {
                     .style("left", (d.x - padding) + "px")
                     .style("top", (d.y - padding) + "px");
             };
+
+            d3.selectAll('.blist-map .item').data(data).on("click", battleClick);
         };
     };
 
@@ -146,10 +125,21 @@ $('#exampleModalCenter').on('show.bs.modal', function(e) {
 
 function groupedCheckboxes(data) {
     var groupedData = _.groupBy(data, function(d) { return d.properties.mainsource; });
+    var sourceimg = "",
+        tooltip;
 
     for (let i in groupedData) {
+        if (groupedData[i][0].properties.hasOwnProperty('sourceimg')) {
+            sourceimg = groupedData[i][0].properties.sourceimg;
+            // tooltip = "<button data-toggle=\"tooltip\" data-html=\"true\" data-placement=\"auto\" title=\"<div style='padding: 0; width: 60px; height: 120px; background: center / contain no-repeat url(" + sourceimg + ")'></div>\">" + i + "</button>"
+            tooltip = "<button data-toggle=\"tooltip\" data-html=\"true\" title=\"<img height='160px' src='" + sourceimg + "'>\">" + i + "</button>"
+        } else {
+            sourceimg = "";
+            tooltip = "<button data-toggle=\"tooltip\" data-html=\"true\" title=\"" + i + "\">" + i + "</button>"
+        }
+
         controls.append("<input class='sourcescb' type='checkbox' name='" + i + "' value='" + i + "' checked> " +
-            "<span style='display: inline-block; width: 10px; height: 10px; border-radius: 100%; background-color: " + color(i) + "'></span> " + i + " <br>");
+            "<span style='display: inline-block; width: 10px; height: 10px; border-radius: 100%; background-color: " + color(i) + "'></span>" + tooltip + "<br>");
     }
 }
 
