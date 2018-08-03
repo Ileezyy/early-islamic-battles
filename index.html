@@ -38,6 +38,10 @@
     <script src="js/topojson/topojson.min.js"></script>
     <!-- <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script> -->
     <script src="js/d3/d3-geo-projection/d3-geo-projection.min.js"></script>
+    <script src="https://d3js.org/d3-color.v1.min.js"></script>
+    <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
     <!-- Google Maps -->
     <script src="//maps.google.com/maps/api/js?key=AIzaSyACzDzO49_V7dDFRos1tMxWKktaFJh0dbA"></script>
 
@@ -88,13 +92,20 @@
     </div>
     <div id="map"></div>
     <div class="blist-map"></div>
-    <div class="controls"></div>
+    <div class="controls">
+        <h4>Sources</h4>
+    </div>
+    <div class="lines-legend">
+        <div>
+            <h4>Campaigns</h4>
+        </div>
+    </div>
     <div class="round-btn" id="listbtn">
         <i class="fas fa-list-ul"></i>
         <i class="fas fa-times" style="display: none;"></i>
     </div>
     <div class="beeswarm-container">
-        <button onclick="playAnimation()" id="animPlayBtn">Play</button>
+        <!-- <button onclick="playAnimation()" id="animPlayBtn">Play</button> -->
         <svg id="beeswarm"></svg>
         <div id="slider"></div>
     </div>

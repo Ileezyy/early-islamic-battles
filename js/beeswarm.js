@@ -25,10 +25,10 @@ var temp = false,
     timerVar;
 
 // d3.csv("flare.csv", type, function(error, data) {
-d3.json("../data/all_battles_new.json", function(error, battles) {
+d3.json("../data/all_battles_new1.json", function(error, battles) {
     if (error) throw error;
 
-    var data = battles;
+    var data = battles.nodes;
 
     data = data.filter(function(d) {
         return d.properties.name != ""
@@ -95,7 +95,7 @@ function displayCircles(data) {
     // console.log(cbNQ);
     // g.selectAll("circle").transition().duration(200)
     //     .attr("r", 1).remove();
-    g.selectAll("circle").remove();
+    g.selectAll("circle").style("fill", "#ebebeb");
 
     var cell = g.append("g")
         .attr("class", "cells")
@@ -139,14 +139,16 @@ function displayCircles(data) {
         .text(function(d) {
             return d.data.properties.name + "\n" + d.data.properties.date + "\n" + d.data.properties.deaths;
         });
+
+    cell.exit().remove();
 }
 
 function mouseOverCircle(d) {
 
     if (zoomLevel < 6) {
-        radius = 3;
+        radius = 4;
     } else if (zoomLevel >= 6 && zoomLevel < 10) {
-        radius = 5;
+        radius = 6;
     } else if (zoomLevel >= 10 && zoomLevel < 15) {
         radius = 8;
     } else if (zoomLevel >= 15) {
@@ -165,13 +167,13 @@ function mouseOverCircle(d) {
 function mouseOutCircle(d) {
 
     if (zoomLevel < 6) {
-        radius = 2;
+        radius = 3;
     } else if (zoomLevel >= 6 && zoomLevel < 10) {
-        radius = 4;
+        radius = 5;
     } else if (zoomLevel >= 10 && zoomLevel < 15) {
         radius = 7;
     } else if (zoomLevel >= 15) {
-        radius = 10;
+        radius = 9;
     }
 
     d3.selectAll('.circles')

@@ -71,23 +71,30 @@ $("#battleForm").submit(function(e) {
         }
     }
 
-    d3.json("/data/all_battles_new.json", function(error, data) {
+    d3.json("/data/all_battles_new1.json", function(error, datax) {
+
+        var data = datax.nodes;
 
         // for (let k = 0; k < data.length; k++) {
         //     data[k].pdf = [{ "name": "", "author": "", "extra": "", "src": "", "startpage": "" }];
         // }
 
-        /*for (let k = 0; k < data.length; k++) {
+        for (let k = 0; k < data.length; k++) {
             if (data[k].properties.mainsource === "The Great Arab Conquests") {
                 data[k].properties.sourceimg = "https://i.imgur.com/MwhL29m.jpg";
             } else if (data[k].properties.mainsource === "Nasab Quraysh") {
                 data[k].properties.sourceimg = "https://i.imgur.com/fLb7OAj.jpg";
+            } else {
+                data[k].properties.sourceimg = "";
             }
-        }*/
+        }
 
-        data.push(inputData);
+
+        datax.nodes.push(inputData);
+        console.log("after push", datax);
 
         for (let i = 0; i < data.length; i++) {
+
             data[i].id = "id" + i;
             if (data[i].properties.name !== "") {
 
@@ -110,9 +117,9 @@ $("#battleForm").submit(function(e) {
             }
         }
 
-        console.log("New", data);
+        console.log("New", datax);
 
-        saveToFile(data);
+        saveToFile(datax);
     });
 });
 
@@ -142,7 +149,7 @@ function saveUpdated(data) {
         type: 'POST',
         success: function() {
             alert("Record has been updated");
-            window.location.reload();
+            // window.location.reload();
         }
     });
 }
@@ -150,18 +157,22 @@ function saveUpdated(data) {
 function deleteItem(itemId) {
     var confirmRes = confirm("Do you really want to delete this record?");
     if (confirmRes) {
-        d3.json("/data/all_battles_new.json", function(error, data) {
+        d3.json("/data/all_battles_new1.json", function(error, datax) {
             if (error) throw error;
+
+            var data = datax.nodes;
+            console.log("before", datax);
 
             console.log(itemId);
 
-            var filtered = data.filter(function(item) {
+            datax.nodes = data.filter(function(item) {
                 return item.id !== itemId;
             });
 
-            console.log(filtered);
+            // console.log(filtered);
+            console.log("after", datax);
 
-            saveDeleted(filtered);
+            saveDeleted(datax);
         });
     }
 }
@@ -183,31 +194,38 @@ function saveDeleted(data) {
 $("#resetForm").submit(function(e) {
     e.preventDefault();
 
-    var data = [{
-        "type": "",
-        "geometry": {
+    var data = {
+        "nodes": [{
             "type": "",
-            "coordinates": ["", ""]
-        },
-        "properties": {
-            "name": "",
-            "deaths": "",
-            "date": "",
+            "geometry": {
+                "type": "",
+                "coordinates": ["", ""]
+            },
+            "properties": {
+                "name": "",
+                "deaths": "",
+                "date": "",
+                "source": "",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": ""
+            },
+            "id": "",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        }],
+        "links": [{
+            "campaign": "",
             "source": "",
-            "link": "",
-            "text": "",
-            "img": "",
-            "mainsource": ""
-        },
-        "id": "",
-        "pdf": [{
-            "name": "",
-            "author": "",
-            "extra": "",
-            "src": "",
-            "startpage": ""
+            "target": ""
         }]
-    }];
+    };
 
     saveReset(data);
 });
@@ -228,8 +246,10 @@ function saveReset(data) {
 }
 
 $(document).ready(function() {
-    d3.json("/data/all_battles_new.json", function(error, data) {
+    d3.json("/data/all_battles_new1.json", function(error, datax) {
         if (error) throw error;
+
+        var data = datax.nodes;
 
         data = data.sort(function(a, b) { return d3.ascending(a.properties.date, b.properties.date); });
 
@@ -314,8 +334,10 @@ $('#editBattleModal').on('show.bs.modal', function(event) {
     modal.find('#editid').val(bid);
     modal.find('#editmainsource').val(mainsource);
 
-    d3.json("/data/all_battles_new.json", function(error, data) {
+    d3.json("/data/all_battles_new1.json", function(error, datax) {
         if (error) throw error;
+
+        var data = datax.nodes;
 
         for (let i in data) {
             if (bid === data[i].id) {
@@ -409,8 +431,10 @@ $("#updateBattleForm").submit(function(e) {
         }
     }
 
-    d3.json("/data/all_battles_new.json", function(error, data) {
+    d3.json("/data/all_battles_new1.json", function(error, datax) {
         if (error) throw error;
+
+        var data = datax.nodes;
 
         console.log(inputData.id);
 
@@ -448,8 +472,8 @@ $("#updateBattleForm").submit(function(e) {
         }
 
         console.log(inputData);
-        console.log(data);
+        console.log(datax);
 
-        saveUpdated(data);
+        saveUpdated(datax);
     });
 });

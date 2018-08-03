@@ -132,25 +132,29 @@ google.maps.event.addListener(map, 'zoom_changed', function() {
 
     zoomLevel = map.getZoom();
     d3.selectAll('text').attr("fill", "black");
-    $('.labelsNQ').hide();
-    $('.labelsK').hide();
     $('.battles svg').css({ "width": "15px", "height": "15px" });
 
     if (zoomLevel < 6) {
         map.setMapTypeId('customstyle');
-
         var sel = d3.selectAll(".circles")
-            .attr("r", 2);
+            .attr("r", 3);
         sel.transition()
             .duration(200);
+        $('.labels').fadeOut();
+        $(".links").fadeOut();
+        $(".lines-legend").fadeOut();
+
     } else if (zoomLevel >= 6 && zoomLevel < 10) {
         map.setMapTypeId('terrain');
         map.setOptions({ styles: styles['grey'] });
         var sel = d3.selectAll(".circles")
-            .attr("r", 4);
+            .attr("r", 5);
         sel.transition()
             .duration(200);
         $('.battles svg').css({ "width": "20px", "height": "20px" });
+        $(".links").fadeIn();
+        $(".lines-legend").fadeIn();
+
     } else if (zoomLevel >= 10 && zoomLevel < 15) {
         map.setMapTypeId('terrain');
         map.setOptions({ styles: styles['default'] });
@@ -162,12 +166,12 @@ google.maps.event.addListener(map, 'zoom_changed', function() {
 
         $('.battles svg').css({ "width": "150px", "height": "50px" });
 
-        $('.labelsNQ').show();
-        $('.labelsK').show();
+        $('.labels').fadeIn();
+
     } else if (zoomLevel >= 15) {
         map.setMapTypeId('satellite');
         var sel = d3.selectAll(".circles")
-            .attr("r", 10);
+            .attr("r", 9);
 
         d3.selectAll('text').attr("fill", "white");
 
@@ -175,8 +179,5 @@ google.maps.event.addListener(map, 'zoom_changed', function() {
             .duration(200);
 
         $('.battles svg').css({ "width": "200px", "height": "50px" });
-
-        $('.labelsNQ').show();
-        $('.labelsK').show();
     }
 });

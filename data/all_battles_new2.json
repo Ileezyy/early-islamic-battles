@@ -1,0 +1,2508 @@
+{
+    "nodes": [{
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    38.7,
+                    23.7
+                ]
+            },
+            "properties": {
+                "name": "Badr",
+                "deaths": 41,
+                "date": 624,
+                "source": "Nasab Quraysh, pages: 94, 123, 138, 152, 153, 174, 198, 199, 204, 213, 218, 219, 230, 235, 254, 255, 263, 280, 288, 302, 316, 317, 333, 337, 343, 387, 395, 399, 403, 404, 405, 406, 408",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Badr",
+                "text": "",
+                "img": "",
+                "mainsource": "Nasab Quraysh"
+            },
+            "id": "id0",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    47.792930603027344,
+                    30.50607549756194
+                ]
+            },
+            "properties": {
+                "name": "Camel",
+                "deaths": 21,
+                "date": 656,
+                "source": "Nasab Quraysh, pages: 19, 149, 193, 204, 212, 232, 235, 252, 256, 281, 317, 333, 346, 384, 392, 396, 424, 434, 439, 440",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_the_Camel",
+                "text": "",
+                "img": "",
+                "mainsource": "Nasab Quraysh"
+            },
+            "id": "id1",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.641728,
+                    24.46601
+                ]
+            },
+            "properties": {
+                "name": "Dar",
+                "deaths": 1,
+                "date": 656,
+                "source": "Nasab Quraysh, pages: 235",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "Nasab Quraysh"
+            },
+            "id": "id2",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.64178,
+                    24.46601
+                ]
+            },
+            "properties": {
+                "name": "Ditch",
+                "deaths": 3,
+                "date": 627,
+                "source": "Nasab Quraysh, pages: 256, 319, 426",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "Nasab Quraysh"
+            },
+            "id": "id3",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.49,
+                    24.27
+                ]
+            },
+            "properties": {
+                "name": "Harra",
+                "deaths": 17,
+                "date": 683,
+                "source": "Nasab Quraysh, pages: 88, 228, 252, 256, 273, 279, 282, 306, 332, 346, 261, 370, 386, 436",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_al-Harrah",
+                "text": "",
+                "img": "",
+                "mainsource": "Nasab Quraysh"
+            },
+            "id": "id4",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    40.21,
+                    21.26
+                ]
+            },
+            "properties": {
+                "name": "Hunayn",
+                "deaths": 1,
+                "date": 630,
+                "source": "Nasab Quraysh, pages: 395",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "Nasab Quraysh"
+            },
+            "id": "id5",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.02,
+                    32.37
+                ]
+            },
+            "properties": {
+                "name": "Karbala",
+                "deaths": 12,
+                "date": 680,
+                "source": "Nasab Quraysh, pages: 43, 45, 50, 57, 59, 83, 84",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Karbala",
+                "text": "",
+                "img": "",
+                "mainsource": "Nasab Quraysh"
+            },
+            "id": "id6",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.1453,
+                    33.2139
+                ]
+            },
+            "properties": {
+                "name": "Marj al-Saffar",
+                "deaths": 2,
+                "date": 634,
+                "source": "Nasab Quraysh, pages: 174, 303",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Marj_al-Saffar_(634)",
+                "text": "",
+                "img": "",
+                "mainsource": "Nasab Quraysh"
+            },
+            "id": "id7",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.2833,
+                    33.6132
+                ]
+            },
+            "properties": {
+                "name": "Marj Rahit",
+                "deaths": 1,
+                "date": 684,
+                "source": "Nasab Quraysh, pages: 447",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Marj_Rahit_(684)",
+                "text": "",
+                "img": "",
+                "mainsource": "Nasab Quraysh"
+            },
+            "id": "id8",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.14,
+                    33.51
+                ]
+            },
+            "properties": {
+                "name": "Maskin",
+                "deaths": 3,
+                "date": 691,
+                "source": "Nasab Quraysh, pages: 132, 249",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Maskin",
+                "text": "",
+                "img": "",
+                "mainsource": "Nasab Quraysh"
+            },
+            "id": "id9",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.41,
+                    31.02
+                ]
+            },
+            "properties": {
+                "name": "Mu'ta",
+                "deaths": 6,
+                "date": 629,
+                "source": "Nasab Quraysh, pages: 145, 174, 320, 338, 386",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Mu%27tah",
+                "text": "",
+                "img": "",
+                "mainsource": "Nasab Quraysh"
+            },
+            "id": "id10",
+            "pdf": [{
+                    "src": "The_Life_Of_Mohammed_Guillaume.pdf",
+                    "name": "The Life Of Muhammad",
+                    "author": "Alfred Guillaume",
+                    "startpage": 1,
+                    "extra": "A translation of Ibn Ishaq's Sirat Rasul Allah. Pages 531-540"
+                },
+                {
+                    "src": "muta-kennedy.pdf",
+                    "name": "The Great Arab Conquest",
+                    "author": "Hugh Kennedy",
+                    "startpage": 1,
+                    "extra": "Extraction about Mu'ta battle from The Great Arab Conquest"
+                },
+                {
+                    "src": "muta-theophilus.pdf",
+                    "name": "Theophilus of Edessa’s Chronicle",
+                    "author": "Robert Hoyland",
+                    "startpage": 1,
+                    "extra": "Theophilus of Edessa was born in northern Syria in 695 and was a chief astrologist to the caliph al-Mahdi. He died in Baghdad, at the caliphal court, in 785. He translated a number of works from Greek into Syriac, and is known to have written a book of history. His writings only survive in the works of others; the following is found in the Chronographia of Theophanes, a Byzantine monk (d. 818). This work, written in Greek, does not refer directly to Theophilus but it is presumed that he is the ultimate source of his knowledge of Eastern affairs (see discussion pages 6-10)"
+                }
+            ]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.3,
+                    31.35
+                ]
+            },
+            "properties": {
+                "name": "Qadisiyya",
+                "deaths": 2,
+                "date": 636,
+                "source": "Nasab Quraysh, pages: 294, 437",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_al-Q%C4%81disiyyah",
+                "text": "",
+                "img": "",
+                "mainsource": "Nasab Quraysh"
+            },
+            "id": "id11",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.32,
+                    22.27
+                ]
+            },
+            "properties": {
+                "name": "Qudayd",
+                "deaths": 19,
+                "date": 747,
+                "source": "Nasab Quraysh, pages: 114, 115, 116, 117, 202, 217, 228, 236, 250, 272, 381, 397",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "Nasab Quraysh"
+            },
+            "id": "id12",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.1012,
+                    35.57
+                ]
+            },
+            "properties": {
+                "name": "Siffin",
+                "deaths": 3,
+                "date": 657,
+                "source": "Nasab Quraysh, pages: 235, 264, 355",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Siffin",
+                "text": "",
+                "img": "",
+                "mainsource": "Nasab Quraysh"
+            },
+            "id": "id13",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.365,
+                    24.5037
+                ]
+            },
+            "properties": {
+                "name": "Uhud",
+                "deaths": 19,
+                "date": 625,
+                "source": "Nasab Quraysh, pages: 19, 123, 173, 212, 251, 252, 253, 315, 316, 342, 387, 397, 436",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Uhud",
+                "text": "",
+                "img": "",
+                "mainsource": "Nasab Quraysh"
+            },
+            "id": "id14",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.4566,
+                    24.8866
+                ]
+            },
+            "properties": {
+                "name": "Yamama",
+                "deaths": 11,
+                "date": 632,
+                "source": "Nasab Quraysh, pages: 96, 153, 236, 330, 345, 348, 401, 419, 439",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Yamama",
+                "text": "",
+                "img": "",
+                "mainsource": "Nasab Quraysh"
+            },
+            "id": "id15",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.9548,
+                    32.8141
+                ]
+            },
+            "properties": {
+                "name": "Yarmuk",
+                "deaths": 16,
+                "date": 636,
+                "source": "Nasab Quraysh, pages: 174, 251, 254, 257, 302, 310, 330, 338, 370, 380, 401, 409",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Yarmouk",
+                "text": "",
+                "img": "",
+                "mainsource": "Nasab Quraysh"
+            },
+            "id": "id16",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    69.176134,
+                    34.515345
+                ]
+            },
+            "properties": {
+                "name": "Kabul",
+                "deaths": 1,
+                "date": 670,
+                "source": "Nasab Quraysh, pages: 54",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "Nasab Quraysh"
+            },
+            "id": "id17",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    61.619272,
+                    31.085593
+                ]
+            },
+            "properties": {
+                "name": "Sijistan",
+                "deaths": 1,
+                "date": 644,
+                "source": "Nasab Quraysh, pages: 88",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "Nasab Quraysh"
+            },
+            "id": "id18",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.915432,
+                    33.902724
+                ]
+            },
+            "properties": {
+                "name": "Dulab",
+                "deaths": 1,
+                "date": 684,
+                "source": "Nasab Quraysh, pages: 147",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "Nasab Quraysh"
+            },
+            "id": "id19",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "types": "Point",
+                "coordinates": [
+                    35.155506,
+                    31.626572
+                ]
+            },
+            "id": "id20",
+            "properties": {
+                "name": "Fajjar",
+                "date": 600,
+                "deaths": 3,
+                "source": "Nasab Quraysh, pages: 17, 291, 347",
+                "link": "",
+                "img": "",
+                "text": "",
+                "mainsource": "Nasab Quraysh"
+            },
+            "pdf": [{
+                "src": "",
+                "name": "",
+                "author": "",
+                "startpage": "",
+                "extra": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.858552,
+                    21.392808
+                ]
+            },
+            "properties": {
+                "name": "Mecca",
+                "deaths": 4,
+                "date": 630,
+                "source": "Nasab Quraysh, pages: 257, 322, 443, 448",
+                "link": "https://en.wikipedia.org/wiki/Conquest_of_Mecca",
+                "text": "",
+                "img": "",
+                "mainsource": "Nasab Quraysh"
+            },
+            "id": "id21",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.8098,
+                    21.464396
+                ]
+            },
+            "properties": {
+                "name": "First siege of Mecca",
+                "deaths": 5,
+                "date": 683,
+                "source": "Nasab Quraysh, pages: 233, 245, 263, 269, 390",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "Nasab Quraysh"
+            },
+            "id": "id22",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.690324,
+                    21.364035
+                ]
+            },
+            "properties": {
+                "name": "Second siege of Mecca",
+                "deaths": 7,
+                "date": 692,
+                "source": "Nasab Quraysh, pages: 212, 235, 236, 243, 245, 384",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "Nasab Quraysh"
+            },
+            "id": "id23",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    40.5129,
+                    21.433471
+                ]
+            },
+            "properties": {
+                "name": "Ta'if",
+                "deaths": 6,
+                "date": 630,
+                "source": "Nasab Quraysh, pages: 174, 221, 275, 316, 376, 401",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "Nasab Quraysh"
+            },
+            "id": "id24",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.3444,
+                    28.235
+                ]
+            },
+            "properties": {
+                "name": "Tabuk",
+                "deaths": 0,
+                "date": 630,
+                "source": "The Great Arab Conquests, page: 71",
+                "link": "https://en.wikipedia.org/wiki/Expedition_to_Tabouk",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id25",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.27,
+                    31.53
+                ]
+            },
+            "properties": {
+                "name": "Hira",
+                "deaths": 0,
+                "date": 633,
+                "source": "The Great Arab Conquests, page: 104",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Hira",
+                "text": "Ruins of Hira",
+                "img": "https://histoireislamique.files.wordpress.com/2014/10/ruines-dal-hira.jpg",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id26",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    30.057186,
+                    31.182336
+                ]
+            },
+            "properties": {
+                "name": "Alexandria",
+                "deaths": 0,
+                "date": 641,
+                "source": "The Great Arab Conquests, page: 156-159",
+                "link": "https://en.wikipedia.org/wiki/Siege_of_Alexandria_%28641%29",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id27",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    48.2237,
+                    34.1119
+                ]
+            },
+            "properties": {
+                "name": "Nihavand",
+                "deaths": 0,
+                "date": 642,
+                "source": "The Great Arab Conquests, pages: 171-172",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Nahāvand",
+                "text": "Nahavand castle",
+                "img": "https://i.pinimg.com/originals/5b/a7/be/5ba7be49eb65521c7196dd57d0d7546b.jpg",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id28",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    51.39,
+                    32.38
+                ]
+            },
+            "properties": {
+                "name": "Isfahan",
+                "deaths": 0,
+                "date": 642,
+                "source": "The Great Arab Conquests, page: 174-175",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Spahan",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id29",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "types": "Point",
+                "coordinates": [
+                    35.41,
+                    31.02
+                ]
+            },
+            "id": "id30",
+            "properties": {
+                "name": "Mu'ta",
+                "mainsource": "The Great Arab Conquests",
+                "date": 629,
+                "deaths": 0,
+                "source": "The Great Arab Conquests, page: 71",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Mu%27tah",
+                "img": "",
+                "text": ""
+            },
+            "pdf": [{
+                    "src": "The_Life_Of_Mohammed_Guillaume.pdf",
+                    "name": "The Life Of Muhammad",
+                    "author": "Alfred Guillaume",
+                    "startpage": 1,
+                    "extra": "A translation of Ibn Ishaq's Sirat Rasul Allah. Pages 531-540"
+                },
+                {
+                    "src": "muta-kennedy.pdf",
+                    "name": "The Great Arab Conquest",
+                    "author": "Hugh Kennedy",
+                    "startpage": 1,
+                    "extra": "Extraction about Mu'ta battle from The Great Arab Conquest"
+                },
+                {
+                    "src": "muta-theophilus.pdf",
+                    "name": "Theophilus of Edessa’s Chronicle",
+                    "author": "Robert Hoyland",
+                    "startpage": 1,
+                    "extra": "Theophilus of Edessa was born in northern Syria in 695 and was a chief astrologist to the caliph al-Mahdi. He died in Baghdad, at the caliphal court, in 785. He translated a number of works from Greek into Syriac, and is known to have written a book of history. His writings only survive in the works of others; the following is found in the Chronographia of Theophanes, a Byzantine monk (d. 818). This work, written in Greek, does not refer directly to Theophilus but it is presumed that he is the ultimate source of his knowledge of Eastern affairs (see discussion pages 6-10)"
+                }
+            ]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    34.27,
+                    31.31
+                ]
+            },
+            "properties": {
+                "name": "Dathin",
+                "deaths": 0,
+                "date": 634,
+                "source": "The Great Arab Conquests, page: 73",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Dathin",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id31",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.4833,
+                    33.8
+                ]
+            },
+            "properties": {
+                "name": "Rahit",
+                "deaths": 0,
+                "date": 634,
+                "source": "The Great Arab Conquests, page: 77",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Marj_Rahit_(634)",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id32",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.29,
+                    32.31
+                ]
+            },
+            "properties": {
+                "name": "Bosra",
+                "deaths": 0,
+                "date": 634,
+                "source": "The Great Arab Conquests, page: 77",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Bosra",
+                "text": "Roman ampitheatre; converted into a citadel in the 11th C",
+                "img": "https://c2.staticflickr.com/4/3002/2988775749_ac0abf627f_o.jpg",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id33",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    34.57,
+                    31.41
+                ]
+            },
+            "properties": {
+                "name": "Ajnadayn",
+                "deaths": 0,
+                "date": 634,
+                "source": "The Great Arab Conquests, page: 78",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Ajnadayn",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id34",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.273323,
+                    33.522616
+                ]
+            },
+            "properties": {
+                "name": "Damascus",
+                "deaths": 0,
+                "date": 634,
+                "source": "The Great Arab Conquests, page: 79",
+                "link": "https://en.wikipedia.org/wiki/Siege_of_Damascus_(634)",
+                "text": "This colour photochrome print shows a wall in Damascus' defences which is rumoured to be the one over which St Paul escaped in the first century AD",
+                "img": "http://www.historyfiles.co.uk/images/MiddleEast/Syria/Arabic_Damascus02_full.jpg",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id35",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.24,
+                    32.02
+                ]
+            },
+            "properties": {
+                "name": "Bridge",
+                "deaths": 0,
+                "date": 634,
+                "source": "The Great Arab Conquests, page: 106",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_the_Bridge",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id36",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.9548,
+                    32.8141
+                ]
+            },
+            "properties": {
+                "name": "Yarmuk",
+                "deaths": 0,
+                "date": 636,
+                "source": "The Great Arab Conquests, page: 83",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Yarmouk",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id37",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    32.3242,
+                    31.023
+                ]
+            },
+            "properties": {
+                "name": "Farama",
+                "deaths": 0,
+                "date": 640,
+                "source": "The Great Arab Conquests, page: 148",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id38",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    50.859547,
+                    28.906695
+                ]
+            },
+            "properties": {
+                "name": "Rashahr (Bushehr)",
+                "deaths": 0,
+                "date": 640,
+                "source": "The Great Arab Conquests, page: 182",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id39",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    34.919135,
+                    32.515525
+                ]
+            },
+            "properties": {
+                "name": "Caesarea",
+                "deaths": 0,
+                "date": 641,
+                "source": "The Great Arab Conquests, page: 89",
+                "link": "",
+                "text": "Aquaduct",
+                "img": "https://upload.wikimedia.org/wikipedia/commons/6/61/Caesarea_maritima_BW_3.JPG",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id40",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    30.5113,
+                    30.2444
+                ]
+            },
+            "properties": {
+                "name": "Nikiu",
+                "deaths": 0,
+                "date": 641,
+                "source": "The Great Arab Conquests, page: 155",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id41",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    31.0724,
+                    30.0752
+                ]
+            },
+            "properties": {
+                "name": "Karyun",
+                "deaths": 0,
+                "date": 641,
+                "source": "The Great Arab Conquests, page: 155",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id42",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    48.31,
+                    34.48
+                ]
+            },
+            "properties": {
+                "name": "Hamadan",
+                "deaths": 0,
+                "date": 642,
+                "source": "The Great Arab Conquests, pages: 173-174",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id43",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    48.4546,
+                    35.0554
+                ]
+            },
+            "properties": {
+                "name": "Wajj al-Rudh",
+                "deaths": 0,
+                "date": 642,
+                "source": "The Great Arab Conquests, page: 176",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id44",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    22.3,
+                    31
+                ]
+            },
+            "properties": {
+                "name": "Barqa",
+                "deaths": 0,
+                "date": 642,
+                "source": "The Great Arab Conquests, page: 206",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id45",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.1129,
+                    32.5314
+                ]
+            },
+            "properties": {
+                "name": "Tripoli",
+                "deaths": 0,
+                "date": 642,
+                "source": "The Great Arab Conquests, page: 206",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id46",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.2903,
+                    32.4732
+                ]
+            },
+            "properties": {
+                "name": "Sabra",
+                "deaths": 0,
+                "date": 642,
+                "source": "The Great Arab Conquests, page: 207",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id47",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    14.1726,
+                    32.3821
+                ]
+            },
+            "properties": {
+                "name": "Leptis Magna",
+                "deaths": 0,
+                "date": 642,
+                "source": "The Great Arab Conquests, page: 207",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id48",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.796477,
+                    35.542967
+                ]
+            },
+            "properties": {
+                "name": "Latakia",
+                "deaths": 0,
+                "date": 644,
+                "source": "The Great Arab Conquests, page: 89",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id49",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    52.5434,
+                    29.5851
+                ]
+            },
+            "properties": {
+                "name": "Istakhr",
+                "deaths": 0,
+                "date": 644,
+                "source": "The Great Arab Conquests, page: 183",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id50",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.937023,
+                    31.205243
+                ]
+            },
+            "properties": {
+                "name": "Alexandria",
+                "deaths": 0,
+                "date": 645,
+                "source": "The Great Arab Conquests, page: 162",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id51",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.953503,
+                    31.110641
+                ]
+            },
+            "properties": {
+                "name": "Alexandria",
+                "deaths": 0,
+                "date": 646,
+                "source": "The Great Arab Conquests, page: 162",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id52",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    51.3415,
+                    29.464
+                ]
+            },
+            "properties": {
+                "name": "Bishapur",
+                "deaths": 0,
+                "date": 647,
+                "source": "The Great Arab Conquests, page: 183",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Bishapur_(643–644)",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id53",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.0746,
+                    35.1347
+                ]
+            },
+            "properties": {
+                "name": "Sbeitla",
+                "deaths": 0,
+                "date": 647,
+                "source": "The Great Arab Conquests, page: 207",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id54",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    50.1708,
+                    30.4001
+                ]
+            },
+            "properties": {
+                "name": "Arrajan",
+                "deaths": 0,
+                "date": 648,
+                "source": "The Great Arab Conquests, page: 183",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id55",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    54.3422,
+                    28.4628
+                ]
+            },
+            "properties": {
+                "name": "Darabjird",
+                "deaths": 0,
+                "date": 648,
+                "source": "The Great Arab Conquests, page: 183",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id56",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    52.3415,
+                    28.5038
+                ]
+            },
+            "properties": {
+                "name": "Jur (Firuzabad)",
+                "deaths": 0,
+                "date": 650,
+                "source": "The Great Arab Conquests, page: 184",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id57",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    52.4434,
+                    29.5851
+                ]
+            },
+            "properties": {
+                "name": "Istakhr",
+                "deaths": 0,
+                "date": 650,
+                "source": "The Great Arab Conquests, page: 184",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Istakhr_(650–653)",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id58",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    58.2014,
+                    29.0554
+                ]
+            },
+            "properties": {
+                "name": "Bam",
+                "deaths": 0,
+                "date": 650,
+                "source": "The Great Arab Conquests, page: 185",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id59",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    55.4053,
+                    29.2707
+                ]
+            },
+            "properties": {
+                "name": "Sirjan",
+                "deaths": 0,
+                "date": 650,
+                "source": "The Great Arab Conquests, page: 185",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id60",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    62.1133,
+                    37.3946
+                ]
+            },
+            "properties": {
+                "name": "Merv",
+                "deaths": 0,
+                "date": 652,
+                "source": "The Great Arab Conquests, page: 191",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id61",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.3233,
+                    36.8528
+                ]
+            },
+            "properties": {
+                "name": "Carthage",
+                "deaths": 0,
+                "date": 678,
+                "source": "The Great Arab Conquests, page: 212",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id62",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.0652,
+                    35.3119
+                ]
+            },
+            "properties": {
+                "name": "Baghaya (Baghai)",
+                "deaths": 0,
+                "date": 680,
+                "source": "The Great Arab Conquests, page: 212",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id63",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.491,
+                    35.461
+                ]
+            },
+            "properties": {
+                "name": "Monastir",
+                "deaths": 0,
+                "date": 680,
+                "source": "The Great Arab Conquests, page: 212",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id64",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    1.19,
+                    35.22
+                ]
+            },
+            "properties": {
+                "name": "Tahert",
+                "deaths": 0,
+                "date": 680,
+                "source": "The Great Arab Conquests, page: 212",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id65",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    5.48,
+                    35.46
+                ]
+            },
+            "properties": {
+                "name": "Tangier",
+                "deaths": 0,
+                "date": 680,
+                "source": "The Great Arab Conquests, page: 213",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id66",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    5.3313,
+                    34.0416
+                ]
+            },
+            "properties": {
+                "name": "Walila/Volubilis",
+                "deaths": 0,
+                "date": 680,
+                "source": "The Great Arab Conquests, page: 213",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id67",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.4804,
+                    31.2521
+                ]
+            },
+            "properties": {
+                "name": "Aghmat",
+                "deaths": 0,
+                "date": 680,
+                "source": "The Great Arab Conquests, page: 213",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id68",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.3612,
+                    30.2158
+                ]
+            },
+            "properties": {
+                "name": "Sus (river mouth)",
+                "deaths": 0,
+                "date": 680,
+                "source": "The Great Arab Conquests, page: 213",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id69",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.053,
+                    35.4033
+                ]
+            },
+            "properties": {
+                "name": "Qayrawan",
+                "deaths": 0,
+                "date": 684,
+                "source": "The Great Arab Conquests, page: 215",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id70",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.053,
+                    35.3333
+                ]
+            },
+            "properties": {
+                "name": "Qayrawan",
+                "deaths": 0,
+                "date": 688,
+                "source": "The Great Arab Conquests, page: 215",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id71",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.2233,
+                    36.8528
+                ]
+            },
+            "properties": {
+                "name": "Carthage",
+                "deaths": 0,
+                "date": 698,
+                "source": "The Great Arab Conquests, page: 217-218",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_Carthage_(698)",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id72",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.4001,
+                    35.374
+                ]
+            },
+            "properties": {
+                "name": "Wadi Maskiyana",
+                "deaths": 0,
+                "date": 698,
+                "source": "The Great Arab Conquests, page: 220",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id73",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.07,
+                    33.53
+                ]
+            },
+            "properties": {
+                "name": "Gabis (region)",
+                "deaths": 0,
+                "date": 698,
+                "source": "The Great Arab Conquests, page: 221",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id74",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    5.2004,
+                    35.252
+                ]
+            },
+            "properties": {
+                "name": "Tobna (Tubunae)",
+                "deaths": 0,
+                "date": 698,
+                "source": "The Great Arab Conquests, page: 221",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id75",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    5.555,
+                    35.48
+                ]
+            },
+            "properties": {
+                "name": "Tangier",
+                "deaths": 0,
+                "date": 708,
+                "source": "The Great Arab Conquests, page: 223",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id76",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.3,
+                    31.35
+                ]
+            },
+            "properties": {
+                "name": "Qadisiyya",
+                "deaths": 0,
+                "date": 636,
+                "source": "The Great Arab Conquests, page: 107",
+                "link": "https://en.wikipedia.org/wiki/Battle_of_al-Q%C4%81disiyyah",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id77",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.712442,
+                    34.731406
+                ]
+            },
+            "properties": {
+                "name": "Homs",
+                "deaths": 0,
+                "date": 637,
+                "source": "The Great Arab Conquests, page: 85",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id78",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.21398,
+                    31.768866
+                ]
+            },
+            "properties": {
+                "name": "Jerusalem",
+                "deaths": 0,
+                "date": 636,
+                "source": "The Great Arab Conquests, page: 90",
+                "link": "https://en.wikipedia.org/wiki/Siege_of_Jerusalem_(636–637)",
+                "text": "Madaba map",
+                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Madaba_map.jpg/300px-Madaba_map.jpg",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id79",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.998,
+                    35.9986
+                ]
+            },
+            "properties": {
+                "name": "Qinassrin",
+                "deaths": 0,
+                "date": 636,
+                "source": "The Great Arab Conquests, page: 87",
+                "link": "",
+                "text": "Road connecting Qinnassrin to Antioch",
+                "img": "https://upload.wikimedia.org/wikipedia/commons/2/22/Ancient_Roman_road_of_Tall_Aqibrin.jpg",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id80",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.2515,
+                    33.3211
+                ]
+            },
+            "properties": {
+                "name": "Babylon",
+                "deaths": 0,
+                "date": 640,
+                "source": "The Great Arab Conquests, page: 151",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id81",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    48.172,
+                    42.0402
+                ]
+            },
+            "properties": {
+                "name": "Bab al-Abwab (Derbent)",
+                "deaths": 0,
+                "date": 641,
+                "source": "The Great Arab Conquests, page: 180",
+                "link": "",
+                "text": "",
+                "img": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id82",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    48.5124,
+                    32.0244
+                ]
+            },
+            "properties": {
+                "name": "Tustar",
+                "deaths": 0,
+                "date": 640,
+                "source": "The Great Arab Conquests, page: 129",
+                "link": "https://en.wikipedia.org/wiki/Siege_of_Shushtar",
+                "text": "Dam",
+                "img": "https://iransunworldtravel.com/wp-content/uploads/2017/08/shushtar-waterfall-e1511347015777.jpg",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id83",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.35,
+                    33.06
+                ]
+            },
+            "properties": {
+                "name": "Mada'in",
+                "deaths": 0,
+                "date": 641,
+                "source": "The Great Arab Conquests, page: 117",
+                "link": "https://en.wikipedia.org/wiki/Siege_of_Shushtar",
+                "text": "Arch of Chosroes",
+                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Ctesiphon%2C_Iraq%2C_1932.jpg/1200px-Ctesiphon%2C_Iraq%2C_1932.jpg",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id84",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    48.31,
+                    32.17
+                ]
+            },
+            "properties": {
+                "name": "Junday Shapur",
+                "deaths": 0,
+                "date": 640,
+                "source": "The Great Arab Conquests, page: 127",
+                "link": "",
+                "text": "Aerial photo of Junday Shapur",
+                "img": "https://upload.wikimedia.org/wikipedia/fa/8/81/214451_G1d1wglo.jpg",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "id": "id85",
+            "pdf": [{
+                "name": "",
+                "author": "",
+                "extra": "",
+                "src": "",
+                "startpage": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "types": "Point",
+                "coordinates": [
+                    23.33,
+                    23.12
+                ]
+            },
+            "id": "id86",
+            "properties": {
+                "name": "SomeNewBattle",
+                "date": 700,
+                "deaths": 0,
+                "source": "",
+                "link": "",
+                "img": "",
+                "text": "",
+                "mainsource": "The Great Arab Conquests"
+            },
+            "pdf": [{
+                "src": "",
+                "name": "",
+                "author": "",
+                "startpage": "",
+                "extra": ""
+            }]
+        },
+        {
+            "type": "Battle",
+            "geometry": {
+                "types": "Point",
+                "coordinates": [
+                    23.44,
+                    23.1
+                ]
+            },
+            "properties": {
+                "name": "BrandNew",
+                "mainsource": "SomeSource",
+                "date": 710,
+                "deaths": 0,
+                "source": "New",
+                "link": "",
+                "img": "",
+                "text": ""
+            },
+            "pdf": [{
+                "src": "AssemblyFestival.pdf",
+                "name": "Jazz",
+                "author": "Blues",
+                "startpage": 1,
+                "extra": "Fest"
+            }],
+            "id": "id88"
+        }
+    ],
+    "links": [{
+            "campaign": "Syria",
+            "source": "id30",
+            "target": "id0"
+        },
+        {
+            "campaign": "Egypt",
+            "source": "id2",
+            "target": "54"
+        }
+    ]
+}

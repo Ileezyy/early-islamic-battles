@@ -9,7 +9,7 @@ var zoomLevel = map.getZoom();
 var cbNQ = true,
     cbKen = true;
 
-var radius = 2;
+var radius = 3;
 var fillColor = "black";
 
 var index = false;
@@ -168,9 +168,9 @@ function battleClickWData(d) {
 function battlesMouseOver(d) {
 
     if (zoomLevel < 6) {
-        radius = 3;
+        radius = 4;
     } else if (zoomLevel >= 6 && zoomLevel < 10) {
-        radius = 5;
+        radius = 6;
     } else if (zoomLevel >= 10 && zoomLevel < 15) {
         radius = 8;
     } else if (zoomLevel >= 15) {
@@ -203,13 +203,13 @@ function battlesMouseOut(d) {
     zoomLevel = map.getZoom();
 
     if (zoomLevel < 6) {
-        radius = 2;
+        radius = 3;
     } else if (zoomLevel >= 6 && zoomLevel < 10) {
-        radius = 4;
+        radius = 5;
     } else if (zoomLevel >= 10 && zoomLevel < 15) {
         radius = 7;
     } else if (zoomLevel >= 15) {
-        radius = 10;
+        radius = 9;
     }
 
     d3.select(this).selectAll('.circles')

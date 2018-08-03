@@ -59,6 +59,14 @@ hr {
     /* cursor: pointer; */
 }
 
+#map1 {
+    width: 75%;
+    height: 75%;
+    float: left;
+    position: relative;
+    /* cursor: pointer; */
+}
+
 .labels {
     display: none;
     font-family: OpenSans, 'Open Sans', sans-serif;
@@ -81,6 +89,18 @@ hr {
     max-height: 100px;
     /* overflow: scroll; */
     left: 10px;
+    top: 10px;
+}
+
+.lines-legend {
+    display: none;
+    position: absolute;
+    height: 100px;
+    width: 300px;
+    text-align: right;
+    /* overflow: scroll; */
+    /* left: 0; */
+    right: 26%;
     top: 10px;
 }
 
@@ -233,18 +253,19 @@ span.tooltip p {
     position: absolute;
 }
 
+.temp,
+.temp svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 .battles svg {
     width: 16px;
     height: 16px;
     /* padding-right: 100px; */
     font: 10px sans-serif;
     /* pointer-events: all; */
-}
-
-.battles .circleNQ {
-    /* fill: #000; */
-    /* stroke: #fff; */
-    /* stroke-width: 1px; */
 }
 
 .battles .grey {
