@@ -137,10 +137,21 @@ map.mapTypes.set('customstyle', customStyle);
 map.mapTypes.set('terrain', greyTerrain);
 map.setMapTypeId('customstyle');
 
+google.maps.event.addListener(map, 'maptypeid_changed', function() {
+    if (map.getMapTypeId() === 'satellite') {
+        $('.lines-legend>div>span:first-child, .lines-legend h4, .controls h4, .controls button')
+            .css("color", "#fff").css("text-shadow", "0 0 4px #000");
+    } else {
+        $('.lines-legend>div>span:first-child, .lines-legend h4, .controls h4, .controls button')
+            .css("color", "#000").css("text-shadow", "none");
+    }
+});
+
+
 // Map events
 google.maps.event.addListener(map, 'zoom_changed', function() {
-
     zoomLevel = map.getZoom();
+
     d3.selectAll('text').attr("fill", "black");
     $('.battles svg').css({ "width": "15px", "height": "15px" });
 

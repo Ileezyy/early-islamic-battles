@@ -12,9 +12,6 @@ var ttDiv = d3.select(".beeswarm-container").append("span")
     .attr("class", "tooltips")
     .style("opacity", 0);
 
-// width = svg.attr("width") - margin.left - margin.right,
-// height = svg.attr("height") - margin.top - margin.bottom;
-
 var formatValue = d3.format(",d");
 
 var x = d3.scaleLinear()
@@ -26,13 +23,8 @@ var g = svg.append("g")
 var myslider = document.getElementById('slider');
 
 var temp = false,
-    timerVar;
+    timerVar, minDate, maxDate, opacityScale;
 
-var minDate, maxDate;
-
-var opacityScale;
-
-// d3.csv("flare.csv", type, function(error, data) {
 d3.json("../data/all_battles_new1.json", function(error, battles) {
     if (error) throw error;
 
@@ -105,9 +97,6 @@ d3.json("../data/all_battles_new1.json", function(error, battles) {
 
 function displayCircles(data) {
 
-    // console.log(cbNQ);
-    // g.selectAll("circle").transition().duration(200)
-    //     .attr("r", 1).remove();
     g.selectAll("circle").style("fill", "#ebebeb").exit().remove();
 
     var cell = g.append("g")
@@ -150,87 +139,5 @@ function displayCircles(data) {
         .on("mouseover", mouseOverCircle)
         .on("mouseout", mouseOutCircle);
 
-    // cell.append("title")
-    //     .text(function(d) {
-    //         return d.data.properties.name + "\n" + d.data.properties.date + "\n" + d.data.properties.deaths;
-    //     });
-
     cell.selectAll("circle").exit().remove();
 }
-
-function mouseOverCircle(d) {
-
-    if (zoomLevel < 6) {
-        radius = 4;
-    } else if (zoomLevel >= 6 && zoomLevel < 10) {
-        radius = 6;
-    } else if (zoomLevel >= 10 && zoomLevel < 15) {
-        radius = 8;
-    } else if (zoomLevel >= 15) {
-        radius = 10;
-    }
-
-    d3.selectAll('.circles')
-        .filter(function(t) { return t.id === d.data.id })
-        .attr("fill", fillColor)
-        .attr("r", radius);
-
-    ttDiv.transition()
-        .duration(200)
-        .style("opacity", .9);
-
-    ttDiv.html(
-        "<b>" + d.data.properties.name + "</b><p>" + d.data.properties.date + " AD</p>"
-    );
-
-    // console.log(d.data);
-
-}
-
-function mouseOutCircle(d) {
-
-    if (zoomLevel < 6) {
-        radius = 3;
-    } else if (zoomLevel >= 6 && zoomLevel < 10) {
-        radius = 5;
-    } else if (zoomLevel >= 10 && zoomLevel < 15) {
-        radius = 7;
-    } else if (zoomLevel >= 15) {
-        radius = 9;
-    }
-
-    d3.selectAll('.circles')
-        .filter(function(t) { return t.id === d.data.id })
-        .attr("fill", function(t) { return color(t.properties.mainsource); }).attr("r", radius);
-
-    ttDiv.style("opacity", 0);
-}
-
-function startAnim() {
-    var first = myslider.noUiSlider.get()[0];
-    var second = myslider.noUiSlider.get()[1];
-
-    timerVar = setInterval(function() {
-        /// call your function here
-        if (first < 750 || second < 750) {
-            myslider.noUiSlider.set([first++, second++]);
-        }
-    }, 1000);
-}
-
-function stopAnim() {
-    clearInterval(timerVar);
-}
-
-function playAnimation() {
-    temp = !temp;
-    if (temp) {
-        startAnim();
-        $("#animPlayBtn").html("Pause");
-    } else {
-        stopAnim();
-        $("#animPlayBtn").html("Play");
-    }
-} // var div = d3.select("#map").append("span")
-//     .attr("class", "tooltips")
-//     .style("opacity", 0);
