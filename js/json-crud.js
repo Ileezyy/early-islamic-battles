@@ -256,7 +256,6 @@ $(document).ready(function() {
         for (var i in data) {
 
             if (data[i].properties.name !== "") {
-                // console.log(data[i]);
                 var name = data[i].properties.name;
                 var text = data[i].properties.text;
                 var source = data[i].properties.source;
@@ -274,7 +273,7 @@ $(document).ready(function() {
                 }
 
                 var listItem = "<a id=" + data[i].id + " class='list-group-item flex-column align-items-start'>" +
-                    "<div class='d-flex w-100 justify-content-between'>" + "<div>" + data[i].properties.name + " (" + data[i].properties.date + ") " +
+                    "<div class='d-flex w-100 justify-content-between'>" + "<div><span>" + data[i].properties.name + "</span><span> (" + data[i].properties.date + ")</span>" +
                     "<!-- <button class='btn collapse-btn' data-target='#col" + data[i].id + "' data-toggle='collapse' role='button' aria-expanded='false' aria-controls='col" + data[i].id + "'>" + "<i class='fas fa-caret-down'></i>" + "</button>--></div>" +
                     "<small>" +
                     "<button class='btn icons-btn' type='button' data-toggle='modal' data-target='#editBattleModal' " +
@@ -477,3 +476,25 @@ $("#updateBattleForm").submit(function(e) {
         saveUpdated(datax);
     });
 });
+
+function searchBattles(input) {
+    // Declare variables
+    var filter, main, inDiv, a, i;
+
+    // input = document.getElementById('searchListBar');
+    filter = input.value.toLowerCase();
+    main = document.getElementById("mylist");
+    a = main.getElementsByTagName('a');
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < a.length; i++) {
+        // inDiv = a[i].getElementsByTagName("div")[0].firstChild;
+        inDiv = a[i].getElementsByTagName("span")[0];
+        inDivNum = a[i].getElementsByTagName("span")[1];
+        if (inDiv.innerHTML.toLowerCase().indexOf(filter) > -1 || inDivNum.innerHTML.toLowerCase().indexOf(filter) > -1) {
+            a[i].style.display = "";
+        } else {
+            a[i].style.display = "none";
+        }
+    }
+}

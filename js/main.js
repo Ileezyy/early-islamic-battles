@@ -15,14 +15,15 @@ var linesLegend = $('.lines-legend');
 var colorLine = d3.scaleOrdinal()
     .range(d3.schemeAccent);
 
-// console.log(d3.scheme);
-
-
 // Parse Nasab Quraysh json
 d3.json("../data/all_battles_new1.json", function(error, datax) {
     if (error) throw error;
 
     var data = datax.nodes;
+
+    var opacityScale = d3.scaleLinear().domain(d3.extent(data, function(d) {
+        return d.properties.date;
+    })).range([0.15, 1]);
 
     groupedCheckboxes(data);
     linesLegends(datax.links);
@@ -57,9 +58,6 @@ d3.json("../data/all_battles_new1.json", function(error, datax) {
 
             var node_coord = {};
 
-            layer.append("div")
-                .attr("class", "battles.line");
-
             var marker = layer.selectAll("svg")
                 .data(data)
                 .each(transform) // update existing marker
@@ -91,6 +89,7 @@ d3.json("../data/all_battles_new1.json", function(error, datax) {
                 .attr("cx", padding)
                 .attr("cy", padding)
                 .attr("fill", function(d) { return color(d.properties.mainsource); })
+                .style("opacity", function(d) { return opacityScale(d.properties.date); })
                 .attr("stroke", "#eee")
                 .attr("stroke-width", 1)
                 .attr("class", function(d) {
@@ -222,7 +221,6 @@ d3.json("../data/all_battles_new1.json", function(error, datax) {
 
     $(".sourcescb").change(function() {
         var type = this.value,
-            // I *think* "inline" is the default.
             display = this.checked ? "inline" : "none";
 
         d3.selectAll(".circles")
@@ -231,6 +229,10 @@ d3.json("../data/all_battles_new1.json", function(error, datax) {
 
         d3.selectAll(".labels")
             .filter(function(d) { return d.properties.mainsource === type; })
+            .attr("display", display);
+
+        d3.selectAll(".bcircle")
+            .filter(function(d) { return d.data.properties.mainsource === type; })
             .attr("display", display);
     });
 
@@ -297,6 +299,28 @@ function battlesList(d) {
         if (nd[i].properties.name !== "") {
             listItem = "<div class='item' lat='" + nd[i].geometry.coordinates[1] + "' lng='" + nd[i].geometry.coordinates[0] + "' id='" + nd[i].id + "' style='color:" + color(nd[i].properties.mainsource) + "' onclick='bitemClick()' onmouseover='bitemHover($(this))' onmouseout='bitemOut($(this))'><p>" + nd[i].properties.name + "</p><p>" + nd[i].properties.date + "</p></div>";
             $(".blist-map").append(listItem);
+        }
+    }
+}
+
+function searchBattlesOnMap(input) {
+    // Declare variables
+    var filter, main, inDiv, a, i;
+
+    // input = document.getElementById('searchListBar');
+    filter = input.value.toLowerCase();
+    main = document.getElementById("mapList");
+    a = main.getElementsByTagName('div');
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < a.length; i++) {
+        // inDiv = a[i].getElementsByTagName("div")[0].firstChild;
+        inDiv = a[i].getElementsByTagName("p")[0];
+        inDivNum = a[i].getElementsByTagName("p")[1];
+        if (inDiv.innerHTML.toLowerCase().indexOf(filter) > -1 || inDivNum.innerHTML.toLowerCase().indexOf(filter) > -1) {
+            a[i].style.display = "";
+        } else {
+            a[i].style.display = "none";
         }
     }
 }
@@ -368,7 +392,7 @@ $(".round-btn").on("click", function() {
     rClicked = !rClicked;
 
     var closeBtnIcon = $(".fa-times");
-    var listBtnIcon = $(".fa-list-ul");
+    var listBtnIcon = $(".fa-list");
 
     closeBtnIcon.hide();
 

@@ -89,7 +89,7 @@ hr {
     max-height: 100px;
     /* overflow: scroll; */
     left: 10px;
-    top: 10px;
+    top: 50px;
 }
 
 .lines-legend {
@@ -240,7 +240,24 @@ span.tooltip {
     pointer-events: none;
 }
 
-span.tooltip p {
+span.tooltips {
+    position: absolute;
+    left: 0;
+    top: 0;
+    max-width: 200px;
+    color: #000;
+    display: inline-block;
+    text-align: center;
+    padding: 6px 12px;
+    font: 12px sans-serif;
+    background: rgba(255, 255, 255, 0.6);
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+span.tooltip p,
+span.tooltips p {
     margin: 5px;
 }
 
@@ -594,4 +611,46 @@ circle:hover {
 .link {
     stroke: #000;
     stroke-width: 2px;
+}
+
+.searchbar {
+    background-image: url('../img/search-icon.png');
+    background-position: 20px;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding: 12px 20px 12px 60px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 12px;
+    outline: none;
+    box-shadow: none;
+}
+
+.searchbar:active,
+.searchbar:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.searchbar-map {
+    background-image: url(../img/search-icon.png);
+    background-repeat: no-repeat;
+    background-position: 5px;
+    background-size: 15px;
+    width: 95%;
+    padding: 3px 5px 3px 29px;
+    margin: 5px;
+}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 10px 10px 10px 20px;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.d-flex {
+    align-items: center;
 }

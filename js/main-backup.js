@@ -1,7 +1,7 @@
-// Tooltip var
+/* Tooltip var
 var div = d3.select("#map").append("span")
     .attr("class", "tooltip")
-    .style("opacity", 0);
+    .style("opacity", 0);*/
 
 var overlay = new google.maps.OverlayView(),
     layer, projection, marker;

@@ -76,6 +76,7 @@
 </head>
 
 <body>
+    <div id="map"></div>
     <!-- Modal  -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -90,8 +91,6 @@
             </div>
         </div>
     </div>
-    <div id="map"></div>
-    <div class="blist-map"></div>
     <div class="controls">
         <h4>Sources</h4>
     </div>
@@ -100,8 +99,11 @@
             <h4>Campaigns</h4>
         </div>
     </div>
+    <div class="blist-map" id="mapList">
+        <input type="text" id="searchListBar" class="searchbar searchbar-map" onkeyup="searchBattlesOnMap(this)" placeholder="Search for names and dates">
+    </div>
     <div class="round-btn" id="listbtn">
-        <i class="fas fa-list-ul"></i>
+        <i class="fas fa-list"></i>
         <i class="fas fa-times" style="display: none;"></i>
     </div>
     <div class="beeswarm-container">

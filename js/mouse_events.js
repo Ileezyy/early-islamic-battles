@@ -4,6 +4,11 @@ var color = d3.scaleOrdinal()
 
 var textbox = d3.select(".textbox");
 
+// Tooltip var
+// var div = d3.select("#map").append("span")
+//     .attr("class", "tooltips")
+//     .style("opacity", 0);
+
 var zoomLevel = map.getZoom();
 
 var cbNQ = true,
@@ -155,7 +160,7 @@ function battleClickWData(d) {
         if (d.data.pdf[i].src === "") {
             $('.textbox').append("");
         } else {
-            console.log(d.data.pdf[i]);
+            // console.log(d.data.pdf[i]);
             $('.textbox').append("<button type='button' class='btn btn-pdf' data-toggle='modal' data-target='#exampleModalCenter' data-pdfname='" +
                 d.data.pdf[i].name +
                 "' data-pdfsrc='" + d.data.pdf[i].src + "' data-pdfpage='" + d.data.pdf[i].startpage + "'>" + d.data.pdf[i].name +
@@ -192,7 +197,7 @@ function battlesMouseOver(d) {
         .style("opacity", .9);
 
     div.html(
-            "<b>" + d.properties.name + "</b><p>" + d.properties.date + "</p>"
+            "<b>" + d.properties.name + "</b><p>" + d.properties.date + " AD</p>"
         )
         .style("left", (d3.event.pageX + 10) + "px")
         .style("top", (d3.event.pageY - 40) + "px");

@@ -8,6 +8,10 @@ var svg = d3.select("#beeswarm"),
     width = d3.select(".beeswarm-container").node().getBoundingClientRect().width - margin.left - margin.right,
     height = d3.select(".beeswarm-container").node().getBoundingClientRect().height - 70;
 
+var ttDiv = d3.select(".beeswarm-container").append("span")
+    .attr("class", "tooltips")
+    .style("opacity", 0);
+
 // width = svg.attr("width") - margin.left - margin.right,
 // height = svg.attr("height") - margin.top - margin.bottom;
 
@@ -24,11 +28,19 @@ var myslider = document.getElementById('slider');
 var temp = false,
     timerVar;
 
+var minDate, maxDate;
+
+var opacityScale;
+
 // d3.csv("flare.csv", type, function(error, data) {
 d3.json("../data/all_battles_new1.json", function(error, battles) {
     if (error) throw error;
 
     var data = battles.nodes;
+
+    opacityScale = d3.scaleLinear().domain(d3.extent(data, function(d) {
+        return d.properties.date;
+    })).range([0.15, 1]);
 
     data = data.filter(function(d) {
         return d.properties.name != ""
@@ -82,20 +94,21 @@ d3.json("../data/all_battles_new1.json", function(error, battles) {
 
     // displayCircles(data)
     myslider.noUiSlider.on("update", function() {
-        var newData = data.filter(function(site) {
-            return site.properties.date < myslider.noUiSlider.get()[1];
-        }).filter(function(site) {
-            return site.properties.date > myslider.noUiSlider.get()[0];
-        });
+        minDate = myslider.noUiSlider.get()[0];
+        maxDate = myslider.noUiSlider.get()[1];
+
+        var newData = data.filter(function(site) { return site.properties.date < maxDate; })
+            .filter(function(site) { return site.properties.date > minDate; });
         displayCircles(newData);
     });
 });
 
 function displayCircles(data) {
+
     // console.log(cbNQ);
     // g.selectAll("circle").transition().duration(200)
     //     .attr("r", 1).remove();
-    g.selectAll("circle").style("fill", "#ebebeb");
+    g.selectAll("circle").style("fill", "#ebebeb").exit().remove();
 
     var cell = g.append("g")
         .attr("class", "cells")
@@ -118,6 +131,7 @@ function displayCircles(data) {
             name = name.replace(/[\W\s]/g, '');
             return "bcircle " + name;
         })
+        .style("opacity", function(d) { return opacityScale(d.data.properties.date); })
         .attr("fill", function(d) { return color(d.data.properties.mainsource); })
         .attr("cx", function(d) {
             return d.data.x;
@@ -131,16 +145,17 @@ function displayCircles(data) {
         .attr("d", function(d) {
             return "M" + d.join("L") + "Z";
         })
+        .filter(function(d) { return d3.select(this).attr("fill") !== "#ebebeb"; })
         .on("click", battleClickWData)
         .on("mouseover", mouseOverCircle)
         .on("mouseout", mouseOutCircle);
 
-    cell.append("title")
-        .text(function(d) {
-            return d.data.properties.name + "\n" + d.data.properties.date + "\n" + d.data.properties.deaths;
-        });
+    // cell.append("title")
+    //     .text(function(d) {
+    //         return d.data.properties.name + "\n" + d.data.properties.date + "\n" + d.data.properties.deaths;
+    //     });
 
-    cell.exit().remove();
+    cell.selectAll("circle").exit().remove();
 }
 
 function mouseOverCircle(d) {
@@ -159,6 +174,14 @@ function mouseOverCircle(d) {
         .filter(function(t) { return t.id === d.data.id })
         .attr("fill", fillColor)
         .attr("r", radius);
+
+    ttDiv.transition()
+        .duration(200)
+        .style("opacity", .9);
+
+    ttDiv.html(
+        "<b>" + d.data.properties.name + "</b><p>" + d.data.properties.date + " AD</p>"
+    );
 
     // console.log(d.data);
 
@@ -179,6 +202,8 @@ function mouseOutCircle(d) {
     d3.selectAll('.circles')
         .filter(function(t) { return t.id === d.data.id })
         .attr("fill", function(t) { return color(t.properties.mainsource); }).attr("r", radius);
+
+    ttDiv.style("opacity", 0);
 }
 
 function startAnim() {
@@ -188,7 +213,7 @@ function startAnim() {
     timerVar = setInterval(function() {
         /// call your function here
         if (first < 750 || second < 750) {
-            slider.noUiSlider.set([first++, second++]);
+            myslider.noUiSlider.set([first++, second++]);
         }
     }, 1000);
 }
@@ -206,4 +231,6 @@ function playAnimation() {
         stopAnim();
         $("#animPlayBtn").html("Play");
     }
-}
+} // var div = d3.select("#map").append("span")
+//     .attr("class", "tooltips")
+//     .style("opacity", 0);
