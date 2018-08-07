@@ -397,11 +397,11 @@ $(".round-btn").on("click", function() {
     closeBtnIcon.hide();
 
     if (rClicked) {
-        $(".blist-map").slideDown();
+        $(".blist-container").slideDown();
         closeBtnIcon.show();
         listBtnIcon.hide();
     } else {
-        $(".blist-map").slideUp();
+        $(".blist-container").slideUp();
         closeBtnIcon.hide();
         listBtnIcon.show();
     }
