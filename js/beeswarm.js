@@ -25,7 +25,54 @@ var myslider = document.getElementById('slider');
 var temp = false,
     timerVar, minDate, maxDate, opacityScale;
 
-d3.json("../data/all_battles_new1.json", function(error, battles) {
+function displayCircles(data) {
+
+    g.selectAll("circle").style("fill", "#ebebeb").exit().remove();
+
+    var cell = g.append("g")
+        .attr("class", "cells")
+        .selectAll("g").data(d3.voronoi()
+            .extent([
+                [-margin.left, -margin.top],
+                [width + margin.right, height + margin.top]
+            ])
+            .x(function(d) {
+                return d.x;
+            })
+            .y(function(d) {
+                return d.y;
+            })
+            .polygons(data)).enter().append("g");
+
+    cell.append("circle")
+        .attr("class", function(d) {
+            var name = d.data.properties.name;
+            name = name.replace(/[\W\s]/g, '');
+            return "bcircle " + name;
+        })
+        .style("opacity", function(d) { return opacityScale(d.data.properties.date); })
+        .attr("fill", function(d) { return color(d.data.properties.mainsource); })
+        .attr("cx", function(d) {
+            return d.data.x;
+        })
+        .attr("cy", function(d) {
+            return d.data.y;
+        })
+        .attr("r", 3);
+
+    cell.append("path")
+        .attr("d", function(d) {
+            return "M" + d.join("L") + "Z";
+        })
+        .filter(function(d) { return d3.select(this).attr("fill") !== "#ebebeb"; })
+        .on("click", battleClickWData)
+        .on("mouseover", mouseOverCircle)
+        .on("mouseout", mouseOutCircle);
+
+    cell.selectAll("circle").exit().remove();
+}
+
+/*d3.json("../data/all_battles_new1.json", function(error, battles) {
     if (error) throw error;
 
     var data = battles.nodes;
@@ -93,51 +140,4 @@ d3.json("../data/all_battles_new1.json", function(error, battles) {
             .filter(function(site) { return site.properties.date > minDate; });
         displayCircles(newData);
     });
-});
-
-function displayCircles(data) {
-
-    g.selectAll("circle").style("fill", "#ebebeb").exit().remove();
-
-    var cell = g.append("g")
-        .attr("class", "cells")
-        .selectAll("g").data(d3.voronoi()
-            .extent([
-                [-margin.left, -margin.top],
-                [width + margin.right, height + margin.top]
-            ])
-            .x(function(d) {
-                return d.x;
-            })
-            .y(function(d) {
-                return d.y;
-            })
-            .polygons(data)).enter().append("g");
-
-    cell.append("circle")
-        .attr("class", function(d) {
-            var name = d.data.properties.name;
-            name = name.replace(/[\W\s]/g, '');
-            return "bcircle " + name;
-        })
-        .style("opacity", function(d) { return opacityScale(d.data.properties.date); })
-        .attr("fill", function(d) { return color(d.data.properties.mainsource); })
-        .attr("cx", function(d) {
-            return d.data.x;
-        })
-        .attr("cy", function(d) {
-            return d.data.y;
-        })
-        .attr("r", 3);
-
-    cell.append("path")
-        .attr("d", function(d) {
-            return "M" + d.join("L") + "Z";
-        })
-        .filter(function(d) { return d3.select(this).attr("fill") !== "#ebebeb"; })
-        .on("click", battleClickWData)
-        .on("mouseover", mouseOverCircle)
-        .on("mouseout", mouseOutCircle);
-
-    cell.selectAll("circle").exit().remove();
-}
+});*/

@@ -3,40 +3,108 @@ var div = d3.select("div").append("span")
     .attr("class", "tooltip")
     .style("opacity", 0);
 
+var overlay = new google.maps.OverlayView(),
+    padding = 10,
+    radius = 3,
+    node_coord = {};
+
 // Parse Nasab Quraysh json
 d3.json("../data/all_battles_new1.json", function(error, datax) {
     if (error) throw error;
 
     var data = datax.nodes;
 
-    var opacityScale = d3.scaleLinear().domain(d3.extent(data, function(d) {
+    /*
+     * Beeswarm
+     */
+
+    opacityScale = d3.scaleLinear().domain(d3.extent(data, function(d) {
         return d.properties.date;
     })).range([0.15, 1]);
+
+    data = data.filter(function(d) {
+        return d.properties.name != ""
+    });
+
+    x.domain(d3.extent(data, function(d) {
+        return d.properties.date;
+    }));
+
+    noUiSlider.create(slider, {
+        start: [d3.min(data, function(d) {
+            return d.properties.date - 1;
+        }), d3.max(data, function(d) {
+            return d.properties.date + 1;
+        })],
+        step: 1,
+        behaviour: 'drag',
+        connect: true,
+        range: {
+            'min': d3.min(data, function(d) {
+                return d.properties.date - 1;
+            }),
+            'max': d3.max(data, function(d) {
+                return d.properties.date + 1;
+            })
+        },
+        pips: {
+            mode: 'count',
+            values: 20,
+            density: 5,
+            stepped: true
+        }
+    });
+
+    var simulation = d3.forceSimulation(data)
+        .force("x", d3.forceX(function(d) {
+            return x(d.properties.date);
+        }).strength(3))
+        .force("y", d3.forceY(height / 2))
+        .force("collide", d3.forceCollide(5))
+        .stop();
+
+    for (var i = 0; i < 100; ++i) simulation.tick();
+
+    g.append("g")
+        .attr("class", "axis axis--x")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x).ticks(20));
+
+    g.selectAll(".axis--x").style("display", "none");
+
+    myslider.noUiSlider.on("update", function() {
+        minDate = myslider.noUiSlider.get()[0];
+        maxDate = myslider.noUiSlider.get()[1];
+
+        var newData = data.filter(function(site) { return site.properties.date < maxDate; })
+            .filter(function(site) { return site.properties.date > minDate; });
+        displayCircles(newData);
+    });
+
+    /*
+     * END
+     */
 
     groupedCheckboxes(data);
     linesLegends(datax.links);
     battlesList(data);
-
-    var overlay = new google.maps.OverlayView();
 
     overlay.onAdd = function() {
         var layer = d3.select(this.getPanes().overlayMouseTarget).append("div")
             .attr("class", "battles");
 
         overlay.draw = function() {
-            var radius = 3;
-
-            var projection = this.getProjection(),
-                padding = 10;
-
-            var node_coord = {};
+            var projection = this.getProjection();
 
             var marker = layer.selectAll("svg")
                 .data(data)
                 .each(transform) // update existing marker
                 .enter().append("svg")
                 .each(transform)
-                .attr("class", "marker");
+                .attr("class", "marker")
+                .on("click", battleClick)
+                .on("mouseover", battlesMouseOver)
+                .on("mouseout", battlesMouseOut);
 
             var markerLink = layer.selectAll(".links")
                 .data(datax.links)
@@ -64,7 +132,6 @@ d3.json("../data/all_battles_new1.json", function(error, datax) {
                     name = name.replace(/[\W\s]/g, '');
                     return "circles " + name;
                 });
-            // marker
 
             // Add a label.
             outer.append("text")
@@ -174,10 +241,6 @@ d3.json("../data/all_battles_new1.json", function(error, datax) {
                     .style("left", (d.x - padding) + "px")
                     .style("top", (d.y - padding) + "px");
             };
-
-            marker.on("click", battleClick)
-                .on("mouseover", battlesMouseOver)
-                .on("mouseout", battlesMouseOut);
 
             d3.selectAll('.blist-map .item').data(data).on("click", battleClick);
         };

@@ -20,7 +20,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link rel="stylesheet" href="css/nav-style.css" type="text/css">
+    <!-- <link rel="stylesheet" href="css/nav-style.css" type="text/css"> -->
 
     <!-- <script src="js/jquery-3.3.1.min.js"></script> -->
     <!-- Jquery -->
@@ -164,7 +164,8 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top inside-form" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="./index-1.html"><img src="./img/icon.png" width="32px"><span>Tribeviz</span></a>
+            <a class="navbar-brand js-scroll-trigger" href="./index.html"><span>SourceViz</span></a>
+            <!-- <img src="./img/icon.png" width="32px"> -->
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fa fa-bars"></i>
@@ -172,37 +173,37 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="./index.html">Explore</a>
+                        <a class="nav-link js-scroll-trigger" href="./explore.html">Explore</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="./test.html">Add more</a>
+                        <a class="nav-link js-scroll-trigger" href="./backend.html">Manage Data</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="./about.html">About</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
+    <!-- Form container -->
     <div class="container form-container">
-
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active" id="battles-list-tab" data-toggle="tab" href="#battles-list" role="tab" aria-controls="battles-list" aria-selected="false">All battles</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="add-new-tab" data-toggle="tab" href="#add-new" role="tab" aria-controls="add-new" aria-selected="true">Add new</a>
-            </li>
-            <li class="nav-item">
-                <!-- <a class="nav-link" id="add-new-tab" data-toggle="tab" href="#add-new" role="tab" aria-controls="add-new" aria-selected="true">Add new</a> -->
-                <form id="resetForm" action="" method="POST">
-                    <input type="submit" class="btn-outline-dark btn" value="Reset">
-                </form>
+                <a class="nav-link" id="add-new-tab" data-toggle="tab" href="#add-new" role="tab" aria-controls="add-new" aria-selected="true">Add new entry</a>
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="battles-list" role="tabpanel" aria-labelledby="battles-list-tab">
+            <div class="tab-pane fade show active text-center" id="battles-list" role="tabpanel" aria-labelledby="battles-list-tab">
                 <input type="text" id="searchListBar" class="searchbar" onkeyup="searchBattles(this)" placeholder="Search for names and dates">
                 <div class="list-group" id="mylist">
                 </div>
+                <form id="resetForm" action="" method="POST">
+                    <input type="submit" class="btn-outline-dark btn" value="Reset the database">
+                </form>
             </div>
             <div class="tab-pane fade" id="add-new" role="tabpanel" aria-labelledby="add-new-tab">
                 <!-- <div class="row"> -->

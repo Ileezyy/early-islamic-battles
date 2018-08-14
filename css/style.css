@@ -52,19 +52,28 @@ hr {
 }
 
 #map {
+    top: 60px;
     width: 75%;
-    height: 75%;
+    height: 66%;
     float: left;
     position: relative;
     /* cursor: pointer; */
 }
 
-#map1 {
-    width: 75%;
-    height: 75%;
-    float: left;
-    position: relative;
-    /* cursor: pointer; */
+.navbar.indexpage {
+    border-bottom: 1px solid #ddd;
+}
+
+#mainNav .navbar-toggler {
+    font-size: 14px;
+    padding: 11px;
+    color: #343a40;
+    border: 1px solid #343a40;
+}
+
+.navbar-brand span {
+    vertical-align: middle;
+    margin-left: 10px;
 }
 
 .labels {
@@ -76,8 +85,10 @@ hr {
     position: absolute;
     right: 0;
     width: 25%;
-    height: 100%;
+    top: 60px;
+    height: 91%;
     float: right;
+    /* bottom: 0; */
     /* background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.25) 10%, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 1) 100%);
     background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.25) 10%, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 1) 100%);
     background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.25) 10%, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 1) 100%);
@@ -89,7 +100,7 @@ hr {
     max-height: 100px;
     /* overflow: scroll; */
     left: 10px;
-    top: 50px;
+    top: 15%;
 }
 
 .lines-legend {
@@ -101,7 +112,34 @@ hr {
     /* overflow: scroll; */
     /* left: 0; */
     right: 26%;
-    top: 10px;
+    top: 11.5%;
+}
+
+.opacity-legend {
+    position: absolute;
+    width: 200px;
+    bottom: 27%;
+    left: 31%;
+    text-align: center;
+}
+
+.opacity-legend .ocircle {
+    border-radius: 100%;
+    width: 6px;
+    height: 6px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.opacity-legend .circles-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+.opacity-legend .labels-container {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
 }
 
 .controls button {
@@ -479,11 +517,31 @@ circle:hover {
 }
 
 .form-body .form-container {
-    margin-top: 100px;
+    margin-top: 80px;
     padding: 50px;
     background: #fff;
     min-height: 100%;
     box-shadow: 0px 0px 6px 1px #9e9e9e;
+}
+
+.form-body .about-container {
+    margin-top: 80px;
+    padding: 50px;
+    background: #fff;
+    box-shadow: 0px 0px 6px 1px #9e9e9e;
+}
+
+.about-container a {
+    color: #9b9b9b;
+    transition: all 0.3s;
+}
+
+.about-container a:hover {
+    color: #000;
+}
+
+.form-body .form-container .nav-item a:not(.active) {
+    color: #bebebe;
 }
 
 #date {
@@ -658,4 +716,28 @@ circle:hover {
 
 .d-flex {
     align-items: center;
+}
+
+#resetForm {
+    margin: 40px 0 0;
+}
+
+#resetForm input {
+    width: 200px;
+    color: rgb(214, 60, 60);
+    border-color: rgb(214, 60, 60);
+}
+
+#resetForm input:hover {
+    color: white;
+    border-color: rgb(214, 60, 60);
+    background: rgb(214, 60, 60);
+}
+
+#resetForm input,
+#resetForm input:hover,
+#resetForm input:active,
+#resetForm input:focus {
+    outline: none;
+    box-shadow: none;
 }

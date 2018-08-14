@@ -194,44 +194,48 @@ function saveDeleted(data) {
 $("#resetForm").submit(function(e) {
     e.preventDefault();
 
-    var data = {
-        "nodes": [{
-            "type": "",
-            "geometry": {
+    var confirmRes = confirm("Do you really want to reset the database?");
+    if (confirmRes) {
+        var data = {
+            "nodes": [{
                 "type": "",
-                "coordinates": ["", ""]
-            },
-            "properties": {
-                "name": "",
-                "deaths": "",
-                "date": "",
+                "geometry": {
+                    "type": "",
+                    "coordinates": ["", ""]
+                },
+                "properties": {
+                    "name": "",
+                    "deaths": "",
+                    "date": "",
+                    "source": "",
+                    "link": "",
+                    "text": "",
+                    "img": "",
+                    "mainsource": ""
+                },
+                "id": "",
+                "pdf": [{
+                    "name": "",
+                    "author": "",
+                    "extra": "",
+                    "src": "",
+                    "startpage": ""
+                }]
+            }],
+            "links": [{
+                "campaign": "",
                 "source": "",
-                "link": "",
-                "text": "",
-                "img": "",
-                "mainsource": ""
-            },
-            "id": "",
-            "pdf": [{
-                "name": "",
-                "author": "",
-                "extra": "",
-                "src": "",
-                "startpage": ""
+                "target": ""
             }]
-        }],
-        "links": [{
-            "campaign": "",
-            "source": "",
-            "target": ""
-        }]
-    };
+        };
 
-    saveReset(data);
+        saveReset(data);
+    }
 });
 
 function saveReset(data) {
-    var jsonString = JSON.stringify(data);
+    alert("Sorry! Permission required. Contact the admin.");
+    /*var jsonString = JSON.stringify(data);
     $.ajax({
         url: 'php/save.php',
         data: {
@@ -239,10 +243,9 @@ function saveReset(data) {
         },
         type: 'POST',
         success: function() {
-            alert("Record has been updated");
-            window.location.reload();
+            if (!alert('Item has been deleted successfully')) { window.location.reload(); }
         }
-    });
+    });*/
 }
 
 $(document).ready(function() {

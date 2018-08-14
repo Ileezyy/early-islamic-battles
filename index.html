@@ -1,5 +1,3 @@
-<!-- api_key: AIzaSyACzDzO49_V7dDFRos1tMxWKktaFJh0dbA -->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,56 +8,26 @@
     <meta name="description" content="Early islam battles map">
     <meta name="author" content="IZholdasbayev">
 
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis:300|Open+Sans">
+    <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
+
     <!-- Boostrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="js/slider/nouislider.css" type="text/css">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <!-- <link rel="stylesheet" href="css/nav-style.css" type="text/css"> -->
+    <link rel="stylesheet" href="css/mainpagestyle.css" type="text/css">
 
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis:300|Open+Sans">
-
-    <!-- Jquery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <!-- <script src="js/jquery-3.3.1.min.js"></script> -->
-
-    <!-- Bootstrap -->
+    <!-- Boostrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
-    <!-- D3.js -->
-    <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
-    <script src="js/d3/d3.min.js"></script>
-    <!-- <script src="https://d3js.org/topojson.v1.min.js"></script> -->
-    <script src="js/topojson/topojson.min.js"></script>
-    <!-- <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script> -->
-    <script src="js/d3/d3-geo-projection/d3-geo-projection.min.js"></script>
-    <script src="https://d3js.org/d3-color.v1.min.js"></script>
-    <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
-    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-
-    <!-- Google Maps -->
-    <script src="//maps.google.com/maps/api/js?key=AIzaSyACzDzO49_V7dDFRos1tMxWKktaFJh0dbA"></script>
-
-    <!-- Slider -->
-    <script src="js/slider/wnumb/wNumb.js"></script>
-    <script src="js/slider/nouislider.js"></script>
-
-    <!-- jQuery Serialize Object -->
-    <script src="js/jquery.serialize-object.min.js"></script>
-
-    <!-- PDFObject -->
-    <script src="js/PDFObject-master/pdfobject.min.js"></script>
-
-    <!-- PDF -->
-    <script src="js/PDFObject-master/pdfobject.min.js"></script>
-
-    <!-- underscore-min.js -->
-    <script src="js/underscore-min.js"></script>
+    <!-- Jquery -->
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
+    <script src="js/jquery-3.3.1.min.js"></script>
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
@@ -76,58 +44,51 @@
 </head>
 
 <body>
-    <div id="map"></div>
-    <!-- Modal  -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                </div>
-                <div class="modal-body" id="pdf-container"></div>
-            </div>
-        </div>
-    </div>
-    <div class="controls">
-        <h4>Sources</h4>
-    </div>
-    <div class="lines-legend">
-        <div>
-            <h4>Campaigns</h4>
-        </div>
-    </div>
-    <div class="blist-container">
-        <input type="text" id="searchListBar" class="searchbar searchbar-map" onkeyup="searchBattlesOnMap(this)" placeholder="Search for names and dates">
-        <div class="blist-map" id="mapList"></div>
-    </div>
-    <div class="round-btn" id="listbtn">
-        <i class="fas fa-list"></i>
-        <i class="fas fa-times" style="display: none;"></i>
-    </div>
-    <div class="beeswarm-container">
-        <!-- <button onclick="playAnimation()" id="animPlayBtn">Play</button> -->
-        <svg id="beeswarm"></svg>
-        <div id="slider"></div>
-    </div>
-    <div class="extra-container">
-        <div class="textbox">
-            <div class="placeholder">
-                <h2>Islamic Battles</h2>
-                <br> This website is about islamic battles according to different sources. Such as Nasab Quraysh and The Great Arab Conquests
-            </div>
-        </div>
-    </div>
 
-    <!-- Custom js files -->
-    <script src="js/map.js"></script>
-    <script src="js/mouse_events.js"></script>
-    <script src="js/beeswarm-events.js"></script>
-    <script src="js/beeswarm.js"></script>
-    <script src="js/extra.js"></script>
-    <script src="js/main.js"></script>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="./index.html"><span>SourceViz</span></a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fa fa-bars"></i>
+                  </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="./explore.html">Explore</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="./backend.html">Manage Data</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="./about.html">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Intro Header -->
+    <header class="masthead">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h3 class="brand-heading">SourceViz</h3>
+                        <p class="intro-text">
+                            An interactive map of early-islamic battles
+                        </p>
+                        <br>
+                        <a href="./explore.html" class="btn-dark btn">Explore</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
 </body>
 
 </html>
+
+<!-- Free vector art via <a href="https://www.Vecteezy.com/">Vecteezy</a> -->

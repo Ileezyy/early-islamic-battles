@@ -162,7 +162,7 @@ google.maps.event.addListener(map, 'zoom_changed', function() {
         sel.transition()
             .duration(200);
         $('.labels').fadeOut();
-        // $(".links").fadeOut();
+        $(".links").fadeOut();
         $(".lines-legend").fadeOut();
 
     } else if (zoomLevel >= 6 && zoomLevel < 10) {
@@ -173,7 +173,7 @@ google.maps.event.addListener(map, 'zoom_changed', function() {
         sel.transition()
             .duration(200);
         $('.battles svg').css({ "width": "20px", "height": "20px" });
-        // $(".links").fadeIn();
+        $(".links").fadeIn();
         $(".lines-legend").fadeIn();
 
     } else if (zoomLevel >= 10 && zoomLevel < 15) {
